@@ -7,7 +7,7 @@
 
 <br/>
 
-<a href="https://www.linkedin.com/in/kaw%C3%A3-oliveira-80303a368/"><img src="https://img.shields.io/badge/Kaw%C3%A3_Oliveira-0d1117?style=for-the-badge&logo=linkedin&logoColor=0096ff"/></a>
+<a href="https://www.linkedin.com/in/kaw%C3%A3-oliveira-80303a368/"><img src="https://img.shields.io/badge/LinkedIn-Kaw%C3%A3_Oliveira-0d1117?style=for-the-badge&labelColor=0096ff"/></a>
 <a href="https://instagram.com/olvkawa"><img src="https://img.shields.io/badge/@olvkawa-0d1117?style=for-the-badge&logo=instagram&logoColor=0096ff"/></a>
 <a href="https://discordapp.com/users/_kblank"><img src="https://img.shields.io/badge/_kblank-0d1117?style=for-the-badge&logo=discord&logoColor=0096ff"/></a>
 <a href="mailto:kawabrein@gmail.com"><img src="https://img.shields.io/badge/kawabrein@gmail.com-0d1117?style=for-the-badge&logo=gmail&logoColor=0096ff"/></a>
@@ -75,7 +75,7 @@
 
 <div align="center">
 
-<a href="https://github.com/ashutosh00710/github-readme-activity-graph"><img width="90%" src="https://github-readme-activity-graph.vercel.app/graph?username=kblankk&bg_color=0d1117&color=0096ff&line=0096ff&point=ffffff&area_color=0d1117&area=true&hide_border=true&custom_title=Kaw%C3%A3%20Oliveira's%20Contribution%20Graph"/></a>
+<img width="90%" src="https://github-readme-activity-graph.vercel.app/graph?username=kblankk&bg_color=0d1117&color=0096ff&line=0096ff&point=ffffff&area_color=0d1117&area=true&hide_border=true&custom_title=Kaw%C3%A3%20Oliveira's%20Contribution%20Graph"/>
 
 </div>
 
