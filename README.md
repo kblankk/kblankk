@@ -36,24 +36,24 @@
 
 #### `// Languages`
 
-![Python](https://img.shields.io/badge/Python-0d1117?style=for-the-badge&logo=python&logoColor=0096ff)
-![C#](https://img.shields.io/badge/C%23-0d1117?style=for-the-badge&logo=csharp&logoColor=0096ff)
-![TypeScript](https://img.shields.io/badge/TypeScript-0d1117?style=for-the-badge&logo=typescript&logoColor=0096ff)
-![HTML5](https://img.shields.io/badge/HTML5-0d1117?style=for-the-badge&logo=html5&logoColor=0096ff)
-![CSS3](https://img.shields.io/badge/CSS3-0d1117?style=for-the-badge&logo=css3&logoColor=0096ff)
+<img height="35" src="https://img.shields.io/badge/Python-0d1117?style=for-the-badge&logo=python&logoColor=0096ff"/>
+<img height="35" src="https://img.shields.io/badge/C%23-0d1117?style=for-the-badge&logo=csharp&logoColor=0096ff"/>
+<img height="35" src="https://img.shields.io/badge/TypeScript-0d1117?style=for-the-badge&logo=typescript&logoColor=0096ff"/>
+<img height="35" src="https://img.shields.io/badge/HTML5-0d1117?style=for-the-badge&logo=html5&logoColor=0096ff"/>
+<img height="35" src="https://img.shields.io/badge/CSS3-0d1117?style=for-the-badge&logo=css3&logoColor=0096ff"/>
 
 #### `// Frameworks & Libraries`
 
-![.NET](https://img.shields.io/badge/.NET-0d1117?style=for-the-badge&logo=dotnet&logoColor=0096ff)
-![Node.js](https://img.shields.io/badge/Node.js-0d1117?style=for-the-badge&logo=node.js&logoColor=0096ff)
+<img height="35" src="https://img.shields.io/badge/.NET-0d1117?style=for-the-badge&logo=dotnet&logoColor=0096ff"/>
+<img height="35" src="https://img.shields.io/badge/Node.js-0d1117?style=for-the-badge&logo=node.js&logoColor=0096ff"/>
 
 
 #### `// Tools & Platforms`
 
-![Git](https://img.shields.io/badge/Git-0d1117?style=for-the-badge&logo=git&logoColor=0096ff)
-![GitHub](https://img.shields.io/badge/GitHub-0d1117?style=for-the-badge&logo=github&logoColor=0096ff)
-![VS Code](https://img.shields.io/badge/VS_Code-0d1117?style=for-the-badge&logo=visualstudiocode&logoColor=0096ff)
-![Docker](https://img.shields.io/badge/Docker-0d1117?style=for-the-badge&logo=docker&logoColor=0096ff)
+<img height="35" src="https://img.shields.io/badge/Git-0d1117?style=for-the-badge&logo=git&logoColor=0096ff"/>
+<img height="35" src="https://img.shields.io/badge/GitHub-0d1117?style=for-the-badge&logo=github&logoColor=0096ff"/>
+<img height="35" src="https://img.shields.io/badge/VS_Code-0d1117?style=for-the-badge&logo=visualstudiocode&logoColor=0096ff"/>
+<img height="35" src="https://img.shields.io/badge/Docker-0d1117?style=for-the-badge&logo=docker&logoColor=0096ff"/>
 
 
 </div>
@@ -63,12 +63,12 @@
 ### <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Bar%20Chart.png" width="25" /> `GitHub Analytics`
 
 <div align="center">
-  <img height="180em" src="https://github-readme-streak-stats.herokuapp.com/?user=kblankk&theme=dark&background=0d1117&ring=0096ff&fire=0096ff&currStreakLabel=0096ff&sideLabels=0096ff&border=0096ff&currStreakNum=c9d1d9&sideNums=c9d1d9&dates=555555"/>
+  <img height="180em" src="https://github-readme-streak-stats.herokuapp.com/?user=kblankk&theme=dark&background=0d1117&ring=0096ff&fire=0096ff&currStreakLabel=0096ff&sideLabels=0096ff&border=0d1117&currStreakNum=c9d1d9&sideNums=c9d1d9&dates=555555&hide_border=true"/>
 </div>
 
 <div align="center">
 
-[![Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=kblankk&bg_color=0d1117&color=0096ff&line=0096ff&point=ffffff&area_color=0d1117&area=true&hide_border=false&border_color=0096ff&custom_title=Kaw%C3%A3%20Oliveira's%20Contribution%20Graph)](https://github.com/ashutosh00710/github-readme-activity-graph)
+[![Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=kblankk&bg_color=0d1117&color=0096ff&line=0096ff&point=ffffff&area_color=0d1117&area=true&hide_border=true&custom_title=Kaw%C3%A3%20Oliveira's%20Contribution%20Graph)](https://github.com/ashutosh00710/github-readme-activity-graph)
 
 </div>
 
