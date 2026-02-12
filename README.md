@@ -12,7 +12,7 @@
 ---
 
 <!-- ABOUT ME -->
-### `> whoami`
+### `root@kblankk:~$ whoami`
 
 ```bash
 ┌──[kblankk@github]─[~/about-me]
@@ -22,7 +22,7 @@
   Role     : Student & Developer
   Location : Brazil 🇧🇷
   Focus    : Learning new technologies & building cool stuff
-  
+
 
 └─$ echo $CURRENT_GOALS
   → Aprofundando conhecimentos em desenvolvimento
@@ -32,7 +32,7 @@
 
 ---
 
-### `> cat skills.txt`
+### `root@kblankk:~$ sudo apt list --installed`
 
 <div align="center">
 
@@ -62,7 +62,7 @@
 
 ---
 
-### `> neofetch --stats`
+### `root@kblankk:~$ htop --github-stats`
 
 <div align="center">
   <img height="170em" src="https://github-readme-stats.vercel.app/api?username=kblankk&show_icons=true&theme=radical&bg_color=0d1117&title_color=ff0000&icon_color=ff0000&text_color=c9d1d9&border_color=ff0000&hide_border=false&include_all_commits=true&count_private=true"/>
@@ -75,7 +75,7 @@
 
 ---
 
-### `> cat activity_graph.log`
+### `root@kblankk:~$ tail -f contributions.log`
 
 <div align="center">
 
@@ -85,7 +85,7 @@
 
 ---
 
-### `> cat /etc/social.conf`
+### `root@kblankk:~$ ssh connect@social`
 
 <div align="center">
 
