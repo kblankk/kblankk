@@ -140,12 +140,12 @@ def map_color(github_color):
 
 
 def generate_svg(calendar, username):
-    """Generate the drift car SVG with real contribution data."""
+    """Generate drift car SVG - zigzags through grid with drift curves + explosion."""
+    import math
 
     weeks = calendar["weeks"]
     total = calendar["totalContributions"]
 
-    # Grid configuration
     CELL = 11
     GAP = 2
     STRIDE = CELL + GAP
@@ -155,184 +155,338 @@ def generate_svg(calendar, username):
     GRID_W = COLS * STRIDE - GAP
     GRID_H = ROWS * STRIDE - GAP
 
-    W = GRID_W + 80  # padding
-    H = GRID_H + 80
+    W = GRID_W + 60
+    H = GRID_H + 60
 
     GX = (W - GRID_W) / 2
-    GY = 30
+    GY = 25
 
-    # Car config - small car
-    CAR_DUR = 8
-    CAR_START_X = -120
-    CAR_END_X = W + 60
-    CAR_TRAVEL = CAR_END_X - CAR_START_X
+    # Build zigzag path with DRIFT CURVES at turns
+    cell_hit_time = {}
+    total_cells = COLS * ROWS
+    cell_index = 0
+
+    # Calculate cell centers and hit times
+    for r in range(ROWS):
+        cols_range = range(COLS) if r % 2 == 0 else range(COLS - 1, -1, -1)
+        for c in cols_range:
+            cell_hit_time[(c, r)] = cell_index / total_cells
+            cell_index += 1
+
+    # Build SVG path with curves at row transitions
+    DRIFT_OVERSHOOT = 20  # how far the car overshoots before drifting back
+    path_parts = []
+
+    for r in range(ROWS):
+        left_x = GX + CELL / 2
+        right_x = GX + (COLS - 1) * STRIDE + CELL / 2
+        cy = GY + r * STRIDE + CELL / 2
+
+        if r == 0:
+            # Start
+            path_parts.append(f"M {left_x:.1f},{cy:.1f}")
+            path_parts.append(f"L {right_x:.1f},{cy:.1f}")
+        else:
+            prev_cy = GY + (r - 1) * STRIDE + CELL / 2
+            mid_cy = (prev_cy + cy) / 2
+
+            if r % 2 == 0:
+                # Coming from right, drift curve to left side, then go right
+                # Overshoot left before curving down and going right
+                path_parts.append(
+                    f"Q {left_x - DRIFT_OVERSHOOT:.1f},{prev_cy:.1f} "
+                    f"{left_x - DRIFT_OVERSHOOT:.1f},{mid_cy:.1f}"
+                )
+                path_parts.append(
+                    f"Q {left_x - DRIFT_OVERSHOOT:.1f},{cy:.1f} "
+                    f"{left_x:.1f},{cy:.1f}"
+                )
+                path_parts.append(f"L {right_x:.1f},{cy:.1f}")
+            else:
+                # Coming from left, drift curve to right side, then go left
+                path_parts.append(
+                    f"Q {right_x + DRIFT_OVERSHOOT:.1f},{prev_cy:.1f} "
+                    f"{right_x + DRIFT_OVERSHOOT:.1f},{mid_cy:.1f}"
+                )
+                path_parts.append(
+                    f"Q {right_x + DRIFT_OVERSHOOT:.1f},{cy:.1f} "
+                    f"{right_x:.1f},{cy:.1f}"
+                )
+                path_parts.append(f"L {left_x:.1f},{cy:.1f}")
+
+    path_d = " ".join(path_parts)
+
+    # 85% driving, 15% explosion pause
+    CAR_DUR = 18
+
+    # Last cell position (for explosion origin)
+    last_r = ROWS - 1
+    if last_r % 2 == 0:
+        last_cx = GX + (COLS - 1) * STRIDE + CELL / 2
+    else:
+        last_cx = GX + CELL / 2
+    last_cy = GY + last_r * STRIDE + CELL / 2
 
     lines = []
-    lines.append(f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W:.0f} {H:.0f}" width="{W:.0f}" height="{H:.0f}">')
+    lines.append(
+        f'<svg xmlns="http://www.w3.org/2000/svg" '
+        f'viewBox="0 0 {W:.0f} {H:.0f}" width="{W:.0f}" height="{H:.0f}">'
+    )
 
     # === STYLES ===
     lines.append("<style>")
-    lines.append(f"""
-  .car {{ animation: drive {CAR_DUR}s ease-in-out infinite; }}
-  @keyframes drive {{
-    0% {{ transform: translateX({CAR_START_X}px); }}
-    100% {{ transform: translateX({CAR_END_X:.0f}px); }}
-  }}
-""")
+
+    # Square eat animations (85% of total time for driving)
+    drive_pct = 85
+    for c in range(COLS):
+        for r in range(ROWS):
+            key = (c, r)
+            if key in cell_hit_time:
+                t = cell_hit_time[key]
+                pct_before = max(0, t * drive_pct - 0.4)
+                pct_hit = t * drive_pct
+                pct_gone = min(t * drive_pct + 1.5, drive_pct)
+                lines.append(
+                    f"  @keyframes e-{c}-{r} {{"
+                    f" 0%,{pct_before:.1f}% {{ opacity:1; transform:scale(1); }}"
+                    f" {pct_hit:.1f}% {{ opacity:0.7; transform:scale(1.4); }}"
+                    f" {pct_gone:.1f}%,100% {{ opacity:0; transform:scale(0); }}"
+                    f" }}"
+                )
+
+    # Explosion particle keyframes
+    NUM_PARTICLES = 24
+    for i in range(NUM_PARTICLES):
+        angle = (i / NUM_PARTICLES) * 2 * math.pi
+        dist = 80 + (i % 3) * 40
+        dx = math.cos(angle) * dist
+        dy = math.sin(angle) * dist
+        lines.append(
+            f"  @keyframes boom-{i} {{"
+            f" 0%,{drive_pct}% {{ transform:translate(0,0); opacity:0; }}"
+            f" {drive_pct + 1}% {{ transform:translate(0,0); opacity:1; }}"
+            f" {drive_pct + 10}% {{ transform:translate({dx:.0f}px,{dy:.0f}px); opacity:0.8; }}"
+            f" 100% {{ transform:translate({dx*1.2:.0f}px,{dy*1.2:.0f}px); opacity:0; }}"
+            f" }}"
+        )
+
+    # Explosion flash
+    lines.append(
+        f"  @keyframes flash {{"
+        f" 0%,{drive_pct}% {{ opacity:0; }}"
+        f" {drive_pct + 1}% {{ opacity:0.6; }}"
+        f" {drive_pct + 5}% {{ opacity:0.2; }}"
+        f" {drive_pct + 12}%,100% {{ opacity:0; }}"
+        f" }}"
+    )
+
+    # Explosion ring
+    lines.append(
+        f"  @keyframes ring {{"
+        f" 0%,{drive_pct}% {{ r:0; opacity:0; stroke-width:4; }}"
+        f" {drive_pct + 1}% {{ r:5; opacity:0.8; stroke-width:3; }}"
+        f" {drive_pct + 10}% {{ r:80; opacity:0.3; stroke-width:1; }}"
+        f" {drive_pct + 15}%,100% {{ r:120; opacity:0; stroke-width:0.5; }}"
+        f" }}"
+    )
+
+    # DRIFT text flash
+    lines.append(
+        f"  @keyframes drift-text {{"
+        f" 0%,{drive_pct}% {{ opacity:0; }}"
+        f" {drive_pct + 2}% {{ opacity:0.9; }}"
+        f" {drive_pct + 8}% {{ opacity:0.7; }}"
+        f" {drive_pct + 14}%,100% {{ opacity:0; }}"
+        f" }}"
+    )
+
+    # Car hide after drive
+    lines.append(
+        f"  @keyframes car-vis {{"
+        f" 0%,{drive_pct - 1}% {{ opacity:1; }}"
+        f" {drive_pct}%,100% {{ opacity:0; }}"
+        f" }}"
+    )
+
     lines.append("</style>")
 
     # === DEFS ===
-    lines.append("""<defs>
+    lines.append(f"""<defs>
   <filter id="gl">
     <feGaussianBlur stdDeviation="1.5" result="b"/>
     <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
   </filter>
+  <filter id="gl2">
+    <feGaussianBlur stdDeviation="3" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <path id="carpath" d="{path_d}" fill="none"/>
 </defs>""")
 
     # === BACKGROUND ===
     lines.append(f'<rect width="{W:.0f}" height="{H:.0f}" fill="#0d1117"/>')
 
-    # === CONTRIBUTION GRID (real data) ===
-    lines.append("<!-- Contribution Grid -->")
+    # === CONTRIBUTION GRID ===
     lines.append("<g>")
     for c, week in enumerate(weeks):
         for r, day in enumerate(week["contributionDays"]):
             x = GX + c * STRIDE
             y = GY + r * STRIDE
             color = map_color(day["color"])
+            ox = x + CELL / 2
+            oy = y + CELL / 2
+            anim = (
+                f' style="animation:e-{c}-{r} {CAR_DUR}s linear infinite;'
+                f'transform-origin:{ox:.0f}px {oy:.0f}px"'
+            )
             lines.append(
                 f'  <rect x="{x:.0f}" y="{y:.0f}" width="{CELL}" height="{CELL}" '
-                f'rx="2" fill="{color}"/>'
+                f'rx="2" fill="{color}"{anim}/>'
             )
     lines.append("</g>")
 
-    # === TIRE MARKS (subtle, along the car path) ===
-    car_y = GY + 2.5 * STRIDE  # car drives across row ~2-3 area
-    tire_y1 = car_y + 2
-    tire_y2 = car_y + 18
+    # === TIRE MARKS along the drift curves ===
+    lines.append("<!-- Drift tire marks at turns -->")
+    for r in range(1, ROWS):
+        prev_cy = GY + (r - 1) * STRIDE + CELL / 2
+        cy = GY + r * STRIDE + CELL / 2
 
-    lines.append("<!-- Tire marks -->")
-    lines.append(
-        f'<line x1="{GX:.0f}" y1="{tire_y1:.0f}" '
-        f'x2="{GX + GRID_W:.0f}" y2="{tire_y1:.0f}" '
-        f'stroke="#222" stroke-width="1.5" stroke-dasharray="8,5" opacity="0.3"/>'
-    )
-    lines.append(
-        f'<line x1="{GX:.0f}" y1="{tire_y2:.0f}" '
-        f'x2="{GX + GRID_W:.0f}" y2="{tire_y2:.0f}" '
-        f'stroke="#222" stroke-width="1.5" stroke-dasharray="8,5" opacity="0.3"/>'
-    )
+        if r % 2 == 0:
+            tx = GX + CELL / 2 - DRIFT_OVERSHOOT + 5
+        else:
+            tx = GX + (COLS - 1) * STRIDE + CELL / 2 + DRIFT_OVERSHOOT - 5
 
-    # === SMALL DRIFT CAR ===
-    # Car ~85px long, ~28px tall, positioned to drive over the grid
-    by = car_y - 10  # base y for car top
+        # Tire mark arc at each turn
+        t_ratio = cell_hit_time.get(
+            (0 if r % 2 == 0 else COLS - 1, r), r / ROWS
+        )
+        mark_pct = t_ratio * drive_pct
+        lines.append(
+            f'<path d="M {tx:.0f},{prev_cy:.0f} Q {tx:.0f},{(prev_cy+cy)/2:.0f} {tx:.0f},{cy:.0f}" '
+            f'fill="none" stroke="#00ff00" stroke-width="1" opacity="0" stroke-dasharray="3,3">'
+            f'<animate attributeName="opacity" values="0;0;0.3;0.15;0" '
+            f'keyTimes="0;{mark_pct/100:.2f};{(mark_pct+2)/100:.2f};{(mark_pct+8)/100:.2f};1" '
+            f'dur="{CAR_DUR}s" repeatCount="indefinite"/>'
+            f'</path>'
+        )
 
-    lines.append("<!-- Drift Car -->")
-    lines.append('<g class="car" filter="url(#gl)">')
+    # === TOP-DOWN DRIFT CAR ===
+    lines.append("<!-- Drift Car (top-down) -->")
+    lines.append(f'<g filter="url(#gl)" style="animation:car-vis {CAR_DUR}s linear infinite">')
+    lines.append(f'  <animateMotion dur="{CAR_DUR * drive_pct / 100:.1f}s" repeatCount="indefinite" rotate="auto">')
+    lines.append(f'    <mpath href="#carpath"/>')
+    lines.append(f'  </animateMotion>')
     lines.append(f"""
   <!-- Shadow -->
-  <ellipse cx="42" cy="{by+32}" rx="36" ry="3" fill="#000" opacity="0.35"/>
+  <ellipse cx="0" cy="1" rx="14" ry="7" fill="#000" opacity="0.3"/>
 
   <!-- Body -->
   <path d="
-    M 4,{by+26}
-    L 2,{by+22}
-    L 4,{by+18}
-    L 10,{by+15}
-    L 20,{by+11}
-    L 30,{by+8}
-    L 36,{by+5}
-    L 50,{by+3}
-    L 62,{by+4}
-    L 70,{by+7}
-    L 76,{by+12}
-    L 82,{by+16}
-    L 86,{by+20}
-    L 87,{by+24}
-    L 86,{by+27}
-    L 82,{by+29}
-    L 10,{by+29}
-    L 6,{by+28}
-    Z
+    M 15,0 Q 14,-3.5 11,-4.5 L 7,-5.5 L 2,-6 L -4,-6 L -9,-5.5 L -12,-5
+    Q -15,-4 -15,-1 L -15,1 Q -15,4 -12,5
+    L -9,5.5 L -4,6 L 2,6 L 7,5.5 L 11,4.5 Q 14,3.5 15,0 Z
   " fill="#12161f" stroke="#00ff00" stroke-width="0.8"/>
 
-  <!-- Side skirt -->
-  <path d="M 8,{by+26} L 10,{by+29} L 80,{by+29} L 82,{by+26} Z"
-        fill="#0a0e15" stroke="#00ff00" stroke-width="0.4" opacity="0.7"/>
+  <!-- Hood aero lines -->
+  <line x1="9" y1="-3.5" x2="14" y2="0" stroke="#00ff00" stroke-width="0.4" opacity="0.5"/>
+  <line x1="9" y1="3.5" x2="14" y2="0" stroke="#00ff00" stroke-width="0.4" opacity="0.5"/>
+  <path d="M 8,-2 Q 10,0 8,2" fill="none" stroke="#00ff00" stroke-width="0.3" opacity="0.3"/>
+
+  <!-- Hood scoop -->
+  <rect x="7" y="-1.5" width="4" height="3" rx="1" fill="#0d1117" stroke="#00ff00" stroke-width="0.3" opacity="0.5"/>
 
   <!-- Windshield -->
-  <path d="M 30,{by+8} L 36,{by+5} L 50,{by+3} L 50,{by+9} L 30,{by+9} Z"
-        fill="#0a1628" stroke="#00ff00" stroke-width="0.5" opacity="0.7"/>
+  <path d="M 4,-5 L 7,-4.5 L 7,4.5 L 4,5 Z" fill="#0a2040" stroke="#00ff00" stroke-width="0.5" opacity="0.7"/>
 
-  <!-- Side window -->
-  <path d="M 31,{by+8} L 49,{by+4} L 60,{by+5} L 67,{by+8} L 31,{by+8} Z"
-        fill="#0a1628" opacity="0.4"/>
+  <!-- Cabin -->
+  <rect x="-5" y="-4.5" width="9" height="9" rx="2" fill="#0d1520" stroke="#00ff00" stroke-width="0.4" opacity="0.6"/>
 
   <!-- Rear window -->
-  <path d="M 62,{by+5} L 70,{by+7} L 76,{by+12} L 62,{by+9} Z"
-        fill="#0a1628" stroke="#00ff00" stroke-width="0.4" opacity="0.5"/>
+  <path d="M -7,-4.5 L -5,-5 L -5,5 L -7,4.5 Z" fill="#0a2040" stroke="#00ff00" stroke-width="0.3" opacity="0.5"/>
 
   <!-- Spoiler -->
-  <line x1="78" y1="{by+10}" x2="90" y2="{by+10}" stroke="#00ff00" stroke-width="1.2" opacity="0.8"/>
-  <line x1="80" y1="{by+10}" x2="79" y2="{by+14}" stroke="#00ff00" stroke-width="0.7" opacity="0.6"/>
-  <line x1="87" y1="{by+10}" x2="86" y2="{by+14}" stroke="#00ff00" stroke-width="0.7" opacity="0.6"/>
+  <line x1="-14" y1="-7" x2="-14" y2="7" stroke="#00ff00" stroke-width="1.5" opacity="0.8"/>
+  <line x1="-14" y1="-6.5" x2="-12" y2="-5" stroke="#00ff00" stroke-width="0.6" opacity="0.5"/>
+  <line x1="-14" y1="6.5" x2="-12" y2="5" stroke="#00ff00" stroke-width="0.6" opacity="0.5"/>
 
-  <!-- Headlight -->
-  <rect x="2" y="{by+19}" width="3" height="4" rx="1" fill="#00ff00" opacity="0.9">
-    <animate attributeName="opacity" values="0.9;1;0.8;1" dur="1s" repeatCount="indefinite"/>
-  </rect>
+  <!-- Front wheels -->
+  <rect x="8" y="-7.5" width="4" height="2.5" rx="0.8" fill="#1a1a1a" stroke="#00ff00" stroke-width="0.4" opacity="0.8"/>
+  <rect x="8" y="5" width="4" height="2.5" rx="0.8" fill="#1a1a1a" stroke="#00ff00" stroke-width="0.4" opacity="0.8"/>
 
-  <!-- Taillight -->
-  <rect x="86" y="{by+21}" width="2" height="4" rx="0.5" fill="#ff0033" opacity="0.85">
-    <animate attributeName="opacity" values="0.85;1;0.5;1" dur="0.35s" repeatCount="indefinite"/>
-  </rect>
+  <!-- Rear wheels (wider = sport) -->
+  <rect x="-11" y="-7.5" width="5" height="2.5" rx="0.8" fill="#1a1a1a" stroke="#00ff00" stroke-width="0.4" opacity="0.8"/>
+  <rect x="-11" y="5" width="5" height="2.5" rx="0.8" fill="#1a1a1a" stroke="#00ff00" stroke-width="0.4" opacity="0.8"/>
 
-  <!-- Front wheel -->
-  <circle cx="18" cy="{by+29}" r="6" fill="#111" stroke="#333" stroke-width="1"/>
-  <circle cx="18" cy="{by+29}" r="3.5" fill="none" stroke="#00ff00" stroke-width="0.4" opacity="0.5"/>
-  <circle cx="18" cy="{by+29}" r="1.5" fill="#1a1a1a" stroke="#00ff00" stroke-width="0.3"/>
-  <circle cx="18" cy="{by+29}" r="6" fill="none" stroke="#222" stroke-width="1.2" stroke-dasharray="1.5,1.5">
-    <animateTransform attributeName="transform" type="rotate" from="0 18 {by+29}" to="360 18 {by+29}" dur="0.2s" repeatCount="indefinite"/>
+  <!-- Headlights -->
+  <circle cx="15" cy="-3.5" r="1.5" fill="#00ff00" opacity="0.9">
+    <animate attributeName="opacity" values="0.8;1;0.7;1" dur="0.6s" repeatCount="indefinite"/>
+  </circle>
+  <circle cx="15" cy="3.5" r="1.5" fill="#00ff00" opacity="0.9">
+    <animate attributeName="opacity" values="0.8;1;0.7;1" dur="0.6s" repeatCount="indefinite"/>
   </circle>
 
-  <!-- Rear wheel -->
-  <circle cx="72" cy="{by+29}" r="6" fill="#111" stroke="#333" stroke-width="1"/>
-  <circle cx="72" cy="{by+29}" r="3.5" fill="none" stroke="#00ff00" stroke-width="0.4" opacity="0.5"/>
-  <circle cx="72" cy="{by+29}" r="1.5" fill="#1a1a1a" stroke="#00ff00" stroke-width="0.3"/>
-  <circle cx="72" cy="{by+29}" r="6" fill="none" stroke="#222" stroke-width="1.2" stroke-dasharray="1.5,1.5">
-    <animateTransform attributeName="transform" type="rotate" from="0 72 {by+29}" to="360 72 {by+29}" dur="0.1s" repeatCount="indefinite"/>
-  </circle>
+  <!-- Taillights -->
+  <rect x="-15.5" y="-4" width="2" height="2.5" rx="0.5" fill="#ff0033" opacity="0.85">
+    <animate attributeName="opacity" values="0.8;1;0.4;1" dur="0.3s" repeatCount="indefinite"/>
+  </rect>
+  <rect x="-15.5" y="1.5" width="2" height="2.5" rx="0.5" fill="#ff0033" opacity="0.85">
+    <animate attributeName="opacity" values="0.8;1;0.4;1" dur="0.3s" repeatCount="indefinite" begin="0.15s"/>
+  </rect>
+
+  <!-- Side mirrors -->
+  <ellipse cx="5" cy="-7" rx="1.8" ry="1" fill="#161b22" stroke="#00ff00" stroke-width="0.3"/>
+  <ellipse cx="5" cy="7" rx="1.8" ry="1" fill="#161b22" stroke="#00ff00" stroke-width="0.3"/>
 
   <!-- Exhaust smoke -->
-  <circle cx="90" cy="{by+26}" r="2" fill="#00ff00" opacity="0.06">
-    <animate attributeName="cx" values="90;100;112" dur="0.8s" repeatCount="indefinite"/>
-    <animate attributeName="r" values="2;5;9" dur="0.8s" repeatCount="indefinite"/>
-    <animate attributeName="opacity" values="0.08;0.03;0" dur="0.8s" repeatCount="indefinite"/>
+  <circle r="2" fill="#00ff00" opacity="0">
+    <animate attributeName="cx" values="-17;-25;-35" dur="0.6s" repeatCount="indefinite"/>
+    <animate attributeName="cy" values="0;-1;-2" dur="0.6s" repeatCount="indefinite"/>
+    <animate attributeName="r" values="1.5;4;7" dur="0.6s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.1;0.04;0" dur="0.6s" repeatCount="indefinite"/>
   </circle>
-  <circle cx="90" cy="{by+28}" r="1.5" fill="#444" opacity="0.06">
-    <animate attributeName="cx" values="90;102;115" dur="1s" repeatCount="indefinite" begin="0.3s"/>
-    <animate attributeName="r" values="1.5;4;8" dur="1s" repeatCount="indefinite" begin="0.3s"/>
-    <animate attributeName="opacity" values="0.07;0.03;0" dur="1s" repeatCount="indefinite" begin="0.3s"/>
-  </circle>
-
-  <!-- Speed lines -->
-  <g opacity="0.25">
-    <line x1="92" y1="{by+15}" x2="100" y2="{by+15}" stroke="#00ff00" stroke-width="0.6">
-      <animate attributeName="x2" values="100;106;100" dur="0.25s" repeatCount="indefinite"/>
-    </line>
-    <line x1="92" y1="{by+20}" x2="103" y2="{by+20}" stroke="#00ff00" stroke-width="0.6">
-      <animate attributeName="x2" values="103;110;103" dur="0.2s" repeatCount="indefinite"/>
-    </line>
-    <line x1="92" y1="{by+25}" x2="98" y2="{by+25}" stroke="#00ff00" stroke-width="0.6">
-      <animate attributeName="x2" values="98;105;98" dur="0.3s" repeatCount="indefinite"/>
-    </line>
-  </g>""")
-
+""")
     lines.append("</g>")
+
+    # === EXPLOSION EFFECT ===
+    lines.append(f"<!-- Explosion at end -->")
+
+    # Flash circle
+    lines.append(
+        f'<circle cx="{last_cx:.0f}" cy="{last_cy:.0f}" r="60" '
+        f'fill="#00ff00" style="animation:flash {CAR_DUR}s linear infinite" filter="url(#gl2)"/>'
+    )
+
+    # Expanding ring
+    lines.append(
+        f'<circle cx="{last_cx:.0f}" cy="{last_cy:.0f}" r="0" '
+        f'fill="none" stroke="#00ff00" stroke-width="3" '
+        f'style="animation:ring {CAR_DUR}s linear infinite"/>'
+    )
+
+    # Particles
+    lines.append(f'<g filter="url(#gl)">')
+    colors = ["#00ff00", "#39d353", "#26a641", "#ffffff", "#00ff00"]
+    for i in range(NUM_PARTICLES):
+        size = 3 + (i % 4)
+        color = colors[i % len(colors)]
+        lines.append(
+            f'  <rect x="{last_cx - size/2:.0f}" y="{last_cy - size/2:.0f}" '
+            f'width="{size}" height="{size}" rx="1" fill="{color}" '
+            f'style="animation:boom-{i} {CAR_DUR}s linear infinite"/>'
+        )
+    lines.append("</g>")
+
+    # DRIFT text on explosion
+    lines.append(
+        f'<text x="{last_cx:.0f}" y="{last_cy + 4:.0f}" text-anchor="middle" '
+        f'font-family="monospace" font-size="20" font-weight="bold" '
+        f'fill="#00ff00" filter="url(#gl2)" '
+        f'style="animation:drift-text {CAR_DUR}s linear infinite">DRIFT!</text>'
+    )
 
     # Footer
     lines.append(
-        f'<text x="{W / 2:.0f}" y="{H - 6:.0f}" text-anchor="middle" '
+        f'<text x="{W / 2:.0f}" y="{H - 4:.0f}" text-anchor="middle" '
         f'font-family="monospace" font-size="10" fill="#00ff00" opacity="0.35">'
         f'{username} // {total} contributions</text>'
     )
