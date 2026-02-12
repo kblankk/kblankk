@@ -7,7 +7,7 @@
 
 <br/>
 
-<a href="https://www.linkedin.com/in/kaw%C3%A3-oliveira-80303a368/"><img src="https://img.shields.io/badge/Kawã_Oliveira-0d1117?style=for-the-badge&logo=linkedin&logoColor=0096ff"/></a>
+<a href="https://www.linkedin.com/in/kaw%C3%A3-oliveira-80303a368/"><img src="https://img.shields.io/badge/Kaw%C3%A3_Oliveira-0d1117?style=for-the-badge&logo=linkedin&logoColor=0096ff"/></a>
 <a href="https://instagram.com/olvkawa"><img src="https://img.shields.io/badge/@olvkawa-0d1117?style=for-the-badge&logo=instagram&logoColor=0096ff"/></a>
 <a href="https://discordapp.com/users/_kblank"><img src="https://img.shields.io/badge/_kblank-0d1117?style=for-the-badge&logo=discord&logoColor=0096ff"/></a>
 <a href="mailto:kawabrein@gmail.com"><img src="https://img.shields.io/badge/kawabrein@gmail.com-0d1117?style=for-the-badge&logo=gmail&logoColor=0096ff"/></a>
