@@ -22,7 +22,7 @@
   Role     : Student & Developer
   Location : Brazil 🇧🇷
   Focus    : Learning new technologies & building cool stuff
-  Fun Fact : I turn caffeine into code ☕→💻
+  
 
 └─$ echo $CURRENT_GOALS
   → Aprofundando conhecimentos em desenvolvimento
@@ -39,9 +39,7 @@
 #### `// Languages`
 
 ![Python](https://img.shields.io/badge/Python-0d1117?style=flat-square&logo=python&logoColor=00ff00)
-![Java](https://img.shields.io/badge/Java-0d1117?style=flat-square&logo=openjdk&logoColor=00ff00)
 ![C#](https://img.shields.io/badge/C%23-0d1117?style=flat-square&logo=csharp&logoColor=00ff00)
-![JavaScript](https://img.shields.io/badge/JavaScript-0d1117?style=flat-square&logo=javascript&logoColor=00ff00)
 ![TypeScript](https://img.shields.io/badge/TypeScript-0d1117?style=flat-square&logo=typescript&logoColor=00ff00)
 ![HTML5](https://img.shields.io/badge/HTML5-0d1117?style=flat-square&logo=html5&logoColor=00ff00)
 ![CSS3](https://img.shields.io/badge/CSS3-0d1117?style=flat-square&logo=css3&logoColor=00ff00)
@@ -50,9 +48,7 @@
 
 ![.NET](https://img.shields.io/badge/.NET-0d1117?style=flat-square&logo=dotnet&logoColor=00ff00)
 ![Node.js](https://img.shields.io/badge/Node.js-0d1117?style=flat-square&logo=node.js&logoColor=00ff00)
-![React](https://img.shields.io/badge/React-0d1117?style=flat-square&logo=react&logoColor=00ff00)
-![Django](https://img.shields.io/badge/Django-0d1117?style=flat-square&logo=django&logoColor=00ff00)
-![Spring](https://img.shields.io/badge/Spring-0d1117?style=flat-square&logo=spring&logoColor=00ff00)
+
 
 #### `// Tools & Platforms`
 
@@ -60,8 +56,7 @@
 ![GitHub](https://img.shields.io/badge/GitHub-0d1117?style=flat-square&logo=github&logoColor=00ff00)
 ![VS Code](https://img.shields.io/badge/VS_Code-0d1117?style=flat-square&logo=visualstudiocode&logoColor=00ff00)
 ![Docker](https://img.shields.io/badge/Docker-0d1117?style=flat-square&logo=docker&logoColor=00ff00)
-![Linux](https://img.shields.io/badge/Linux-0d1117?style=flat-square&logo=linux&logoColor=00ff00)
-![MySQL](https://img.shields.io/badge/MySQL-0d1117?style=flat-square&logo=mysql&logoColor=00ff00)
+
 
 </div>
 

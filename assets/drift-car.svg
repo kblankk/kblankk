@@ -1,210 +1,1141 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200" width="800" height="200">
-  <defs>
-    <filter id="glow">
-      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
-      <feMerge>
-        <feMergeNode in="coloredBlur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
-    <filter id="glow-strong">
-      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
-      <feMerge>
-        <feMergeNode in="coloredBlur"/>
-        <feMergeNode in="SourceGraphic"/>
-      </feMerge>
-    </filter>
-    <linearGradient id="smoke-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#00ff00;stop-opacity:0"/>
-      <stop offset="50%" style="stop-color:#00ff00;stop-opacity:0.15"/>
-      <stop offset="100%" style="stop-color:#00ff00;stop-opacity:0"/>
-    </linearGradient>
-    <linearGradient id="road-line" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#00ff00;stop-opacity:0"/>
-      <stop offset="50%" style="stop-color:#00ff00;stop-opacity:0.3"/>
-      <stop offset="100%" style="stop-color:#00ff00;stop-opacity:0"/>
-    </linearGradient>
-  </defs>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 830 230" width="830" height="230">
+<style>
 
-  <!-- Background -->
-  <rect width="800" height="200" fill="#0d1117"/>
+  .car { animation: drive 10s linear infinite; }
+  @keyframes drive {
+    0% { transform: translateX(-220px); }
+    100% { transform: translateX(950px); }
+  }
+  .smoke { animation: smoke-fade 10s linear infinite; }
+  @keyframes smoke-fade {
+    0%, 10% { opacity: 0; }
+    20%, 85% { opacity: 1; }
+    95%, 100% { opacity: 0; }
+  }
+  .tire-mark { animation: tire-appear 10s linear infinite; }
+  @keyframes tire-appear {
+    0%, 10% { opacity: 0; }
+    25%, 80% { opacity: 0.35; }
+    95%, 100% { opacity: 0; }
+  }
 
-  <!-- Road surface line -->
-  <line x1="0" y1="165" x2="800" y2="165" stroke="url(#road-line)" stroke-width="1"/>
+  @keyframes scatter-c0 {
+    0%, 30.6% { transform: translate(0, 0); opacity: 1; }
+    31.6% { transform: translate(0, -2px); opacity: 0.9; }
+    42.6%, 100% { transform: translate(0, -37px); opacity: 0; }
+  }
+  @keyframes scatter-c1 {
+    0%, 31.7% { transform: translate(0, 0); opacity: 1; }
+    32.7% { transform: translate(0, -2px); opacity: 0.9; }
+    43.7%, 100% { transform: translate(0, -43px); opacity: 0; }
+  }
+  @keyframes scatter-c2 {
+    0%, 32.8% { transform: translate(0, 0); opacity: 1; }
+    33.8% { transform: translate(0, -2px); opacity: 0.9; }
+    44.8%, 100% { transform: translate(0, -31px); opacity: 0; }
+  }
+  @keyframes scatter-c3 {
+    0%, 33.9% { transform: translate(0, 0); opacity: 1; }
+    34.9% { transform: translate(0, -2px); opacity: 0.9; }
+    45.9%, 100% { transform: translate(0, -33px); opacity: 0; }
+  }
+  @keyframes scatter-c4 {
+    0%, 35.0% { transform: translate(0, 0); opacity: 1; }
+    36.0% { transform: translate(0, -2px); opacity: 0.9; }
+    47.0%, 100% { transform: translate(0, -26px); opacity: 0; }
+  }
+  @keyframes scatter-c5 {
+    0%, 36.2% { transform: translate(0, 0); opacity: 1; }
+    37.2% { transform: translate(0, -2px); opacity: 0.9; }
+    48.2%, 100% { transform: translate(0, -47px); opacity: 0; }
+  }
+  @keyframes scatter-c6 {
+    0%, 37.3% { transform: translate(0, 0); opacity: 1; }
+    38.3% { transform: translate(0, -2px); opacity: 0.9; }
+    49.3%, 100% { transform: translate(0, -38px); opacity: 0; }
+  }
+  @keyframes scatter-c7 {
+    0%, 38.4% { transform: translate(0, 0); opacity: 1; }
+    39.4% { transform: translate(0, -2px); opacity: 0.9; }
+    50.4%, 100% { transform: translate(0, -25px); opacity: 0; }
+  }
+  @keyframes scatter-c8 {
+    0%, 39.5% { transform: translate(0, 0); opacity: 1; }
+    40.5% { transform: translate(0, -2px); opacity: 0.9; }
+    51.5%, 100% { transform: translate(0, -41px); opacity: 0; }
+  }
+  @keyframes scatter-c9 {
+    0%, 40.6% { transform: translate(0, 0); opacity: 1; }
+    41.6% { transform: translate(0, -2px); opacity: 0.9; }
+    52.6%, 100% { transform: translate(0, -50px); opacity: 0; }
+  }
+  @keyframes scatter-c10 {
+    0%, 41.7% { transform: translate(0, 0); opacity: 1; }
+    42.7% { transform: translate(0, -2px); opacity: 0.9; }
+    53.7%, 100% { transform: translate(0, -42px); opacity: 0; }
+  }
+  @keyframes scatter-c11 {
+    0%, 42.8% { transform: translate(0, 0); opacity: 1; }
+    43.8% { transform: translate(0, -2px); opacity: 0.9; }
+    54.8%, 100% { transform: translate(0, -46px); opacity: 0; }
+  }
+  @keyframes scatter-c12 {
+    0%, 43.9% { transform: translate(0, 0); opacity: 1; }
+    44.9% { transform: translate(0, -2px); opacity: 0.9; }
+    55.9%, 100% { transform: translate(0, -48px); opacity: 0; }
+  }
+  @keyframes scatter-c13 {
+    0%, 45.0% { transform: translate(0, 0); opacity: 1; }
+    46.0% { transform: translate(0, -2px); opacity: 0.9; }
+    57.0%, 100% { transform: translate(0, -48px); opacity: 0; }
+  }
+  @keyframes scatter-c14 {
+    0%, 46.2% { transform: translate(0, 0); opacity: 1; }
+    47.2% { transform: translate(0, -2px); opacity: 0.9; }
+    58.2%, 100% { transform: translate(0, -48px); opacity: 0; }
+  }
+  @keyframes scatter-c15 {
+    0%, 47.3% { transform: translate(0, 0); opacity: 1; }
+    48.3% { transform: translate(0, -2px); opacity: 0.9; }
+    59.3%, 100% { transform: translate(0, -46px); opacity: 0; }
+  }
+  @keyframes scatter-c16 {
+    0%, 48.4% { transform: translate(0, 0); opacity: 1; }
+    49.4% { transform: translate(0, -2px); opacity: 0.9; }
+    60.4%, 100% { transform: translate(0, -31px); opacity: 0; }
+  }
+  @keyframes scatter-c17 {
+    0%, 49.5% { transform: translate(0, 0); opacity: 1; }
+    50.5% { transform: translate(0, -2px); opacity: 0.9; }
+    61.5%, 100% { transform: translate(0, -36px); opacity: 0; }
+  }
+  @keyframes scatter-c18 {
+    0%, 50.6% { transform: translate(0, 0); opacity: 1; }
+    51.6% { transform: translate(0, -2px); opacity: 0.9; }
+    62.6%, 100% { transform: translate(0, -38px); opacity: 0; }
+  }
+  @keyframes scatter-c19 {
+    0%, 51.7% { transform: translate(0, 0); opacity: 1; }
+    52.7% { transform: translate(0, -2px); opacity: 0.9; }
+    63.7%, 100% { transform: translate(0, -27px); opacity: 0; }
+  }
+  @keyframes scatter-c20 {
+    0%, 52.8% { transform: translate(0, 0); opacity: 1; }
+    53.8% { transform: translate(0, -2px); opacity: 0.9; }
+    64.8%, 100% { transform: translate(0, -46px); opacity: 0; }
+  }
+  @keyframes scatter-c21 {
+    0%, 53.9% { transform: translate(0, 0); opacity: 1; }
+    54.9% { transform: translate(0, -2px); opacity: 0.9; }
+    65.9%, 100% { transform: translate(0, -35px); opacity: 0; }
+  }
+  @keyframes scatter-c22 {
+    0%, 55.0% { transform: translate(0, 0); opacity: 1; }
+    56.0% { transform: translate(0, -2px); opacity: 0.9; }
+    67.0%, 100% { transform: translate(0, -44px); opacity: 0; }
+  }
+  @keyframes scatter-c23 {
+    0%, 56.2% { transform: translate(0, 0); opacity: 1; }
+    57.2% { transform: translate(0, -2px); opacity: 0.9; }
+    68.2%, 100% { transform: translate(0, -35px); opacity: 0; }
+  }
+  @keyframes scatter-c24 {
+    0%, 57.3% { transform: translate(0, 0); opacity: 1; }
+    58.3% { transform: translate(0, -2px); opacity: 0.9; }
+    69.3%, 100% { transform: translate(0, -46px); opacity: 0; }
+  }
+  @keyframes scatter-c25 {
+    0%, 58.4% { transform: translate(0, 0); opacity: 1; }
+    59.4% { transform: translate(0, -2px); opacity: 0.9; }
+    70.4%, 100% { transform: translate(0, -28px); opacity: 0; }
+  }
+  @keyframes scatter-c26 {
+    0%, 59.5% { transform: translate(0, 0); opacity: 1; }
+    60.5% { transform: translate(0, -2px); opacity: 0.9; }
+    71.5%, 100% { transform: translate(0, -48px); opacity: 0; }
+  }
+  @keyframes scatter-c27 {
+    0%, 60.6% { transform: translate(0, 0); opacity: 1; }
+    61.6% { transform: translate(0, -2px); opacity: 0.9; }
+    72.6%, 100% { transform: translate(0, -34px); opacity: 0; }
+  }
+  @keyframes scatter-c28 {
+    0%, 61.7% { transform: translate(0, 0); opacity: 1; }
+    62.7% { transform: translate(0, -2px); opacity: 0.9; }
+    73.7%, 100% { transform: translate(0, -41px); opacity: 0; }
+  }
+  @keyframes scatter-c29 {
+    0%, 62.8% { transform: translate(0, 0); opacity: 1; }
+    63.8% { transform: translate(0, -2px); opacity: 0.9; }
+    74.8%, 100% { transform: translate(0, -34px); opacity: 0; }
+  }
+  @keyframes scatter-c30 {
+    0%, 63.9% { transform: translate(0, 0); opacity: 1; }
+    64.9% { transform: translate(0, -2px); opacity: 0.9; }
+    75.9%, 100% { transform: translate(0, -46px); opacity: 0; }
+  }
+  @keyframes scatter-c31 {
+    0%, 65.0% { transform: translate(0, 0); opacity: 1; }
+    66.0% { transform: translate(0, -2px); opacity: 0.9; }
+    77.0%, 100% { transform: translate(0, -38px); opacity: 0; }
+  }
+  @keyframes scatter-c32 {
+    0%, 66.2% { transform: translate(0, 0); opacity: 1; }
+    67.2% { transform: translate(0, -2px); opacity: 0.9; }
+    78.2%, 100% { transform: translate(0, -35px); opacity: 0; }
+  }
+  @keyframes scatter-c33 {
+    0%, 67.3% { transform: translate(0, 0); opacity: 1; }
+    68.3% { transform: translate(0, -2px); opacity: 0.9; }
+    79.3%, 100% { transform: translate(0, -37px); opacity: 0; }
+  }
+  @keyframes scatter-c34 {
+    0%, 68.4% { transform: translate(0, 0); opacity: 1; }
+    69.4% { transform: translate(0, -2px); opacity: 0.9; }
+    80.4%, 100% { transform: translate(0, -47px); opacity: 0; }
+  }
+  @keyframes scatter-c35 {
+    0%, 69.5% { transform: translate(0, 0); opacity: 1; }
+    70.5% { transform: translate(0, -2px); opacity: 0.9; }
+    81.5%, 100% { transform: translate(0, -34px); opacity: 0; }
+  }
+  @keyframes scatter-c36 {
+    0%, 70.6% { transform: translate(0, 0); opacity: 1; }
+    71.6% { transform: translate(0, -2px); opacity: 0.9; }
+    82.6%, 100% { transform: translate(0, -42px); opacity: 0; }
+  }
+  @keyframes scatter-c37 {
+    0%, 71.7% { transform: translate(0, 0); opacity: 1; }
+    72.7% { transform: translate(0, -2px); opacity: 0.9; }
+    83.7%, 100% { transform: translate(0, -29px); opacity: 0; }
+  }
+  @keyframes scatter-c38 {
+    0%, 72.8% { transform: translate(0, 0); opacity: 1; }
+    73.8% { transform: translate(0, -2px); opacity: 0.9; }
+    84.8%, 100% { transform: translate(0, -31px); opacity: 0; }
+  }
+  @keyframes scatter-c39 {
+    0%, 73.9% { transform: translate(0, 0); opacity: 1; }
+    74.9% { transform: translate(0, -2px); opacity: 0.9; }
+    85.9%, 100% { transform: translate(0, -38px); opacity: 0; }
+  }
+  @keyframes scatter-c40 {
+    0%, 75.0% { transform: translate(0, 0); opacity: 1; }
+    76.0% { transform: translate(0, -2px); opacity: 0.9; }
+    87.0%, 100% { transform: translate(0, -46px); opacity: 0; }
+  }
+  @keyframes scatter-c41 {
+    0%, 76.2% { transform: translate(0, 0); opacity: 1; }
+    77.2% { transform: translate(0, -2px); opacity: 0.9; }
+    88.2%, 100% { transform: translate(0, -37px); opacity: 0; }
+  }
+  @keyframes scatter-c42 {
+    0%, 77.3% { transform: translate(0, 0); opacity: 1; }
+    78.3% { transform: translate(0, -2px); opacity: 0.9; }
+    89.3%, 100% { transform: translate(0, -46px); opacity: 0; }
+  }
+  @keyframes scatter-c43 {
+    0%, 78.4% { transform: translate(0, 0); opacity: 1; }
+    79.4% { transform: translate(0, -2px); opacity: 0.9; }
+    90.4%, 100% { transform: translate(0, -48px); opacity: 0; }
+  }
+  @keyframes scatter-c44 {
+    0%, 79.5% { transform: translate(0, 0); opacity: 1; }
+    80.5% { transform: translate(0, -2px); opacity: 0.9; }
+    91.5%, 100% { transform: translate(0, -30px); opacity: 0; }
+  }
+  @keyframes scatter-c45 {
+    0%, 80.6% { transform: translate(0, 0); opacity: 1; }
+    81.6% { transform: translate(0, -2px); opacity: 0.9; }
+    92.6%, 100% { transform: translate(0, -44px); opacity: 0; }
+  }
+  @keyframes scatter-c46 {
+    0%, 81.7% { transform: translate(0, 0); opacity: 1; }
+    82.7% { transform: translate(0, -2px); opacity: 0.9; }
+    93.7%, 100% { transform: translate(0, -43px); opacity: 0; }
+  }
+  @keyframes scatter-c47 {
+    0%, 82.8% { transform: translate(0, 0); opacity: 1; }
+    83.8% { transform: translate(0, -2px); opacity: 0.9; }
+    94.8%, 100% { transform: translate(0, -34px); opacity: 0; }
+  }
+  @keyframes scatter-c48 {
+    0%, 83.9% { transform: translate(0, 0); opacity: 1; }
+    84.9% { transform: translate(0, -2px); opacity: 0.9; }
+    95.9%, 100% { transform: translate(0, -37px); opacity: 0; }
+  }
+  @keyframes scatter-c49 {
+    0%, 85.0% { transform: translate(0, 0); opacity: 1; }
+    86.0% { transform: translate(0, -2px); opacity: 0.9; }
+    97.0%, 100% { transform: translate(0, -42px); opacity: 0; }
+  }
+  @keyframes scatter-c50 {
+    0%, 86.2% { transform: translate(0, 0); opacity: 1; }
+    87.2% { transform: translate(0, -2px); opacity: 0.9; }
+    98.2%, 100% { transform: translate(0, -25px); opacity: 0; }
+  }
+  @keyframes scatter-c51 {
+    0%, 87.3% { transform: translate(0, 0); opacity: 1; }
+    88.3% { transform: translate(0, -2px); opacity: 0.9; }
+    99.3%, 100% { transform: translate(0, -34px); opacity: 0; }
+  }
+  @keyframes shake-c0 {
+    0%, 30.6% { transform: translate(0, 0); }
+    31.6% { transform: translate(0, -4px); }
+    35.6%, 100% { transform: translate(0, 0); }
+  }
+  @keyframes shake-c1 {
+    0%, 31.7% { transform: translate(0, 0); }
+    32.7% { transform: translate(0, -3px); }
+    36.7%, 100% { transform: translate(0, 0); }
+  }
+  @keyframes shake-c2 {
+    0%, 32.8% { transform: translate(0, 0); }
+    33.8% { transform: translate(0, -5px); }
+    37.8%, 100% { transform: translate(0, 0); }
+  }
+  @keyframes shake-c3 {
+    0%, 33.9% { transform: translate(0, 0); }
+    34.9% { transform: translate(0, -4px); }
+    38.9%, 100% { transform: translate(0, 0); }
+  }
+  @keyframes shake-c4 {
+    0%, 35.0% { transform: translate(0, 0); }
+    36.0% { transform: translate(0, -5px); }
+    40.0%, 100% { transform: translate(0, 0); }
+  }
+  @keyframes shake-c5 {
+    0%, 36.2% { transform: translate(0, 0); }
+    37.2% { transform: translate(0, -5px); }
+    41.2%, 100% { transform: translate(0, 0); }
+  }
+  @keyframes shake-c6 {
+    0%, 37.3% { transform: translate(0, 0); }
+    38.3% { transform: translate(0, -5px); }
+    42.3%, 100% { transform: translate(0, 0); }
+  }
+  @keyframes shake-c7 {
+    0%, 38.4% { transform: translate(0, 0); }
+    39.4% { transform: translate(0, -3px); }
+    43.4%, 100% { transform: translate(0, 0); }
+  }
+  @keyframes shake-c8 {
+    0%, 39.5% { transform: translate(0, 0); }
+    40.5% { transform: translate(0, -5px); }
+    44.5%, 100% { transform: translate(0, 0); }
+  }
+  @keyframes shake-c9 {
+    0%, 40.6% { transform: translate(0, 0); }
+    41.6% { transform: translate(0, -3px); }
+    45.6%, 100% { transform: translate(0, 0); }
+  }
+  @keyframes shake-c10 {
+    0%, 41.7% { transform: translate(0, 0); }
+    42.7% { transform: translate(0, -2px); }
+    46.7%, 100% { transform: translate(0, 0); }
+  }
+  @keyframes shake-c11 {
+    0%, 42.8% { transform: translate(0, 0); }
+    43.8% { transform: translate(0, -4px); }
+    47.8%, 100% { transform: translate(0, 0); }
+  }
+  @keyframes shake-c12 {
+    0%, 43.9% { transform: translate(0, 0); }
+    44.9% { transform: translate(0, -4px); }
+    48.9%, 100% { transform: translate(0, 0); }
+  }
+  @keyframes shake-c13 {
+    0%, 45.0% { transform: translate(0, 0); }
+    46.0% { transform: translate(0, -2px); }
+    50.0%, 100% { transform: translate(0, 0); }
+  }
+  @keyframes shake-c14 {
+    0%, 46.2% { transform: translate(0, 0); }
+    47.2% { transform: translate(0, -3px); }
+    51.2%, 100% { transform: translate(0, 0); }
+  }
+  @keyframes shake-c15 {
+    0%, 47.3% { transform: translate(0, 0); }
+    48.3% { transform: translate(0, -4px); }
+    52.3%, 100% { transform: translate(0, 0); }
+  }
+  @keyframes shake-c16 {
+    0%, 48.4% { transform: translate(0, 0); }
+    49.4% { transform: translate(0, -3px); }
+    53.4%, 100% { transform: translate(0, 0); }
+  }
+  @keyframes shake-c17 {
+    0%, 49.5% { transform: translate(0, 0); }
+    50.5% { transform: translate(0, -3px); }
+    54.5%, 100% { transform: translate(0, 0); }
+  }
+  @keyframes shake-c18 {
+    0%, 50.6% { transform: translate(0, 0); }
+    51.6% { transform: translate(0, -3px); }
+    55.6%, 100% { transform: translate(0, 0); }
+  }
+  @keyframes shake-c19 {
+    0%, 51.7% { transform: translate(0, 0); }
+    52.7% { transform: translate(0, -2px); }
+    56.7%, 100% { transform: translate(0, 0); }
+  }
+  @keyframes shake-c20 {
+    0%, 52.8% { transform: translate(0, 0); }
+    53.8% { transform: translate(0, -2px); }
+    57.8%, 100% { transform: translate(0, 0); }
+  }
+  @keyframes shake-c21 {
+    0%, 53.9% { transform: translate(0, 0); }
+    54.9% { transform: translate(0, -3px); }
+    58.9%, 100% { transform: translate(0, 0); }
+  }
+  @keyframes shake-c22 {
+    0%, 55.0% { transform: translate(0, 0); }
+    56.0% { transform: translate(0, -5px); }
+    60.0%, 100% { transform: translate(0, 0); }
+  }
+  @keyframes shake-c23 {
+    0%, 56.2% { transform: translate(0, 0); }
+    57.2% { transform: translate(0, -2px); }
+    61.2%, 100% { transform: translate(0, 0); }
+  }
+  @keyframes shake-c24 {
+    0%, 57.3% { transform: translate(0, 0); }
+    58.3% { transform: translate(0, -5px); }
+    62.3%, 100% { transform: translate(0, 0); }
+  }
+  @keyframes shake-c25 {
+    0%, 58.4% { transform: translate(0, 0); }
+    59.4% { transform: translate(0, -5px); }
+    63.4%, 100% { transform: translate(0, 0); }
+  }
+  @keyframes shake-c26 {
+    0%, 59.5% { transform: translate(0, 0); }
+    60.5% { transform: translate(0, -3px); }
+    64.5%, 100% { transform: translate(0, 0); }
+  }
+  @keyframes shake-c27 {
+    0%, 60.6% { transform: translate(0, 0); }
+    61.6% { transform: translate(0, -5px); }
+    65.6%, 100% { transform: translate(0, 0); }
+  }
+  @keyframes shake-c28 {
+    0%, 61.7% { transform: translate(0, 0); }
+    62.7% { transform: translate(0, -5px); }
+    66.7%, 100% { transform: translate(0, 0); }
+  }
+  @keyframes shake-c29 {
+    0%, 62.8% { transform: translate(0, 0); }
+    63.8% { transform: translate(0, -5px); }
+    67.8%, 100% { transform: translate(0, 0); }
+  }
+  @keyframes shake-c30 {
+    0%, 63.9% { transform: translate(0, 0); }
+    64.9% { transform: translate(0, -3px); }
+    68.9%, 100% { transform: translate(0, 0); }
+  }
+  @keyframes shake-c31 {
+    0%, 65.0% { transform: translate(0, 0); }
+    66.0% { transform: translate(0, -3px); }
+    70.0%, 100% { transform: translate(0, 0); }
+  }
+  @keyframes shake-c32 {
+    0%, 66.2% { transform: translate(0, 0); }
+    67.2% { transform: translate(0, -2px); }
+    71.2%, 100% { transform: translate(0, 0); }
+  }
+  @keyframes shake-c33 {
+    0%, 67.3% { transform: translate(0, 0); }
+    68.3% { transform: translate(0, -2px); }
+    72.3%, 100% { transform: translate(0, 0); }
+  }
+  @keyframes shake-c34 {
+    0%, 68.4% { transform: translate(0, 0); }
+    69.4% { transform: translate(0, -5px); }
+    73.4%, 100% { transform: translate(0, 0); }
+  }
+  @keyframes shake-c35 {
+    0%, 69.5% { transform: translate(0, 0); }
+    70.5% { transform: translate(0, -3px); }
+    74.5%, 100% { transform: translate(0, 0); }
+  }
+  @keyframes shake-c36 {
+    0%, 70.6% { transform: translate(0, 0); }
+    71.6% { transform: translate(0, -3px); }
+    75.6%, 100% { transform: translate(0, 0); }
+  }
+  @keyframes shake-c37 {
+    0%, 71.7% { transform: translate(0, 0); }
+    72.7% { transform: translate(0, -5px); }
+    76.7%, 100% { transform: translate(0, 0); }
+  }
+  @keyframes shake-c38 {
+    0%, 72.8% { transform: translate(0, 0); }
+    73.8% { transform: translate(0, -2px); }
+    77.8%, 100% { transform: translate(0, 0); }
+  }
+  @keyframes shake-c39 {
+    0%, 73.9% { transform: translate(0, 0); }
+    74.9% { transform: translate(0, -3px); }
+    78.9%, 100% { transform: translate(0, 0); }
+  }
+  @keyframes shake-c40 {
+    0%, 75.0% { transform: translate(0, 0); }
+    76.0% { transform: translate(0, -2px); }
+    80.0%, 100% { transform: translate(0, 0); }
+  }
+  @keyframes shake-c41 {
+    0%, 76.2% { transform: translate(0, 0); }
+    77.2% { transform: translate(0, -5px); }
+    81.2%, 100% { transform: translate(0, 0); }
+  }
+  @keyframes shake-c42 {
+    0%, 77.3% { transform: translate(0, 0); }
+    78.3% { transform: translate(0, -3px); }
+    82.3%, 100% { transform: translate(0, 0); }
+  }
+  @keyframes shake-c43 {
+    0%, 78.4% { transform: translate(0, 0); }
+    79.4% { transform: translate(0, -5px); }
+    83.4%, 100% { transform: translate(0, 0); }
+  }
+  @keyframes shake-c44 {
+    0%, 79.5% { transform: translate(0, 0); }
+    80.5% { transform: translate(0, -4px); }
+    84.5%, 100% { transform: translate(0, 0); }
+  }
+  @keyframes shake-c45 {
+    0%, 80.6% { transform: translate(0, 0); }
+    81.6% { transform: translate(0, -5px); }
+    85.6%, 100% { transform: translate(0, 0); }
+  }
+  @keyframes shake-c46 {
+    0%, 81.7% { transform: translate(0, 0); }
+    82.7% { transform: translate(0, -5px); }
+    86.7%, 100% { transform: translate(0, 0); }
+  }
+  @keyframes shake-c47 {
+    0%, 82.8% { transform: translate(0, 0); }
+    83.8% { transform: translate(0, -5px); }
+    87.8%, 100% { transform: translate(0, 0); }
+  }
+  @keyframes shake-c48 {
+    0%, 83.9% { transform: translate(0, 0); }
+    84.9% { transform: translate(0, -3px); }
+    88.9%, 100% { transform: translate(0, 0); }
+  }
+  @keyframes shake-c49 {
+    0%, 85.0% { transform: translate(0, 0); }
+    86.0% { transform: translate(0, -5px); }
+    90.0%, 100% { transform: translate(0, 0); }
+  }
+  @keyframes shake-c50 {
+    0%, 86.2% { transform: translate(0, 0); }
+    87.2% { transform: translate(0, -5px); }
+    91.2%, 100% { transform: translate(0, 0); }
+  }
+  @keyframes shake-c51 {
+    0%, 87.3% { transform: translate(0, 0); }
+    88.3% { transform: translate(0, -4px); }
+    92.3%, 100% { transform: translate(0, 0); }
+  }
+</style>
+<defs>
+  <filter id="glow">
+    <feGaussianBlur stdDeviation="2" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="glow-s">
+    <feGaussianBlur stdDeviation="3.5" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <clipPath id="car-clip">
+    <rect x="0" y="0" width="160" height="80"/>
+  </clipPath>
+</defs>
+<rect width="830" height="230" fill="#0d1117"/>
+<!-- Contribution Grid -->
+<g>
+  <rect x="78" y="35" width="11" height="11" rx="2" fill="#006d32"/>
+  <rect x="91" y="35" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="104" y="35" width="11" height="11" rx="2" fill="#0e4429"/>
+  <rect x="117" y="35" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="130" y="35" width="11" height="11" rx="2" fill="#26a641"/>
+  <rect x="143" y="35" width="11" height="11" rx="2" fill="#006d32"/>
+  <rect x="156" y="35" width="11" height="11" rx="2" fill="#39d353"/>
+  <rect x="169" y="35" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="182" y="35" width="11" height="11" rx="2" fill="#0e4429"/>
+  <rect x="195" y="35" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="208" y="35" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="221" y="35" width="11" height="11" rx="2" fill="#006d32"/>
+  <rect x="234" y="35" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="247" y="35" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="260" y="35" width="11" height="11" rx="2" fill="#006d32"/>
+  <rect x="273" y="35" width="11" height="11" rx="2" fill="#006d32"/>
+  <rect x="286" y="35" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="299" y="35" width="11" height="11" rx="2" fill="#006d32"/>
+  <rect x="312" y="35" width="11" height="11" rx="2" fill="#26a641"/>
+  <rect x="325" y="35" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="338" y="35" width="11" height="11" rx="2" fill="#26a641"/>
+  <rect x="351" y="35" width="11" height="11" rx="2" fill="#006d32"/>
+  <rect x="364" y="35" width="11" height="11" rx="2" fill="#0e4429"/>
+  <rect x="377" y="35" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="390" y="35" width="11" height="11" rx="2" fill="#39d353"/>
+  <rect x="403" y="35" width="11" height="11" rx="2" fill="#0e4429"/>
+  <rect x="416" y="35" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="429" y="35" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="442" y="35" width="11" height="11" rx="2" fill="#26a641"/>
+  <rect x="455" y="35" width="11" height="11" rx="2" fill="#006d32"/>
+  <rect x="468" y="35" width="11" height="11" rx="2" fill="#26a641"/>
+  <rect x="481" y="35" width="11" height="11" rx="2" fill="#26a641"/>
+  <rect x="494" y="35" width="11" height="11" rx="2" fill="#006d32"/>
+  <rect x="507" y="35" width="11" height="11" rx="2" fill="#39d353"/>
+  <rect x="520" y="35" width="11" height="11" rx="2" fill="#0e4429"/>
+  <rect x="533" y="35" width="11" height="11" rx="2" fill="#006d32"/>
+  <rect x="546" y="35" width="11" height="11" rx="2" fill="#26a641"/>
+  <rect x="559" y="35" width="11" height="11" rx="2" fill="#006d32"/>
+  <rect x="572" y="35" width="11" height="11" rx="2" fill="#26a641"/>
+  <rect x="585" y="35" width="11" height="11" rx="2" fill="#006d32"/>
+  <rect x="598" y="35" width="11" height="11" rx="2" fill="#26a641"/>
+  <rect x="611" y="35" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="624" y="35" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="637" y="35" width="11" height="11" rx="2" fill="#0e4429"/>
+  <rect x="650" y="35" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="663" y="35" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="676" y="35" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="689" y="35" width="11" height="11" rx="2" fill="#0e4429"/>
+  <rect x="702" y="35" width="11" height="11" rx="2" fill="#006d32"/>
+  <rect x="715" y="35" width="11" height="11" rx="2" fill="#0e4429"/>
+  <rect x="728" y="35" width="11" height="11" rx="2" fill="#0e4429"/>
+  <rect x="741" y="35" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="78" y="48" width="11" height="11" rx="2" fill="#0e4429" style="animation: shake-c0 10s linear infinite;"/>
+  <rect x="91" y="48" width="11" height="11" rx="2" fill="#39d353" style="animation: shake-c1 10s linear infinite;"/>
+  <rect x="104" y="48" width="11" height="11" rx="2" fill="#006d32" style="animation: shake-c2 10s linear infinite;"/>
+  <rect x="117" y="48" width="11" height="11" rx="2" fill="#006d32" style="animation: shake-c3 10s linear infinite;"/>
+  <rect x="130" y="48" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="143" y="48" width="11" height="11" rx="2" fill="#26a641" style="animation: shake-c5 10s linear infinite;"/>
+  <rect x="156" y="48" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="169" y="48" width="11" height="11" rx="2" fill="#0e4429" style="animation: shake-c7 10s linear infinite;"/>
+  <rect x="182" y="48" width="11" height="11" rx="2" fill="#39d353" style="animation: shake-c8 10s linear infinite;"/>
+  <rect x="195" y="48" width="11" height="11" rx="2" fill="#006d32" style="animation: shake-c9 10s linear infinite;"/>
+  <rect x="208" y="48" width="11" height="11" rx="2" fill="#006d32" style="animation: shake-c10 10s linear infinite;"/>
+  <rect x="221" y="48" width="11" height="11" rx="2" fill="#006d32" style="animation: shake-c11 10s linear infinite;"/>
+  <rect x="234" y="48" width="11" height="11" rx="2" fill="#26a641" style="animation: shake-c12 10s linear infinite;"/>
+  <rect x="247" y="48" width="11" height="11" rx="2" fill="#26a641" style="animation: shake-c13 10s linear infinite;"/>
+  <rect x="260" y="48" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="273" y="48" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="286" y="48" width="11" height="11" rx="2" fill="#0e4429" style="animation: shake-c16 10s linear infinite;"/>
+  <rect x="299" y="48" width="11" height="11" rx="2" fill="#0e4429" style="animation: shake-c17 10s linear infinite;"/>
+  <rect x="312" y="48" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="325" y="48" width="11" height="11" rx="2" fill="#39d353" style="animation: shake-c19 10s linear infinite;"/>
+  <rect x="338" y="48" width="11" height="11" rx="2" fill="#26a641" style="animation: shake-c20 10s linear infinite;"/>
+  <rect x="351" y="48" width="11" height="11" rx="2" fill="#0e4429" style="animation: shake-c21 10s linear infinite;"/>
+  <rect x="364" y="48" width="11" height="11" rx="2" fill="#006d32" style="animation: shake-c22 10s linear infinite;"/>
+  <rect x="377" y="48" width="11" height="11" rx="2" fill="#0e4429" style="animation: shake-c23 10s linear infinite;"/>
+  <rect x="390" y="48" width="11" height="11" rx="2" fill="#39d353" style="animation: shake-c24 10s linear infinite;"/>
+  <rect x="403" y="48" width="11" height="11" rx="2" fill="#006d32" style="animation: shake-c25 10s linear infinite;"/>
+  <rect x="416" y="48" width="11" height="11" rx="2" fill="#0e4429" style="animation: shake-c26 10s linear infinite;"/>
+  <rect x="429" y="48" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="442" y="48" width="11" height="11" rx="2" fill="#006d32" style="animation: shake-c28 10s linear infinite;"/>
+  <rect x="455" y="48" width="11" height="11" rx="2" fill="#0e4429" style="animation: shake-c29 10s linear infinite;"/>
+  <rect x="468" y="48" width="11" height="11" rx="2" fill="#006d32" style="animation: shake-c30 10s linear infinite;"/>
+  <rect x="481" y="48" width="11" height="11" rx="2" fill="#39d353" style="animation: shake-c31 10s linear infinite;"/>
+  <rect x="494" y="48" width="11" height="11" rx="2" fill="#0e4429" style="animation: shake-c32 10s linear infinite;"/>
+  <rect x="507" y="48" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="520" y="48" width="11" height="11" rx="2" fill="#39d353" style="animation: shake-c34 10s linear infinite;"/>
+  <rect x="533" y="48" width="11" height="11" rx="2" fill="#006d32" style="animation: shake-c35 10s linear infinite;"/>
+  <rect x="546" y="48" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="559" y="48" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="572" y="48" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="585" y="48" width="11" height="11" rx="2" fill="#006d32" style="animation: shake-c39 10s linear infinite;"/>
+  <rect x="598" y="48" width="11" height="11" rx="2" fill="#26a641" style="animation: shake-c40 10s linear infinite;"/>
+  <rect x="611" y="48" width="11" height="11" rx="2" fill="#0e4429" style="animation: shake-c41 10s linear infinite;"/>
+  <rect x="624" y="48" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="637" y="48" width="11" height="11" rx="2" fill="#0e4429" style="animation: shake-c43 10s linear infinite;"/>
+  <rect x="650" y="48" width="11" height="11" rx="2" fill="#39d353" style="animation: shake-c44 10s linear infinite;"/>
+  <rect x="663" y="48" width="11" height="11" rx="2" fill="#006d32" style="animation: shake-c45 10s linear infinite;"/>
+  <rect x="676" y="48" width="11" height="11" rx="2" fill="#39d353" style="animation: shake-c46 10s linear infinite;"/>
+  <rect x="689" y="48" width="11" height="11" rx="2" fill="#26a641" style="animation: shake-c47 10s linear infinite;"/>
+  <rect x="702" y="48" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="715" y="48" width="11" height="11" rx="2" fill="#26a641" style="animation: shake-c49 10s linear infinite;"/>
+  <rect x="728" y="48" width="11" height="11" rx="2" fill="#006d32" style="animation: shake-c50 10s linear infinite;"/>
+  <rect x="741" y="48" width="11" height="11" rx="2" fill="#006d32" style="animation: shake-c51 10s linear infinite;"/>
+  <rect x="78" y="61" width="11" height="11" rx="2" fill="#0e4429" style="animation: scatter-c0 10s linear infinite;"/>
+  <rect x="91" y="61" width="11" height="11" rx="2" fill="#006d32" style="animation: scatter-c1 10s linear infinite;"/>
+  <rect x="104" y="61" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="117" y="61" width="11" height="11" rx="2" fill="#0e4429" style="animation: scatter-c3 10s linear infinite;"/>
+  <rect x="130" y="61" width="11" height="11" rx="2" fill="#006d32" style="animation: scatter-c4 10s linear infinite;"/>
+  <rect x="143" y="61" width="11" height="11" rx="2" fill="#39d353" style="animation: scatter-c5 10s linear infinite;"/>
+  <rect x="156" y="61" width="11" height="11" rx="2" fill="#26a641" style="animation: scatter-c6 10s linear infinite;"/>
+  <rect x="169" y="61" width="11" height="11" rx="2" fill="#0e4429" style="animation: scatter-c7 10s linear infinite;"/>
+  <rect x="182" y="61" width="11" height="11" rx="2" fill="#006d32" style="animation: scatter-c8 10s linear infinite;"/>
+  <rect x="195" y="61" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="208" y="61" width="11" height="11" rx="2" fill="#39d353" style="animation: scatter-c10 10s linear infinite;"/>
+  <rect x="221" y="61" width="11" height="11" rx="2" fill="#26a641" style="animation: scatter-c11 10s linear infinite;"/>
+  <rect x="234" y="61" width="11" height="11" rx="2" fill="#0e4429" style="animation: scatter-c12 10s linear infinite;"/>
+  <rect x="247" y="61" width="11" height="11" rx="2" fill="#006d32" style="animation: scatter-c13 10s linear infinite;"/>
+  <rect x="260" y="61" width="11" height="11" rx="2" fill="#006d32" style="animation: scatter-c14 10s linear infinite;"/>
+  <rect x="273" y="61" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="286" y="61" width="11" height="11" rx="2" fill="#26a641" style="animation: scatter-c16 10s linear infinite;"/>
+  <rect x="299" y="61" width="11" height="11" rx="2" fill="#006d32" style="animation: scatter-c17 10s linear infinite;"/>
+  <rect x="312" y="61" width="11" height="11" rx="2" fill="#26a641" style="animation: scatter-c18 10s linear infinite;"/>
+  <rect x="325" y="61" width="11" height="11" rx="2" fill="#006d32" style="animation: scatter-c19 10s linear infinite;"/>
+  <rect x="338" y="61" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="351" y="61" width="11" height="11" rx="2" fill="#0e4429" style="animation: scatter-c21 10s linear infinite;"/>
+  <rect x="364" y="61" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="377" y="61" width="11" height="11" rx="2" fill="#39d353" style="animation: scatter-c23 10s linear infinite;"/>
+  <rect x="390" y="61" width="11" height="11" rx="2" fill="#26a641" style="animation: scatter-c24 10s linear infinite;"/>
+  <rect x="403" y="61" width="11" height="11" rx="2" fill="#26a641" style="animation: scatter-c25 10s linear infinite;"/>
+  <rect x="416" y="61" width="11" height="11" rx="2" fill="#0e4429" style="animation: scatter-c26 10s linear infinite;"/>
+  <rect x="429" y="61" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="442" y="61" width="11" height="11" rx="2" fill="#26a641" style="animation: scatter-c28 10s linear infinite;"/>
+  <rect x="455" y="61" width="11" height="11" rx="2" fill="#39d353" style="animation: scatter-c29 10s linear infinite;"/>
+  <rect x="468" y="61" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="481" y="61" width="11" height="11" rx="2" fill="#006d32" style="animation: scatter-c31 10s linear infinite;"/>
+  <rect x="494" y="61" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="507" y="61" width="11" height="11" rx="2" fill="#26a641" style="animation: scatter-c33 10s linear infinite;"/>
+  <rect x="520" y="61" width="11" height="11" rx="2" fill="#26a641" style="animation: scatter-c34 10s linear infinite;"/>
+  <rect x="533" y="61" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="546" y="61" width="11" height="11" rx="2" fill="#006d32" style="animation: scatter-c36 10s linear infinite;"/>
+  <rect x="559" y="61" width="11" height="11" rx="2" fill="#006d32" style="animation: scatter-c37 10s linear infinite;"/>
+  <rect x="572" y="61" width="11" height="11" rx="2" fill="#0e4429" style="animation: scatter-c38 10s linear infinite;"/>
+  <rect x="585" y="61" width="11" height="11" rx="2" fill="#26a641" style="animation: scatter-c39 10s linear infinite;"/>
+  <rect x="598" y="61" width="11" height="11" rx="2" fill="#0e4429" style="animation: scatter-c40 10s linear infinite;"/>
+  <rect x="611" y="61" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="624" y="61" width="11" height="11" rx="2" fill="#006d32" style="animation: scatter-c42 10s linear infinite;"/>
+  <rect x="637" y="61" width="11" height="11" rx="2" fill="#26a641" style="animation: scatter-c43 10s linear infinite;"/>
+  <rect x="650" y="61" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="663" y="61" width="11" height="11" rx="2" fill="#0e4429" style="animation: scatter-c45 10s linear infinite;"/>
+  <rect x="676" y="61" width="11" height="11" rx="2" fill="#39d353" style="animation: scatter-c46 10s linear infinite;"/>
+  <rect x="689" y="61" width="11" height="11" rx="2" fill="#006d32" style="animation: scatter-c47 10s linear infinite;"/>
+  <rect x="702" y="61" width="11" height="11" rx="2" fill="#0e4429" style="animation: scatter-c48 10s linear infinite;"/>
+  <rect x="715" y="61" width="11" height="11" rx="2" fill="#006d32" style="animation: scatter-c49 10s linear infinite;"/>
+  <rect x="728" y="61" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="741" y="61" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="78" y="74" width="11" height="11" rx="2" fill="#0e4429" style="animation: scatter-c0 10s linear infinite;"/>
+  <rect x="91" y="74" width="11" height="11" rx="2" fill="#006d32" style="animation: scatter-c1 10s linear infinite;"/>
+  <rect x="104" y="74" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="117" y="74" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="130" y="74" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="143" y="74" width="11" height="11" rx="2" fill="#006d32" style="animation: scatter-c5 10s linear infinite;"/>
+  <rect x="156" y="74" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="169" y="74" width="11" height="11" rx="2" fill="#39d353" style="animation: scatter-c7 10s linear infinite;"/>
+  <rect x="182" y="74" width="11" height="11" rx="2" fill="#26a641" style="animation: scatter-c8 10s linear infinite;"/>
+  <rect x="195" y="74" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="208" y="74" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="221" y="74" width="11" height="11" rx="2" fill="#006d32" style="animation: scatter-c11 10s linear infinite;"/>
+  <rect x="234" y="74" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="247" y="74" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="260" y="74" width="11" height="11" rx="2" fill="#39d353" style="animation: scatter-c14 10s linear infinite;"/>
+  <rect x="273" y="74" width="11" height="11" rx="2" fill="#006d32" style="animation: scatter-c15 10s linear infinite;"/>
+  <rect x="286" y="74" width="11" height="11" rx="2" fill="#006d32" style="animation: scatter-c16 10s linear infinite;"/>
+  <rect x="299" y="74" width="11" height="11" rx="2" fill="#26a641" style="animation: scatter-c17 10s linear infinite;"/>
+  <rect x="312" y="74" width="11" height="11" rx="2" fill="#26a641" style="animation: scatter-c18 10s linear infinite;"/>
+  <rect x="325" y="74" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="338" y="74" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="351" y="74" width="11" height="11" rx="2" fill="#0e4429" style="animation: scatter-c21 10s linear infinite;"/>
+  <rect x="364" y="74" width="11" height="11" rx="2" fill="#0e4429" style="animation: scatter-c22 10s linear infinite;"/>
+  <rect x="377" y="74" width="11" height="11" rx="2" fill="#006d32" style="animation: scatter-c23 10s linear infinite;"/>
+  <rect x="390" y="74" width="11" height="11" rx="2" fill="#26a641" style="animation: scatter-c24 10s linear infinite;"/>
+  <rect x="403" y="74" width="11" height="11" rx="2" fill="#006d32" style="animation: scatter-c25 10s linear infinite;"/>
+  <rect x="416" y="74" width="11" height="11" rx="2" fill="#39d353" style="animation: scatter-c26 10s linear infinite;"/>
+  <rect x="429" y="74" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="442" y="74" width="11" height="11" rx="2" fill="#0e4429" style="animation: scatter-c28 10s linear infinite;"/>
+  <rect x="455" y="74" width="11" height="11" rx="2" fill="#0e4429" style="animation: scatter-c29 10s linear infinite;"/>
+  <rect x="468" y="74" width="11" height="11" rx="2" fill="#26a641" style="animation: scatter-c30 10s linear infinite;"/>
+  <rect x="481" y="74" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="494" y="74" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="507" y="74" width="11" height="11" rx="2" fill="#0e4429" style="animation: scatter-c33 10s linear infinite;"/>
+  <rect x="520" y="74" width="11" height="11" rx="2" fill="#0e4429" style="animation: scatter-c34 10s linear infinite;"/>
+  <rect x="533" y="74" width="11" height="11" rx="2" fill="#0e4429" style="animation: scatter-c35 10s linear infinite;"/>
+  <rect x="546" y="74" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="559" y="74" width="11" height="11" rx="2" fill="#39d353" style="animation: scatter-c37 10s linear infinite;"/>
+  <rect x="572" y="74" width="11" height="11" rx="2" fill="#0e4429" style="animation: scatter-c38 10s linear infinite;"/>
+  <rect x="585" y="74" width="11" height="11" rx="2" fill="#26a641" style="animation: scatter-c39 10s linear infinite;"/>
+  <rect x="598" y="74" width="11" height="11" rx="2" fill="#006d32" style="animation: scatter-c40 10s linear infinite;"/>
+  <rect x="611" y="74" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="624" y="74" width="11" height="11" rx="2" fill="#39d353" style="animation: scatter-c42 10s linear infinite;"/>
+  <rect x="637" y="74" width="11" height="11" rx="2" fill="#26a641" style="animation: scatter-c43 10s linear infinite;"/>
+  <rect x="650" y="74" width="11" height="11" rx="2" fill="#39d353" style="animation: scatter-c44 10s linear infinite;"/>
+  <rect x="663" y="74" width="11" height="11" rx="2" fill="#39d353" style="animation: scatter-c45 10s linear infinite;"/>
+  <rect x="676" y="74" width="11" height="11" rx="2" fill="#26a641" style="animation: scatter-c46 10s linear infinite;"/>
+  <rect x="689" y="74" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="702" y="74" width="11" height="11" rx="2" fill="#006d32" style="animation: scatter-c48 10s linear infinite;"/>
+  <rect x="715" y="74" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="728" y="74" width="11" height="11" rx="2" fill="#0e4429" style="animation: scatter-c50 10s linear infinite;"/>
+  <rect x="741" y="74" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="78" y="87" width="11" height="11" rx="2" fill="#0e4429" style="animation: scatter-c0 10s linear infinite;"/>
+  <rect x="91" y="87" width="11" height="11" rx="2" fill="#39d353" style="animation: scatter-c1 10s linear infinite;"/>
+  <rect x="104" y="87" width="11" height="11" rx="2" fill="#0e4429" style="animation: scatter-c2 10s linear infinite;"/>
+  <rect x="117" y="87" width="11" height="11" rx="2" fill="#26a641" style="animation: scatter-c3 10s linear infinite;"/>
+  <rect x="130" y="87" width="11" height="11" rx="2" fill="#006d32" style="animation: scatter-c4 10s linear infinite;"/>
+  <rect x="143" y="87" width="11" height="11" rx="2" fill="#0e4429" style="animation: scatter-c5 10s linear infinite;"/>
+  <rect x="156" y="87" width="11" height="11" rx="2" fill="#39d353" style="animation: scatter-c6 10s linear infinite;"/>
+  <rect x="169" y="87" width="11" height="11" rx="2" fill="#39d353" style="animation: scatter-c7 10s linear infinite;"/>
+  <rect x="182" y="87" width="11" height="11" rx="2" fill="#006d32" style="animation: scatter-c8 10s linear infinite;"/>
+  <rect x="195" y="87" width="11" height="11" rx="2" fill="#26a641" style="animation: scatter-c9 10s linear infinite;"/>
+  <rect x="208" y="87" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="221" y="87" width="11" height="11" rx="2" fill="#0e4429" style="animation: scatter-c11 10s linear infinite;"/>
+  <rect x="234" y="87" width="11" height="11" rx="2" fill="#39d353" style="animation: scatter-c12 10s linear infinite;"/>
+  <rect x="247" y="87" width="11" height="11" rx="2" fill="#006d32" style="animation: scatter-c13 10s linear infinite;"/>
+  <rect x="260" y="87" width="11" height="11" rx="2" fill="#006d32" style="animation: scatter-c14 10s linear infinite;"/>
+  <rect x="273" y="87" width="11" height="11" rx="2" fill="#26a641" style="animation: scatter-c15 10s linear infinite;"/>
+  <rect x="286" y="87" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="299" y="87" width="11" height="11" rx="2" fill="#006d32" style="animation: scatter-c17 10s linear infinite;"/>
+  <rect x="312" y="87" width="11" height="11" rx="2" fill="#006d32" style="animation: scatter-c18 10s linear infinite;"/>
+  <rect x="325" y="87" width="11" height="11" rx="2" fill="#26a641" style="animation: scatter-c19 10s linear infinite;"/>
+  <rect x="338" y="87" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="351" y="87" width="11" height="11" rx="2" fill="#39d353" style="animation: scatter-c21 10s linear infinite;"/>
+  <rect x="364" y="87" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="377" y="87" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="390" y="87" width="11" height="11" rx="2" fill="#006d32" style="animation: scatter-c24 10s linear infinite;"/>
+  <rect x="403" y="87" width="11" height="11" rx="2" fill="#006d32" style="animation: scatter-c25 10s linear infinite;"/>
+  <rect x="416" y="87" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="429" y="87" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="442" y="87" width="11" height="11" rx="2" fill="#39d353" style="animation: scatter-c28 10s linear infinite;"/>
+  <rect x="455" y="87" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="468" y="87" width="11" height="11" rx="2" fill="#006d32" style="animation: scatter-c30 10s linear infinite;"/>
+  <rect x="481" y="87" width="11" height="11" rx="2" fill="#006d32" style="animation: scatter-c31 10s linear infinite;"/>
+  <rect x="494" y="87" width="11" height="11" rx="2" fill="#0e4429" style="animation: scatter-c32 10s linear infinite;"/>
+  <rect x="507" y="87" width="11" height="11" rx="2" fill="#006d32" style="animation: scatter-c33 10s linear infinite;"/>
+  <rect x="520" y="87" width="11" height="11" rx="2" fill="#006d32" style="animation: scatter-c34 10s linear infinite;"/>
+  <rect x="533" y="87" width="11" height="11" rx="2" fill="#39d353" style="animation: scatter-c35 10s linear infinite;"/>
+  <rect x="546" y="87" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="559" y="87" width="11" height="11" rx="2" fill="#26a641" style="animation: scatter-c37 10s linear infinite;"/>
+  <rect x="572" y="87" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="585" y="87" width="11" height="11" rx="2" fill="#0e4429" style="animation: scatter-c39 10s linear infinite;"/>
+  <rect x="598" y="87" width="11" height="11" rx="2" fill="#006d32" style="animation: scatter-c40 10s linear infinite;"/>
+  <rect x="611" y="87" width="11" height="11" rx="2" fill="#0e4429" style="animation: scatter-c41 10s linear infinite;"/>
+  <rect x="624" y="87" width="11" height="11" rx="2" fill="#0e4429" style="animation: scatter-c42 10s linear infinite;"/>
+  <rect x="637" y="87" width="11" height="11" rx="2" fill="#26a641" style="animation: scatter-c43 10s linear infinite;"/>
+  <rect x="650" y="87" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="663" y="87" width="11" height="11" rx="2" fill="#006d32" style="animation: scatter-c45 10s linear infinite;"/>
+  <rect x="676" y="87" width="11" height="11" rx="2" fill="#39d353" style="animation: scatter-c46 10s linear infinite;"/>
+  <rect x="689" y="87" width="11" height="11" rx="2" fill="#39d353" style="animation: scatter-c47 10s linear infinite;"/>
+  <rect x="702" y="87" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="715" y="87" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="728" y="87" width="11" height="11" rx="2" fill="#0e4429" style="animation: scatter-c50 10s linear infinite;"/>
+  <rect x="741" y="87" width="11" height="11" rx="2" fill="#39d353" style="animation: scatter-c51 10s linear infinite;"/>
+  <rect x="78" y="100" width="11" height="11" rx="2" fill="#39d353" style="animation: shake-c0 10s linear infinite;"/>
+  <rect x="91" y="100" width="11" height="11" rx="2" fill="#26a641" style="animation: shake-c1 10s linear infinite;"/>
+  <rect x="104" y="100" width="11" height="11" rx="2" fill="#0e4429" style="animation: shake-c2 10s linear infinite;"/>
+  <rect x="117" y="100" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="130" y="100" width="11" height="11" rx="2" fill="#26a641" style="animation: shake-c4 10s linear infinite;"/>
+  <rect x="143" y="100" width="11" height="11" rx="2" fill="#26a641" style="animation: shake-c5 10s linear infinite;"/>
+  <rect x="156" y="100" width="11" height="11" rx="2" fill="#006d32" style="animation: shake-c6 10s linear infinite;"/>
+  <rect x="169" y="100" width="11" height="11" rx="2" fill="#39d353" style="animation: shake-c7 10s linear infinite;"/>
+  <rect x="182" y="100" width="11" height="11" rx="2" fill="#006d32" style="animation: shake-c8 10s linear infinite;"/>
+  <rect x="195" y="100" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="208" y="100" width="11" height="11" rx="2" fill="#26a641" style="animation: shake-c10 10s linear infinite;"/>
+  <rect x="221" y="100" width="11" height="11" rx="2" fill="#0e4429" style="animation: shake-c11 10s linear infinite;"/>
+  <rect x="234" y="100" width="11" height="11" rx="2" fill="#006d32" style="animation: shake-c12 10s linear infinite;"/>
+  <rect x="247" y="100" width="11" height="11" rx="2" fill="#39d353" style="animation: shake-c13 10s linear infinite;"/>
+  <rect x="260" y="100" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="273" y="100" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="286" y="100" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="299" y="100" width="11" height="11" rx="2" fill="#006d32" style="animation: shake-c17 10s linear infinite;"/>
+  <rect x="312" y="100" width="11" height="11" rx="2" fill="#0e4429" style="animation: shake-c18 10s linear infinite;"/>
+  <rect x="325" y="100" width="11" height="11" rx="2" fill="#006d32" style="animation: shake-c19 10s linear infinite;"/>
+  <rect x="338" y="100" width="11" height="11" rx="2" fill="#26a641" style="animation: shake-c20 10s linear infinite;"/>
+  <rect x="351" y="100" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="364" y="100" width="11" height="11" rx="2" fill="#006d32" style="animation: shake-c22 10s linear infinite;"/>
+  <rect x="377" y="100" width="11" height="11" rx="2" fill="#0e4429" style="animation: shake-c23 10s linear infinite;"/>
+  <rect x="390" y="100" width="11" height="11" rx="2" fill="#006d32" style="animation: shake-c24 10s linear infinite;"/>
+  <rect x="403" y="100" width="11" height="11" rx="2" fill="#39d353" style="animation: shake-c25 10s linear infinite;"/>
+  <rect x="416" y="100" width="11" height="11" rx="2" fill="#26a641" style="animation: shake-c26 10s linear infinite;"/>
+  <rect x="429" y="100" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="442" y="100" width="11" height="11" rx="2" fill="#0e4429" style="animation: shake-c28 10s linear infinite;"/>
+  <rect x="455" y="100" width="11" height="11" rx="2" fill="#0e4429" style="animation: shake-c29 10s linear infinite;"/>
+  <rect x="468" y="100" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="481" y="100" width="11" height="11" rx="2" fill="#26a641" style="animation: shake-c31 10s linear infinite;"/>
+  <rect x="494" y="100" width="11" height="11" rx="2" fill="#006d32" style="animation: shake-c32 10s linear infinite;"/>
+  <rect x="507" y="100" width="11" height="11" rx="2" fill="#0e4429" style="animation: shake-c33 10s linear infinite;"/>
+  <rect x="520" y="100" width="11" height="11" rx="2" fill="#26a641" style="animation: shake-c34 10s linear infinite;"/>
+  <rect x="533" y="100" width="11" height="11" rx="2" fill="#006d32" style="animation: shake-c35 10s linear infinite;"/>
+  <rect x="546" y="100" width="11" height="11" rx="2" fill="#0e4429" style="animation: shake-c36 10s linear infinite;"/>
+  <rect x="559" y="100" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="572" y="100" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="585" y="100" width="11" height="11" rx="2" fill="#39d353" style="animation: shake-c39 10s linear infinite;"/>
+  <rect x="598" y="100" width="11" height="11" rx="2" fill="#39d353" style="animation: shake-c40 10s linear infinite;"/>
+  <rect x="611" y="100" width="11" height="11" rx="2" fill="#006d32" style="animation: shake-c41 10s linear infinite;"/>
+  <rect x="624" y="100" width="11" height="11" rx="2" fill="#26a641" style="animation: shake-c42 10s linear infinite;"/>
+  <rect x="637" y="100" width="11" height="11" rx="2" fill="#006d32" style="animation: shake-c43 10s linear infinite;"/>
+  <rect x="650" y="100" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="663" y="100" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="676" y="100" width="11" height="11" rx="2" fill="#0e4429" style="animation: shake-c46 10s linear infinite;"/>
+  <rect x="689" y="100" width="11" height="11" rx="2" fill="#39d353" style="animation: shake-c47 10s linear infinite;"/>
+  <rect x="702" y="100" width="11" height="11" rx="2" fill="#26a641" style="animation: shake-c48 10s linear infinite;"/>
+  <rect x="715" y="100" width="11" height="11" rx="2" fill="#26a641" style="animation: shake-c49 10s linear infinite;"/>
+  <rect x="728" y="100" width="11" height="11" rx="2" fill="#39d353" style="animation: shake-c50 10s linear infinite;"/>
+  <rect x="741" y="100" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="78" y="113" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="91" y="113" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="104" y="113" width="11" height="11" rx="2" fill="#26a641"/>
+  <rect x="117" y="113" width="11" height="11" rx="2" fill="#39d353"/>
+  <rect x="130" y="113" width="11" height="11" rx="2" fill="#0e4429"/>
+  <rect x="143" y="113" width="11" height="11" rx="2" fill="#006d32"/>
+  <rect x="156" y="113" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="169" y="113" width="11" height="11" rx="2" fill="#39d353"/>
+  <rect x="182" y="113" width="11" height="11" rx="2" fill="#26a641"/>
+  <rect x="195" y="113" width="11" height="11" rx="2" fill="#39d353"/>
+  <rect x="208" y="113" width="11" height="11" rx="2" fill="#26a641"/>
+  <rect x="221" y="113" width="11" height="11" rx="2" fill="#39d353"/>
+  <rect x="234" y="113" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="247" y="113" width="11" height="11" rx="2" fill="#26a641"/>
+  <rect x="260" y="113" width="11" height="11" rx="2" fill="#0e4429"/>
+  <rect x="273" y="113" width="11" height="11" rx="2" fill="#39d353"/>
+  <rect x="286" y="113" width="11" height="11" rx="2" fill="#26a641"/>
+  <rect x="299" y="113" width="11" height="11" rx="2" fill="#26a641"/>
+  <rect x="312" y="113" width="11" height="11" rx="2" fill="#26a641"/>
+  <rect x="325" y="113" width="11" height="11" rx="2" fill="#0e4429"/>
+  <rect x="338" y="113" width="11" height="11" rx="2" fill="#26a641"/>
+  <rect x="351" y="113" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="364" y="113" width="11" height="11" rx="2" fill="#26a641"/>
+  <rect x="377" y="113" width="11" height="11" rx="2" fill="#26a641"/>
+  <rect x="390" y="113" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="403" y="113" width="11" height="11" rx="2" fill="#26a641"/>
+  <rect x="416" y="113" width="11" height="11" rx="2" fill="#006d32"/>
+  <rect x="429" y="113" width="11" height="11" rx="2" fill="#0e4429"/>
+  <rect x="442" y="113" width="11" height="11" rx="2" fill="#26a641"/>
+  <rect x="455" y="113" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="468" y="113" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="481" y="113" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="494" y="113" width="11" height="11" rx="2" fill="#0e4429"/>
+  <rect x="507" y="113" width="11" height="11" rx="2" fill="#26a641"/>
+  <rect x="520" y="113" width="11" height="11" rx="2" fill="#39d353"/>
+  <rect x="533" y="113" width="11" height="11" rx="2" fill="#0e4429"/>
+  <rect x="546" y="113" width="11" height="11" rx="2" fill="#006d32"/>
+  <rect x="559" y="113" width="11" height="11" rx="2" fill="#0e4429"/>
+  <rect x="572" y="113" width="11" height="11" rx="2" fill="#39d353"/>
+  <rect x="585" y="113" width="11" height="11" rx="2" fill="#006d32"/>
+  <rect x="598" y="113" width="11" height="11" rx="2" fill="#39d353"/>
+  <rect x="611" y="113" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="624" y="113" width="11" height="11" rx="2" fill="#39d353"/>
+  <rect x="637" y="113" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="650" y="113" width="11" height="11" rx="2" fill="#39d353"/>
+  <rect x="663" y="113" width="11" height="11" rx="2" fill="#0e4429"/>
+  <rect x="676" y="113" width="11" height="11" rx="2" fill="#161b22"/>
+  <rect x="689" y="113" width="11" height="11" rx="2" fill="#0e4429"/>
+  <rect x="702" y="113" width="11" height="11" rx="2" fill="#26a641"/>
+  <rect x="715" y="113" width="11" height="11" rx="2" fill="#0e4429"/>
+  <rect x="728" y="113" width="11" height="11" rx="2" fill="#006d32"/>
+  <rect x="741" y="113" width="11" height="11" rx="2" fill="#006d32"/>
+</g>
+<!-- Tire marks -->
+<g class="tire-mark">
+  <line x1="78.0" y1="74" x2="752.0" y2="74" stroke="#333" stroke-width="2" stroke-dasharray="12,4" opacity="0.5"/>
+  <line x1="78.0" y1="92" x2="752.0" y2="92" stroke="#333" stroke-width="2" stroke-dasharray="12,4" opacity="0.5"/>
+</g>
+<!-- Drift Car -->
+<g class="car" filter="url(#glow)">
+  <!-- Car shadow -->
+  <ellipse cx="78" cy="105" rx="65" ry="5" fill="#000" opacity="0.4"/>
 
-  <!-- Drift tire marks -->
-  <g filter="url(#glow)" opacity="0">
-    <path d="M 50,162 Q 150,158 250,160 T 450,155" stroke="#00ff00" stroke-width="2" fill="none" opacity="0.3" stroke-dasharray="8,4"/>
-    <path d="M 60,168 Q 160,164 260,166 T 460,161" stroke="#00ff00" stroke-width="2" fill="none" opacity="0.2" stroke-dasharray="6,6"/>
-    <animate attributeName="opacity" values="0;0;0.6;0.4;0" dur="6s" repeatCount="indefinite" keyTimes="0;0.3;0.5;0.8;1"/>
-  </g>
+  <!-- Car body (sports car / drift car silhouette) -->
+  <path d="
+    M 8,95
+    L 5,91
+    L 3,85
+    L 8,81
+    L 18,77
+    L 28,73
+    L 38,69
+    L 52,65
+    L 58,61
+    L 70,57
+    L 90,55
+    L 108,57
+    L 118,61
+    L 125,67
+    L 132,73
+    L 140,77
+    L 148,81
+    L 155,83
+    L 158,87
+    L 158,93
+    L 155,97
+    L 148,99
+    L 140,101
+    L 20,101
+    L 10,99
+    Z
+  " fill="#161b22" stroke="#00ff00" stroke-width="1.2" opacity="0.95"/>
 
-  <!-- Smoke particles behind car -->
-  <g opacity="0">
-    <ellipse cx="0" cy="150" rx="30" ry="15" fill="url(#smoke-grad)">
-      <animate attributeName="cx" values="350;300;250" dur="6s" repeatCount="indefinite"/>
-      <animate attributeName="rx" values="20;40;60" dur="6s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="0;0.4;0" dur="6s" repeatCount="indefinite"/>
-    </ellipse>
-    <ellipse cx="0" cy="155" rx="25" ry="12" fill="url(#smoke-grad)">
-      <animate attributeName="cx" values="370;310;240" dur="6s" repeatCount="indefinite" begin="0.3s"/>
-      <animate attributeName="rx" values="15;35;55" dur="6s" repeatCount="indefinite" begin="0.3s"/>
-      <animate attributeName="opacity" values="0;0.3;0" dur="6s" repeatCount="indefinite" begin="0.3s"/>
-    </ellipse>
-    <animate attributeName="opacity" values="0;0;1;1;0" dur="6s" repeatCount="indefinite" keyTimes="0;0.2;0.4;0.8;1"/>
-  </g>
+  <!-- Lower body panel / side skirt -->
+  <path d="
+    M 15,95
+    L 20,101
+    L 140,101
+    L 148,95
+    Z
+  " fill="#0d1117" stroke="#00ff00" stroke-width="0.6" opacity="0.8"/>
 
-  <!-- ===== DRIFT CAR (side view, angled for drift) ===== -->
-  <g filter="url(#glow)">
-    <animateTransform attributeName="transform" type="translate" values="-200,0; 400,0; 900,0" dur="6s" repeatCount="indefinite" keyTimes="0;0.5;1"/>
+  <!-- Hood -->
+  <path d="
+    M 8,81
+    L 18,77
+    L 38,69
+    L 52,67
+  " fill="none" stroke="#00ff00" stroke-width="0.8" opacity="0.5"/>
 
-    <!-- Car body rotation for drift angle -->
-    <g transform="rotate(-8, 400, 145)">
-      <!-- Car underbody / shadow -->
-      <rect x="355" y="148" width="95" height="4" rx="2" fill="#00ff00" opacity="0.1"/>
+  <!-- Hood scoop / vent -->
+  <rect x="25" y="73" width="18" height="3" rx="1.5" fill="#0d1117" stroke="#00ff00" stroke-width="0.5" opacity="0.6"/>
 
-      <!-- Main body -->
-      <path d="M 360,148 L 365,132 L 380,124 L 415,122 L 435,126 L 445,132 L 450,148 Z"
-            fill="none" stroke="#00ff00" stroke-width="1.5" opacity="0.9"/>
+  <!-- Windshield -->
+  <path d="
+    M 52,65
+    L 58,61
+    L 70,57
+    L 90,56
+    L 90,67
+    L 52,67
+    Z
+  " fill="#0a1628" stroke="#00ff00" stroke-width="0.8" opacity="0.7"/>
 
-      <!-- Roof line -->
-      <path d="M 382,124 L 388,116 L 420,116 L 430,124"
-            fill="none" stroke="#00ff00" stroke-width="1.5" opacity="0.8"/>
+  <!-- Roof -->
+  <path d="
+    M 90,55
+    L 108,57
+    L 118,61
+    L 90,56
+  " fill="#1a1f2e" stroke="#00ff00" stroke-width="0.6" opacity="0.6"/>
 
-      <!-- Windshield -->
-      <path d="M 382,124 L 388,116" stroke="#00ff00" stroke-width="1" opacity="0.5"/>
-      <path d="M 430,124 L 420,116" stroke="#00ff00" stroke-width="1" opacity="0.5"/>
+  <!-- Rear window -->
+  <path d="
+    M 108,58
+    L 118,61
+    L 125,67
+    L 130,71
+    L 108,67
+    Z
+  " fill="#0a1628" stroke="#00ff00" stroke-width="0.8" opacity="0.6"/>
 
-      <!-- Window glass hint -->
-      <path d="M 384,123 L 389,117 L 419,117 L 428,123 Z" fill="#00ff00" opacity="0.05"/>
+  <!-- Side window -->
+  <path d="
+    M 55,65
+    L 58,62
+    L 68,58
+    L 88,57
+    L 106,58
+    L 115,62
+    L 122,67
+    L 55,67
+    Z
+  " fill="#0a1628" opacity="0.5"/>
+  <!-- Window divider (B-pillar) -->
+  <line x1="88" y1="57" x2="88" y2="67" stroke="#00ff00" stroke-width="0.8" opacity="0.4"/>
 
-      <!-- Hood detail -->
-      <line x1="370" y1="130" x2="380" y2="124" stroke="#00ff00" stroke-width="0.8" opacity="0.4"/>
+  <!-- Door line -->
+  <line x1="85" y1="67" x2="88" y2="99" stroke="#00ff00" stroke-width="0.5" opacity="0.3"/>
 
-      <!-- Trunk detail -->
-      <line x1="440" y1="130" x2="435" y2="126" stroke="#00ff00" stroke-width="0.8" opacity="0.4"/>
+  <!-- Rear spoiler -->
+  <path d="
+    M 138,71
+    L 160,71
+    L 162,69
+    L 162,67
+    L 158,67
+    L 155,69
+    L 138,71
+  " fill="#161b22" stroke="#00ff00" stroke-width="1" opacity="0.9"/>
+  <!-- Spoiler stand -->
+  <line x1="142" y1="71" x2="140" y2="77" stroke="#00ff00" stroke-width="1" opacity="0.7"/>
+  <line x1="155" y1="70" x2="153" y2="77" stroke="#00ff00" stroke-width="1" opacity="0.7"/>
 
-      <!-- Headlights -->
-      <rect x="357" y="136" width="4" height="3" rx="1" fill="#00ff00" opacity="0.9">
-        <animate attributeName="opacity" values="0.9;1;0.9" dur="0.5s" repeatCount="indefinite"/>
-      </rect>
+  <!-- Side mirror -->
+  <ellipse cx="50" cy="65" rx="4" ry="2.5" fill="#161b22" stroke="#00ff00" stroke-width="0.6"/>
 
-      <!-- Taillights -->
-      <rect x="448" y="136" width="4" height="3" rx="1" fill="#ff0040" opacity="0.8">
-        <animate attributeName="opacity" values="0.8;1;0.6;1" dur="0.3s" repeatCount="indefinite"/>
-      </rect>
+  <!-- Headlights -->
+  <path d="M 3,85 L 8,81 L 12,83 L 8,88 Z" fill="#00ff00" opacity="0.95">
+    <animate attributeName="opacity" values="0.95;1;0.8;1;0.95" dur="1.5s" repeatCount="indefinite"/>
+  </path>
+  <!-- Headlight beam -->
+  <path d="M 3,84 L -15,79 L -15,91 L 3,88 Z" fill="#00ff00" opacity="0.08"/>
 
-      <!-- Front wheel -->
-      <circle cx="378" cy="152" r="8" fill="none" stroke="#00ff00" stroke-width="1.5" opacity="0.8"/>
-      <circle cx="378" cy="152" r="4" fill="none" stroke="#00ff00" stroke-width="0.8" opacity="0.4"/>
-      <!-- Wheel spin -->
-      <line x1="374" y1="152" x2="382" y2="152" stroke="#00ff00" stroke-width="0.5" opacity="0.3">
-        <animateTransform attributeName="transform" type="rotate" from="0 378 152" to="360 378 152" dur="0.3s" repeatCount="indefinite"/>
+  <!-- Taillights -->
+  <rect x="155" y="85" width="4" height="8" rx="1" fill="#ff0033" opacity="0.9">
+    <animate attributeName="opacity" values="0.9;1;0.5;1;0.9" dur="0.4s" repeatCount="indefinite"/>
+  </rect>
+
+  <!-- Front wheel arch -->
+  <path d="M 15,95 Q 15,85 28,85 L 42,85 Q 52,85 52,95" fill="none" stroke="#00ff00" stroke-width="0.8" opacity="0.6"/>
+
+  <!-- Rear wheel arch -->
+  <path d="M 110,95 Q 110,85 122,85 L 136,85 Q 146,85 146,95" fill="none" stroke="#00ff00" stroke-width="0.8" opacity="0.6"/>
+
+  <!-- Front wheel -->
+  <g>
+    <circle cx="33" cy="99" r="11" fill="#111" stroke="#444" stroke-width="1.5"/>
+    <circle cx="33" cy="99" r="8" fill="none" stroke="#00ff00" stroke-width="0.8" opacity="0.6"/>
+    <circle cx="33" cy="99" r="4" fill="#222" stroke="#00ff00" stroke-width="0.5"/>
+    <!-- Spokes -->
+    <g opacity="0.5">
+      <line x1="33" y1="89" x2="33" y2="109" stroke="#00ff00" stroke-width="0.5">
+        <animateTransform attributeName="transform" type="rotate" from="0 33 99" to="360 33 99" dur="0.25s" repeatCount="indefinite"/>
       </line>
-
-      <!-- Rear wheel -->
-      <circle cx="432" cy="152" r="8" fill="none" stroke="#00ff00" stroke-width="1.5" opacity="0.8"/>
-      <circle cx="432" cy="152" r="4" fill="none" stroke="#00ff00" stroke-width="0.8" opacity="0.4"/>
-      <!-- Wheel spin (slower - drifting) -->
-      <line x1="428" y1="152" x2="436" y2="152" stroke="#00ff00" stroke-width="0.5" opacity="0.3">
-        <animateTransform attributeName="transform" type="rotate" from="0 432 152" to="360 432 152" dur="0.15s" repeatCount="indefinite"/>
+      <line x1="23" y1="99" x2="43" y2="99" stroke="#00ff00" stroke-width="0.5">
+        <animateTransform attributeName="transform" type="rotate" from="0 33 99" to="360 33 99" dur="0.25s" repeatCount="indefinite"/>
       </line>
-
-      <!-- Speed lines -->
-      <g opacity="0.4">
-        <line x1="455" y1="130" x2="475" y2="130" stroke="#00ff00" stroke-width="0.8">
-          <animate attributeName="x2" values="475;485;475" dur="0.4s" repeatCount="indefinite"/>
-          <animate attributeName="opacity" values="0.4;0.1;0.4" dur="0.4s" repeatCount="indefinite"/>
-        </line>
-        <line x1="455" y1="138" x2="480" y2="138" stroke="#00ff00" stroke-width="0.8">
-          <animate attributeName="x2" values="480;495;480" dur="0.35s" repeatCount="indefinite"/>
-          <animate attributeName="opacity" values="0.3;0.1;0.3" dur="0.35s" repeatCount="indefinite"/>
-        </line>
-        <line x1="455" y1="146" x2="470" y2="146" stroke="#00ff00" stroke-width="0.8">
-          <animate attributeName="x2" values="470;482;470" dur="0.45s" repeatCount="indefinite"/>
-          <animate attributeName="opacity" values="0.35;0.1;0.35" dur="0.45s" repeatCount="indefinite"/>
-        </line>
-      </g>
     </g>
+    <!-- Tire tread -->
+    <circle cx="33" cy="99" r="11" fill="none" stroke="#333" stroke-width="2" stroke-dasharray="2,2">
+      <animateTransform attributeName="transform" type="rotate" from="0 33 99" to="360 33 99" dur="0.2s" repeatCount="indefinite"/>
+    </circle>
   </g>
 
-  <!-- Ground sparks -->
-  <g opacity="0">
-    <circle cx="0" cy="162" r="1" fill="#00ff00">
-      <animate attributeName="cx" values="420;415;405" dur="0.5s" repeatCount="indefinite"/>
-      <animate attributeName="cy" values="162;158;155" dur="0.5s" repeatCount="indefinite"/>
-      <animate attributeName="opacity" values="1;0" dur="0.5s" repeatCount="indefinite"/>
+  <!-- Rear wheel -->
+  <g>
+    <circle cx="128" cy="99" r="11" fill="#111" stroke="#444" stroke-width="1.5"/>
+    <circle cx="128" cy="99" r="8" fill="none" stroke="#00ff00" stroke-width="0.8" opacity="0.6"/>
+    <circle cx="128" cy="99" r="4" fill="#222" stroke="#00ff00" stroke-width="0.5"/>
+    <!-- Spokes (spinning faster - drift) -->
+    <g opacity="0.5">
+      <line x1="128" y1="89" x2="128" y2="109" stroke="#00ff00" stroke-width="0.5">
+        <animateTransform attributeName="transform" type="rotate" from="0 128 99" to="360 128 99" dur="0.12s" repeatCount="indefinite"/>
+      </line>
+      <line x1="118" y1="99" x2="138" y2="99" stroke="#00ff00" stroke-width="0.5">
+        <animateTransform attributeName="transform" type="rotate" from="0 128 99" to="360 128 99" dur="0.12s" repeatCount="indefinite"/>
+      </line>
+    </g>
+    <circle cx="128" cy="99" r="11" fill="none" stroke="#333" stroke-width="2" stroke-dasharray="2,2">
+      <animateTransform attributeName="transform" type="rotate" from="0 128 99" to="360 128 99" dur="0.1s" repeatCount="indefinite"/>
     </circle>
-    <circle cx="0" cy="162" r="1" fill="#00ff00">
-      <animate attributeName="cx" values="425;418;410" dur="0.4s" repeatCount="indefinite" begin="0.2s"/>
-      <animate attributeName="cy" values="162;156;150" dur="0.4s" repeatCount="indefinite" begin="0.2s"/>
-      <animate attributeName="opacity" values="1;0" dur="0.4s" repeatCount="indefinite" begin="0.2s"/>
-    </circle>
-    <circle cx="0" cy="162" r="0.8" fill="#ffffff">
-      <animate attributeName="cx" values="422;412;400" dur="0.35s" repeatCount="indefinite" begin="0.1s"/>
-      <animate attributeName="cy" values="162;154;148" dur="0.35s" repeatCount="indefinite" begin="0.1s"/>
-      <animate attributeName="opacity" values="0.8;0" dur="0.35s" repeatCount="indefinite" begin="0.1s"/>
-    </circle>
-    <animate attributeName="opacity" values="0;0;1;1;0" dur="6s" repeatCount="indefinite" keyTimes="0;0.25;0.4;0.7;0.85"/>
   </g>
 
-  <!-- DRIFT text that appears -->
-  <text x="400" y="80" text-anchor="middle" font-family="monospace" font-size="32" font-weight="bold" fill="#00ff00" filter="url(#glow-strong)" opacity="0">
-    DRIFT
-    <animate attributeName="opacity" values="0;0;0.8;0.8;0" dur="6s" repeatCount="indefinite" keyTimes="0;0.35;0.45;0.7;0.85"/>
-  </text>
-
-  <!-- Scanline effect overlay -->
-  <g opacity="0.03">
-    <line x1="0" y1="0" x2="800" y2="0" stroke="#00ff00" stroke-width="1"/>
-    <line x1="0" y1="4" x2="800" y2="4" stroke="#00ff00" stroke-width="1"/>
-    <line x1="0" y1="8" x2="800" y2="8" stroke="#00ff00" stroke-width="1"/>
-    <line x1="0" y1="12" x2="800" y2="12" stroke="#00ff00" stroke-width="1"/>
-    <line x1="0" y1="16" x2="800" y2="16" stroke="#00ff00" stroke-width="1"/>
-    <line x1="0" y1="20" x2="800" y2="20" stroke="#00ff00" stroke-width="1"/>
-    <line x1="0" y1="24" x2="800" y2="24" stroke="#00ff00" stroke-width="1"/>
-    <line x1="0" y1="28" x2="800" y2="28" stroke="#00ff00" stroke-width="1"/>
-    <line x1="0" y1="32" x2="800" y2="32" stroke="#00ff00" stroke-width="1"/>
-    <line x1="0" y1="36" x2="800" y2="36" stroke="#00ff00" stroke-width="1"/>
-    <line x1="0" y1="40" x2="800" y2="40" stroke="#00ff00" stroke-width="1"/>
-    <line x1="0" y1="44" x2="800" y2="44" stroke="#00ff00" stroke-width="1"/>
-    <line x1="0" y1="48" x2="800" y2="48" stroke="#00ff00" stroke-width="1"/>
-    <line x1="0" y1="52" x2="800" y2="52" stroke="#00ff00" stroke-width="1"/>
-    <line x1="0" y1="56" x2="800" y2="56" stroke="#00ff00" stroke-width="1"/>
-    <line x1="0" y1="60" x2="800" y2="60" stroke="#00ff00" stroke-width="1"/>
-    <line x1="0" y1="64" x2="800" y2="64" stroke="#00ff00" stroke-width="1"/>
-    <line x1="0" y1="68" x2="800" y2="68" stroke="#00ff00" stroke-width="1"/>
-    <line x1="0" y1="72" x2="800" y2="72" stroke="#00ff00" stroke-width="1"/>
-    <line x1="0" y1="76" x2="800" y2="76" stroke="#00ff00" stroke-width="1"/>
-    <line x1="0" y1="80" x2="800" y2="80" stroke="#00ff00" stroke-width="1"/>
-    <line x1="0" y1="84" x2="800" y2="84" stroke="#00ff00" stroke-width="1"/>
-    <line x1="0" y1="88" x2="800" y2="88" stroke="#00ff00" stroke-width="1"/>
-    <line x1="0" y1="92" x2="800" y2="92" stroke="#00ff00" stroke-width="1"/>
-    <line x1="0" y1="96" x2="800" y2="96" stroke="#00ff00" stroke-width="1"/>
-    <line x1="0" y1="100" x2="800" y2="100" stroke="#00ff00" stroke-width="1"/>
-    <line x1="0" y1="104" x2="800" y2="104" stroke="#00ff00" stroke-width="1"/>
-    <line x1="0" y1="108" x2="800" y2="108" stroke="#00ff00" stroke-width="1"/>
-    <line x1="0" y1="112" x2="800" y2="112" stroke="#00ff00" stroke-width="1"/>
-    <line x1="0" y1="116" x2="800" y2="116" stroke="#00ff00" stroke-width="1"/>
-    <line x1="0" y1="120" x2="800" y2="120" stroke="#00ff00" stroke-width="1"/>
-    <line x1="0" y1="124" x2="800" y2="124" stroke="#00ff00" stroke-width="1"/>
-    <line x1="0" y1="128" x2="800" y2="128" stroke="#00ff00" stroke-width="1"/>
-    <line x1="0" y1="132" x2="800" y2="132" stroke="#00ff00" stroke-width="1"/>
-    <line x1="0" y1="136" x2="800" y2="136" stroke="#00ff00" stroke-width="1"/>
-    <line x1="0" y1="140" x2="800" y2="140" stroke="#00ff00" stroke-width="1"/>
-    <line x1="0" y1="144" x2="800" y2="144" stroke="#00ff00" stroke-width="1"/>
-    <line x1="0" y1="148" x2="800" y2="148" stroke="#00ff00" stroke-width="1"/>
-    <line x1="0" y1="152" x2="800" y2="152" stroke="#00ff00" stroke-width="1"/>
-    <line x1="0" y1="156" x2="800" y2="156" stroke="#00ff00" stroke-width="1"/>
-    <line x1="0" y1="160" x2="800" y2="160" stroke="#00ff00" stroke-width="1"/>
-    <line x1="0" y1="164" x2="800" y2="164" stroke="#00ff00" stroke-width="1"/>
-    <line x1="0" y1="168" x2="800" y2="168" stroke="#00ff00" stroke-width="1"/>
-    <line x1="0" y1="172" x2="800" y2="172" stroke="#00ff00" stroke-width="1"/>
-    <line x1="0" y1="176" x2="800" y2="176" stroke="#00ff00" stroke-width="1"/>
-    <line x1="0" y1="180" x2="800" y2="180" stroke="#00ff00" stroke-width="1"/>
-    <line x1="0" y1="184" x2="800" y2="184" stroke="#00ff00" stroke-width="1"/>
-    <line x1="0" y1="188" x2="800" y2="188" stroke="#00ff00" stroke-width="1"/>
-    <line x1="0" y1="192" x2="800" y2="192" stroke="#00ff00" stroke-width="1"/>
-    <line x1="0" y1="196" x2="800" y2="196" stroke="#00ff00" stroke-width="1"/>
+  <!-- Exhaust smoke puffs -->
+  <g class="smoke">
+    <circle cx="162" cy="95" r="4" fill="#00ff00" opacity="0.08">
+      <animate attributeName="cx" values="162;175;190" dur="1.2s" repeatCount="indefinite"/>
+      <animate attributeName="r" values="3;8;14" dur="1.2s" repeatCount="indefinite"/>
+      <animate attributeName="opacity" values="0.12;0.06;0" dur="1.2s" repeatCount="indefinite"/>
+    </circle>
+    <circle cx="162" cy="97" r="3" fill="#00ff00" opacity="0.06">
+      <animate attributeName="cx" values="162;178;195" dur="1.5s" repeatCount="indefinite" begin="0.4s"/>
+      <animate attributeName="r" values="2;7;12" dur="1.5s" repeatCount="indefinite" begin="0.4s"/>
+      <animate attributeName="opacity" values="0.1;0.05;0" dur="1.5s" repeatCount="indefinite" begin="0.4s"/>
+    </circle>
+    <circle cx="162" cy="93" r="2" fill="#555" opacity="0.1">
+      <animate attributeName="cx" values="162;172;185" dur="1s" repeatCount="indefinite" begin="0.7s"/>
+      <animate attributeName="r" values="2;6;10" dur="1s" repeatCount="indefinite" begin="0.7s"/>
+      <animate attributeName="opacity" values="0.1;0.04;0" dur="1s" repeatCount="indefinite" begin="0.7s"/>
+    </circle>
   </g>
+
+  <!-- Speed lines next to car -->
+  <g opacity="0.3">
+    <line x1="165" y1="75" x2="185" y2="75" stroke="#00ff00" stroke-width="0.8">
+      <animate attributeName="x2" values="185;195;185" dur="0.3s" repeatCount="indefinite"/>
+    </line>
+    <line x1="165" y1="83" x2="190" y2="83" stroke="#00ff00" stroke-width="0.8">
+      <animate attributeName="x2" values="190;200;190" dur="0.25s" repeatCount="indefinite"/>
+    </line>
+    <line x1="165" y1="91" x2="182" y2="91" stroke="#00ff00" stroke-width="0.8">
+      <animate attributeName="x2" values="182;194;182" dur="0.35s" repeatCount="indefinite"/>
+    </line>
+  </g>
+</g>
+
+<!-- Profile text -->
+<text x="415.0" y="222" text-anchor="middle" font-family="'Fira Code', monospace" font-size="11" fill="#00ff00" opacity="0.4">kblankk &gt; drifting through code...</text>
+
 </svg>
