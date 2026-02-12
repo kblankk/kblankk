@@ -63,12 +63,12 @@
 ### <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Bar%20Chart.png" width="25" /> `GitHub Analytics`
 
 <div align="center">
-  <img height="180em" src="https://github-readme-streak-stats.herokuapp.com/?user=kblankk&theme=dark&background=0d1117&ring=0096ff&fire=0096ff&currStreakLabel=0096ff&sideLabels=0096ff&border=0d1117&currStreakNum=c9d1d9&sideNums=c9d1d9&dates=555555&hide_border=true"/>
+  <img width="70%" src="https://github-readme-streak-stats.herokuapp.com/?user=kblankk&theme=dark&background=0d1117&ring=0096ff&fire=0096ff&currStreakLabel=0096ff&sideLabels=0096ff&border=0d1117&currStreakNum=c9d1d9&sideNums=c9d1d9&dates=555555&hide_border=true"/>
 </div>
 
 <div align="center">
 
-[![Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=kblankk&bg_color=0d1117&color=0096ff&line=0096ff&point=ffffff&area_color=0d1117&area=true&hide_border=true&custom_title=Kaw%C3%A3%20Oliveira's%20Contribution%20Graph)](https://github.com/ashutosh00710/github-readme-activity-graph)
+<a href="https://github.com/ashutosh00710/github-readme-activity-graph"><img width="90%" src="https://github-readme-activity-graph.vercel.app/graph?username=kblankk&bg_color=0d1117&color=0096ff&line=0096ff&point=ffffff&area_color=0d1117&area=true&hide_border=true&custom_title=Kaw%C3%A3%20Oliveira's%20Contribution%20Graph"/></a>
 
 </div>
 
@@ -78,7 +78,7 @@
 
 <div align="center">
 
-[![LinkedIn](https://img.shields.io/badge/Kawã_Oliveira-0d1117?style=for-the-badge&logo=linkedin&logoColor=0096ff)](https://www.linkedin.com/in/kaw%C3%A3-oliveira-80303a368/)
+[![LinkedIn](https://img.shields.io/badge/Kawã_Oliveira-0d1117?style=for-the-badge&logo=linkedin&logoColor=0A66C2)](https://www.linkedin.com/in/kaw%C3%A3-oliveira-80303a368/)
 [![Instagram](https://img.shields.io/badge/@olvkawa-0d1117?style=for-the-badge&logo=instagram&logoColor=0096ff)](https://instagram.com/olvkawa)
 [![Discord](https://img.shields.io/badge/_kblank-0d1117?style=for-the-badge&logo=discord&logoColor=0096ff)](https://discordapp.com/users/_kblank)
 [![Gmail](https://img.shields.io/badge/kawabrein@gmail.com-0d1117?style=for-the-badge&logo=gmail&logoColor=0096ff)](mailto:kawabrein@gmail.com)
