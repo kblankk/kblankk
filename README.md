@@ -5,6 +5,13 @@
 
 <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&duration=4000&pause=1000&color=0096FF&center=true&vCenter=true&random=false&width=500&lines=Always+learning+new+things...;Building+cool+stuff;Open+source+enthusiast" alt="Typing SVG" /></a>
 
+<br/>
+
+<a href="https://www.linkedin.com/in/kaw%C3%A3-oliveira-80303a368/"><img src="https://img.shields.io/badge/Kawã_Oliveira-0d1117?style=for-the-badge&logo=linkedin&logoColor=0096ff"/></a>
+<a href="https://instagram.com/olvkawa"><img src="https://img.shields.io/badge/@olvkawa-0d1117?style=for-the-badge&logo=instagram&logoColor=0096ff"/></a>
+<a href="https://discordapp.com/users/_kblank"><img src="https://img.shields.io/badge/_kblank-0d1117?style=for-the-badge&logo=discord&logoColor=0096ff"/></a>
+<a href="mailto:kawabrein@gmail.com"><img src="https://img.shields.io/badge/kawabrein@gmail.com-0d1117?style=for-the-badge&logo=gmail&logoColor=0096ff"/></a>
+
 </div>
 
 ---
@@ -69,19 +76,6 @@
 <div align="center">
 
 <a href="https://github.com/ashutosh00710/github-readme-activity-graph"><img width="90%" src="https://github-readme-activity-graph.vercel.app/graph?username=kblankk&bg_color=0d1117&color=0096ff&line=0096ff&point=ffffff&area_color=0d1117&area=true&hide_border=true&custom_title=Kaw%C3%A3%20Oliveira's%20Contribution%20Graph"/></a>
-
-</div>
-
----
-
-### `Contact`
-
-<div align="center">
-
-[![LinkedIn](https://img.shields.io/badge/Kawã_Oliveira-0d1117?style=for-the-badge&logo=linkedin&logoColor=0A66C2)](https://www.linkedin.com/in/kaw%C3%A3-oliveira-80303a368/)
-[![Instagram](https://img.shields.io/badge/@olvkawa-0d1117?style=for-the-badge&logo=instagram&logoColor=0096ff)](https://instagram.com/olvkawa)
-[![Discord](https://img.shields.io/badge/_kblank-0d1117?style=for-the-badge&logo=discord&logoColor=0096ff)](https://discordapp.com/users/_kblank)
-[![Gmail](https://img.shields.io/badge/kawabrein@gmail.com-0d1117?style=for-the-badge&logo=gmail&logoColor=0096ff)](mailto:kawabrein@gmail.com)
 
 </div>
 
