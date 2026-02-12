@@ -36,24 +36,24 @@
 
 #### `// Languages`
 
-<img height="35" src="https://img.shields.io/badge/Python-0d1117?style=for-the-badge&logo=python&logoColor=0096ff"/>
-<img height="35" src="https://img.shields.io/badge/C%23-0d1117?style=for-the-badge&logo=csharp&logoColor=0096ff"/>
-<img height="35" src="https://img.shields.io/badge/TypeScript-0d1117?style=for-the-badge&logo=typescript&logoColor=0096ff"/>
-<img height="35" src="https://img.shields.io/badge/HTML5-0d1117?style=for-the-badge&logo=html5&logoColor=0096ff"/>
-<img height="35" src="https://img.shields.io/badge/CSS3-0d1117?style=for-the-badge&logo=css3&logoColor=0096ff"/>
+<img height="45" src="https://img.shields.io/badge/Python-0d1117?style=for-the-badge&logo=python&logoColor=0096ff"/>
+<img height="45" src="https://img.shields.io/badge/C%23-0d1117?style=for-the-badge&logo=csharp&logoColor=0096ff"/>
+<img height="45" src="https://img.shields.io/badge/TypeScript-0d1117?style=for-the-badge&logo=typescript&logoColor=0096ff"/>
+<img height="45" src="https://img.shields.io/badge/HTML5-0d1117?style=for-the-badge&logo=html5&logoColor=0096ff"/>
+<img height="45" src="https://img.shields.io/badge/CSS3-0d1117?style=for-the-badge&logo=css3&logoColor=0096ff"/>
 
 #### `// Frameworks & Libraries`
 
-<img height="35" src="https://img.shields.io/badge/.NET-0d1117?style=for-the-badge&logo=dotnet&logoColor=0096ff"/>
-<img height="35" src="https://img.shields.io/badge/Node.js-0d1117?style=for-the-badge&logo=node.js&logoColor=0096ff"/>
+<img height="45" src="https://img.shields.io/badge/.NET-0d1117?style=for-the-badge&logo=dotnet&logoColor=0096ff"/>
+<img height="45" src="https://img.shields.io/badge/Node.js-0d1117?style=for-the-badge&logo=node.js&logoColor=0096ff"/>
 
 
 #### `// Tools & Platforms`
 
-<img height="35" src="https://img.shields.io/badge/Git-0d1117?style=for-the-badge&logo=git&logoColor=0096ff"/>
-<img height="35" src="https://img.shields.io/badge/GitHub-0d1117?style=for-the-badge&logo=github&logoColor=0096ff"/>
-<img height="35" src="https://img.shields.io/badge/VS_Code-0d1117?style=for-the-badge&logo=visualstudiocode&logoColor=0096ff"/>
-<img height="35" src="https://img.shields.io/badge/Docker-0d1117?style=for-the-badge&logo=docker&logoColor=0096ff"/>
+<img height="45" src="https://img.shields.io/badge/Git-0d1117?style=for-the-badge&logo=git&logoColor=0096ff"/>
+<img height="45" src="https://img.shields.io/badge/GitHub-0d1117?style=for-the-badge&logo=github&logoColor=0096ff"/>
+<img height="45" src="https://img.shields.io/badge/VS_Code-0d1117?style=for-the-badge&logo=visualstudiocode&logoColor=0096ff"/>
+<img height="45" src="https://img.shields.io/badge/Docker-0d1117?style=for-the-badge&logo=docker&logoColor=0096ff"/>
 
 
 </div>
