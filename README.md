@@ -12,7 +12,7 @@
 ---
 
 <!-- ABOUT ME -->
-### `> ./about.sh`
+### `About`
 
 ```bash
 ┌──[kblankk@github]─[~/about-me]
@@ -32,7 +32,7 @@
 
 ---
 
-### `> ls ~/tech-stack/`
+### `Tech Stack`
 
 <div align="center">
 
@@ -62,7 +62,7 @@
 
 ---
 
-### `> ./stats.sh`
+### `Stats`
 
 <div align="center">
   <img height="170em" src="https://github-readme-stats.vercel.app/api?username=kblankk&show_icons=true&theme=radical&bg_color=0d1117&title_color=ff0000&icon_color=ff0000&text_color=c9d1d9&border_color=ff0000&hide_border=false&include_all_commits=true&count_private=true"/>
@@ -73,10 +73,6 @@
   <img height="170em" src="https://github-readme-streak-stats.herokuapp.com/?user=kblankk&theme=dark&background=0d1117&ring=ff0000&fire=ff0000&currStreakLabel=ff0000&sideLabels=ff0000&border=ff0000&currStreakNum=c9d1d9&sideNums=c9d1d9&dates=555555"/>
 </div>
 
----
-
-### `> git log --graph`
-
 <div align="center">
 
 [![Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=kblankk&bg_color=0d1117&color=ff0000&line=ff0000&point=ffffff&area_color=0d1117&area=true&hide_border=false&custom_title=%3E%20Contribution%20Graph)](https://github.com/ashutosh00710/github-readme-activity-graph)
@@ -85,7 +81,7 @@
 
 ---
 
-### `> ping @social`
+### `Contact`
 
 <div align="center">
 
