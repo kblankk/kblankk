@@ -143,24 +143,24 @@ def fetch_contributions(username, token=None):
     return fetch_contributions_public(username)
 
 
-# Map GitHub colors to hacker red theme
+# Map GitHub colors to blue theme
 COLOR_MAP = {
     "#ebedf0": "#161b22",  # no contributions (dark mode empty)
-    "#9be9a8": "#3d0000",  # level 1
-    "#40c463": "#660000",  # level 2
-    "#30a14e": "#990000",  # level 3
-    "#216e39": "#ff0000",  # level 4
+    "#9be9a8": "#002d5e",  # level 1
+    "#40c463": "#004a99",  # level 2
+    "#30a14e": "#006bd6",  # level 3
+    "#216e39": "#0096ff",  # level 4
     # Dark mode colors
     "#161b22": "#161b22",  # no contributions
-    "#0e4429": "#3d0000",  # level 1
-    "#006d32": "#660000",  # level 2
-    "#26a641": "#990000",  # level 3
-    "#39d353": "#ff0000",  # level 4
+    "#0e4429": "#002d5e",  # level 1
+    "#006d32": "#004a99",  # level 2
+    "#26a641": "#006bd6",  # level 3
+    "#39d353": "#0096ff",  # level 4
 }
 
 
 def map_color(github_color):
-    """Map GitHub contribution color to hacker red theme."""
+    """Map GitHub contribution color to blue theme."""
     return COLOR_MAP.get(github_color, "#161b22")
 
 
@@ -376,21 +376,21 @@ def generate_svg(calendar, username):
             if fy + sq > fl_y + fl_h:
                 continue
             is_dark = (row + col) % 2 == 0
-            fill = "#ff0000" if is_dark else "#0d1117"
+            fill = "#0096ff" if is_dark else "#0d1117"
             opacity = "0.6" if is_dark else "0.3"
             L.append(
                 f'  <rect x="{fx}" y="{fy}" width="{sq}" height="{sq}" '
-                f'fill="{fill}" opacity="{opacity}" stroke="#ff0000" stroke-width="0.3"/>')
+                f'fill="{fill}" opacity="{opacity}" stroke="#0096ff" stroke-width="0.3"/>')
     L.append('</g>')
 
     # ── Trail / tire marks ──
     L.append(
-        f'<path d="{path_d}" fill="none" stroke="#ff0000" stroke-width="1" '
+        f'<path d="{path_d}" fill="none" stroke="#0096ff" stroke-width="1" '
         f'opacity="0.15" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" '
         f'style="animation:trail-draw {DUR}s linear infinite"/>')
     # Second trail (faint, wider)
     L.append(
-        f'<path d="{path_d}" fill="none" stroke="#ff0000" stroke-width="3" '
+        f'<path d="{path_d}" fill="none" stroke="#0096ff" stroke-width="3" '
         f'opacity="0.05" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" '
         f'style="animation:trail-draw {DUR}s linear infinite"/>')
 
@@ -400,7 +400,7 @@ def generate_svg(calendar, username):
         sy = GY + r * STRIDE + CELL / 2
         for si in range(3):
             L.append(
-                f'  <circle cx="{sx:.0f}" cy="{sy:.0f}" r="1.5" fill="#ff0000" '
+                f'  <circle cx="{sx:.0f}" cy="{sy:.0f}" r="1.5" fill="#0096ff" '
                 f'filter="url(#gl)" '
                 f'style="animation:spark-{c}-{r}-{si} {DUR}s linear infinite"/>')
 
@@ -408,10 +408,10 @@ def generate_svg(calendar, username):
     fin_x = fl_x + sq
     fin_y = mid_y
     L.append(
-        f'<circle cx="{fin_x:.0f}" cy="{fin_y:.0f}" r="30" fill="#ff0000" '
+        f'<circle cx="{fin_x:.0f}" cy="{fin_y:.0f}" r="30" fill="#0096ff" '
         f'filter="url(#gl)" '
         f'style="animation:finish-flash {DUR}s linear infinite"/>')
-    confetti_colors = ["#ff0000", "#cc0000", "#ff3333", "#ff0066", "#ff6666", "#ff0000"]
+    confetti_colors = ["#0096ff", "#0077cc", "#33adff", "#0066ff", "#66c2ff", "#0096ff"]
     for i in range(12):
         cc = confetti_colors[i % len(confetti_colors)]
         L.append(
@@ -430,25 +430,25 @@ def generate_svg(calendar, username):
   <path d="M 15,0 Q 14,-3.5 11,-4.5 L 7,-5.5 L 2,-6 L -4,-6 L -9,-5.5 L -12,-5
     Q -15,-4 -15,-1 L -15,1 Q -15,4 -12,5
     L -9,5.5 L -4,6 L 2,6 L 7,5.5 L 11,4.5 Q 14,3.5 15,0 Z
-  " fill="#12161f" stroke="#ff0000" stroke-width="0.8"/>
-  <line x1="9" y1="-3.5" x2="14" y2="0" stroke="#ff0000" stroke-width="0.4" opacity="0.5"/>
-  <line x1="9" y1="3.5" x2="14" y2="0" stroke="#ff0000" stroke-width="0.4" opacity="0.5"/>
-  <path d="M 8,-2 Q 10,0 8,2" fill="none" stroke="#ff0000" stroke-width="0.3" opacity="0.3"/>
-  <rect x="7" y="-1.5" width="4" height="3" rx="1" fill="#0d1117" stroke="#ff0000" stroke-width="0.3" opacity="0.5"/>
-  <path d="M 4,-5 L 7,-4.5 L 7,4.5 L 4,5 Z" fill="#2a0a0a" stroke="#ff0000" stroke-width="0.5" opacity="0.7"/>
-  <rect x="-5" y="-4.5" width="9" height="9" rx="2" fill="#0d1520" stroke="#ff0000" stroke-width="0.4" opacity="0.6"/>
-  <path d="M -7,-4.5 L -5,-5 L -5,5 L -7,4.5 Z" fill="#2a0a0a" stroke="#ff0000" stroke-width="0.3" opacity="0.5"/>
-  <line x1="-14" y1="-7" x2="-14" y2="7" stroke="#ff0000" stroke-width="1.5" opacity="0.8"/>
-  <line x1="-14" y1="-6.5" x2="-12" y2="-5" stroke="#ff0000" stroke-width="0.6" opacity="0.5"/>
-  <line x1="-14" y1="6.5" x2="-12" y2="5" stroke="#ff0000" stroke-width="0.6" opacity="0.5"/>
-  <rect x="8" y="-7.5" width="4" height="2.5" rx="0.8" fill="#1a1a1a" stroke="#ff0000" stroke-width="0.4" opacity="0.8"/>
-  <rect x="8" y="5" width="4" height="2.5" rx="0.8" fill="#1a1a1a" stroke="#ff0000" stroke-width="0.4" opacity="0.8"/>
-  <rect x="-11" y="-7.5" width="5" height="2.5" rx="0.8" fill="#1a1a1a" stroke="#ff0000" stroke-width="0.4" opacity="0.8"/>
-  <rect x="-11" y="5" width="5" height="2.5" rx="0.8" fill="#1a1a1a" stroke="#ff0000" stroke-width="0.4" opacity="0.8"/>
-  <circle cx="15" cy="-3.5" r="1.5" fill="#ff0000" opacity="0.9">
+  " fill="#12161f" stroke="#0096ff" stroke-width="0.8"/>
+  <line x1="9" y1="-3.5" x2="14" y2="0" stroke="#0096ff" stroke-width="0.4" opacity="0.5"/>
+  <line x1="9" y1="3.5" x2="14" y2="0" stroke="#0096ff" stroke-width="0.4" opacity="0.5"/>
+  <path d="M 8,-2 Q 10,0 8,2" fill="none" stroke="#0096ff" stroke-width="0.3" opacity="0.3"/>
+  <rect x="7" y="-1.5" width="4" height="3" rx="1" fill="#0d1117" stroke="#0096ff" stroke-width="0.3" opacity="0.5"/>
+  <path d="M 4,-5 L 7,-4.5 L 7,4.5 L 4,5 Z" fill="#0a1a2a" stroke="#0096ff" stroke-width="0.5" opacity="0.7"/>
+  <rect x="-5" y="-4.5" width="9" height="9" rx="2" fill="#0d1520" stroke="#0096ff" stroke-width="0.4" opacity="0.6"/>
+  <path d="M -7,-4.5 L -5,-5 L -5,5 L -7,4.5 Z" fill="#0a1a2a" stroke="#0096ff" stroke-width="0.3" opacity="0.5"/>
+  <line x1="-14" y1="-7" x2="-14" y2="7" stroke="#0096ff" stroke-width="1.5" opacity="0.8"/>
+  <line x1="-14" y1="-6.5" x2="-12" y2="-5" stroke="#0096ff" stroke-width="0.6" opacity="0.5"/>
+  <line x1="-14" y1="6.5" x2="-12" y2="5" stroke="#0096ff" stroke-width="0.6" opacity="0.5"/>
+  <rect x="8" y="-7.5" width="4" height="2.5" rx="0.8" fill="#1a1a1a" stroke="#0096ff" stroke-width="0.4" opacity="0.8"/>
+  <rect x="8" y="5" width="4" height="2.5" rx="0.8" fill="#1a1a1a" stroke="#0096ff" stroke-width="0.4" opacity="0.8"/>
+  <rect x="-11" y="-7.5" width="5" height="2.5" rx="0.8" fill="#1a1a1a" stroke="#0096ff" stroke-width="0.4" opacity="0.8"/>
+  <rect x="-11" y="5" width="5" height="2.5" rx="0.8" fill="#1a1a1a" stroke="#0096ff" stroke-width="0.4" opacity="0.8"/>
+  <circle cx="15" cy="-3.5" r="1.5" fill="#0096ff" opacity="0.9">
     <animate attributeName="opacity" values="0.8;1;0.7;1" dur="0.6s" repeatCount="indefinite"/>
   </circle>
-  <circle cx="15" cy="3.5" r="1.5" fill="#ff0000" opacity="0.9">
+  <circle cx="15" cy="3.5" r="1.5" fill="#0096ff" opacity="0.9">
     <animate attributeName="opacity" values="0.8;1;0.7;1" dur="0.6s" repeatCount="indefinite"/>
   </circle>
   <rect x="-15.5" y="-4" width="2" height="2.5" rx="0.5" fill="#ffaa00" opacity="0.85">
@@ -457,62 +457,62 @@ def generate_svg(calendar, username):
   <rect x="-15.5" y="1.5" width="2" height="2.5" rx="0.5" fill="#ffaa00" opacity="0.85">
     <animate attributeName="opacity" values="0.8;1;0.4;1" dur="0.3s" repeatCount="indefinite" begin="0.15s"/>
   </rect>
-  <ellipse cx="5" cy="-7" rx="1.8" ry="1" fill="#161b22" stroke="#ff0000" stroke-width="0.3"/>
-  <ellipse cx="5" cy="7" rx="1.8" ry="1" fill="#161b22" stroke="#ff0000" stroke-width="0.3"/>
+  <ellipse cx="5" cy="-7" rx="1.8" ry="1" fill="#161b22" stroke="#0096ff" stroke-width="0.3"/>
+  <ellipse cx="5" cy="7" rx="1.8" ry="1" fill="#161b22" stroke="#0096ff" stroke-width="0.3"/>
   <!-- NITRO FLAMES -->
   <!-- Core flame (bright, tight) -->
-  <ellipse cx="-20" cy="0" rx="6" ry="2.5" fill="#ff0000" opacity="0">
+  <ellipse cx="-20" cy="0" rx="6" ry="2.5" fill="#0096ff" opacity="0">
     <animate attributeName="rx" values="4;7;5;8;4" dur="0.15s" repeatCount="indefinite"/>
     <animate attributeName="ry" values="2;3;1.5;3.5;2" dur="0.15s" repeatCount="indefinite"/>
     <animate attributeName="opacity" values="0.6;0.9;0.5;0.8;0.6" dur="0.15s" repeatCount="indefinite"/>
   </ellipse>
   <!-- Inner flame glow -->
-  <ellipse cx="-22" cy="0" rx="4" ry="1.5" fill="#ff6666" opacity="0">
+  <ellipse cx="-22" cy="0" rx="4" ry="1.5" fill="#66c2ff" opacity="0">
     <animate attributeName="rx" values="3;5;4;6;3" dur="0.12s" repeatCount="indefinite"/>
     <animate attributeName="opacity" values="0.4;0.7;0.3;0.6;0.4" dur="0.12s" repeatCount="indefinite"/>
   </ellipse>
   <!-- Nitro particle stream 1 (center) -->
-  <circle r="1.5" fill="#ff0000" opacity="0">
+  <circle r="1.5" fill="#0096ff" opacity="0">
     <animate attributeName="cx" values="-18;-30;-45" dur="0.4s" repeatCount="indefinite"/>
     <animate attributeName="cy" values="0;-0.5;-1" dur="0.4s" repeatCount="indefinite"/>
     <animate attributeName="r" values="1.5;3;5" dur="0.4s" repeatCount="indefinite"/>
     <animate attributeName="opacity" values="0.5;0.2;0" dur="0.4s" repeatCount="indefinite"/>
   </circle>
   <!-- Nitro particle stream 2 (upper) -->
-  <circle r="1" fill="#ff0000" opacity="0">
+  <circle r="1" fill="#0096ff" opacity="0">
     <animate attributeName="cx" values="-18;-28;-40" dur="0.35s" repeatCount="indefinite"/>
     <animate attributeName="cy" values="-2;-4;-6" dur="0.35s" repeatCount="indefinite"/>
     <animate attributeName="r" values="1;2.5;4" dur="0.35s" repeatCount="indefinite"/>
     <animate attributeName="opacity" values="0.4;0.15;0" dur="0.35s" repeatCount="indefinite"/>
   </circle>
   <!-- Nitro particle stream 3 (lower) -->
-  <circle r="1" fill="#ff0000" opacity="0">
+  <circle r="1" fill="#0096ff" opacity="0">
     <animate attributeName="cx" values="-18;-28;-40" dur="0.35s" repeatCount="indefinite" begin="0.1s"/>
     <animate attributeName="cy" values="2;4;6" dur="0.35s" repeatCount="indefinite" begin="0.1s"/>
     <animate attributeName="r" values="1;2.5;4" dur="0.35s" repeatCount="indefinite" begin="0.1s"/>
     <animate attributeName="opacity" values="0.4;0.15;0" dur="0.35s" repeatCount="indefinite" begin="0.1s"/>
   </circle>
   <!-- Nitro sparks (tiny fast particles) -->
-  <circle r="0.8" fill="#ff6666" opacity="0">
+  <circle r="0.8" fill="#66c2ff" opacity="0">
     <animate attributeName="cx" values="-17;-35;-50" dur="0.25s" repeatCount="indefinite"/>
     <animate attributeName="cy" values="1;3;5" dur="0.25s" repeatCount="indefinite"/>
     <animate attributeName="r" values="0.8;1.2;0.3" dur="0.25s" repeatCount="indefinite"/>
     <animate attributeName="opacity" values="0.7;0.3;0" dur="0.25s" repeatCount="indefinite"/>
   </circle>
-  <circle r="0.8" fill="#ff6666" opacity="0">
+  <circle r="0.8" fill="#66c2ff" opacity="0">
     <animate attributeName="cx" values="-17;-33;-48" dur="0.25s" repeatCount="indefinite" begin="0.08s"/>
     <animate attributeName="cy" values="-1;-3;-4" dur="0.25s" repeatCount="indefinite" begin="0.08s"/>
     <animate attributeName="r" values="0.8;1;0.2" dur="0.25s" repeatCount="indefinite" begin="0.08s"/>
     <animate attributeName="opacity" values="0.6;0.25;0" dur="0.25s" repeatCount="indefinite" begin="0.08s"/>
   </circle>
-  <circle r="0.5" fill="#ff3333" opacity="0">
+  <circle r="0.5" fill="#33adff" opacity="0">
     <animate attributeName="cx" values="-17;-40;-55" dur="0.3s" repeatCount="indefinite" begin="0.15s"/>
     <animate attributeName="cy" values="0;-2;-3" dur="0.3s" repeatCount="indefinite" begin="0.15s"/>
     <animate attributeName="r" values="0.5;1.5;0.2" dur="0.3s" repeatCount="indefinite" begin="0.15s"/>
     <animate attributeName="opacity" values="0.5;0.15;0" dur="0.3s" repeatCount="indefinite" begin="0.15s"/>
   </circle>
   <!-- Nitro glow halo behind car -->
-  <ellipse cx="-18" cy="0" rx="10" ry="8" fill="#ff0000" opacity="0">
+  <ellipse cx="-18" cy="0" rx="10" ry="8" fill="#0096ff" opacity="0">
     <animate attributeName="opacity" values="0.05;0.12;0.05;0.1;0.05" dur="0.2s" repeatCount="indefinite"/>
     <animate attributeName="rx" values="10;13;10" dur="0.3s" repeatCount="indefinite"/>
   </ellipse>""")
@@ -521,7 +521,7 @@ def generate_svg(calendar, username):
     # Footer
     L.append(
         f'<text x="{W / 2:.0f}" y="{H - 4:.0f}" text-anchor="middle" '
-        f'font-family="monospace" font-size="10" fill="#ff0000" opacity="0.35">'
+        f'font-family="monospace" font-size="10" fill="#0096ff" opacity="0.35">'
         f'{username} // {total} contributions</text>')
 
     L.append("</svg>")

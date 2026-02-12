@@ -122,7 +122,7 @@
 <g>
   <rect x="40" y="30" width="11" height="11" rx="2" fill="#161b22" style="animation:fall-0 10s linear infinite;transform-origin:46px 36px"/>
   <rect x="40" y="43" width="11" height="11" rx="2" fill="#161b22" style="animation:fall-0 10s linear infinite;transform-origin:46px 48px"/>
-  <rect x="40" y="56" width="11" height="11" rx="2" fill="#3d0000" style="animation:cc-0-2 10s linear infinite;transform-origin:46px 62px"/>
+  <rect x="40" y="56" width="11" height="11" rx="2" fill="#006bd6" style="animation:cc-0-2 10s linear infinite;transform-origin:46px 62px"/>
   <rect x="40" y="69" width="11" height="11" rx="2" fill="#161b22" style="animation:fall-0 10s linear infinite;transform-origin:46px 74px"/>
   <rect x="40" y="82" width="11" height="11" rx="2" fill="#161b22" style="animation:fall-0 10s linear infinite;transform-origin:46px 88px"/>
   <rect x="40" y="95" width="11" height="11" rx="2" fill="#161b22" style="animation:fall-0 10s linear infinite;transform-origin:46px 100px"/>
@@ -157,9 +157,9 @@
   <rect x="92" y="108" width="11" height="11" rx="2" fill="#161b22" style="animation:fall-4 10s linear infinite;transform-origin:98px 114px"/>
   <rect x="105" y="30" width="11" height="11" rx="2" fill="#161b22" style="animation:fall-5 10s linear infinite;transform-origin:110px 36px"/>
   <rect x="105" y="43" width="11" height="11" rx="2" fill="#161b22" style="animation:fall-5 10s linear infinite;transform-origin:110px 48px"/>
-  <rect x="105" y="56" width="11" height="11" rx="2" fill="#3d0000" style="animation:cc-5-2 10s linear infinite;transform-origin:110px 62px"/>
+  <rect x="105" y="56" width="11" height="11" rx="2" fill="#006bd6" style="animation:cc-5-2 10s linear infinite;transform-origin:110px 62px"/>
   <rect x="105" y="69" width="11" height="11" rx="2" fill="#161b22" style="animation:fall-5 10s linear infinite;transform-origin:110px 74px"/>
-  <rect x="105" y="82" width="11" height="11" rx="2" fill="#990000" style="animation:cc-5-4 10s linear infinite;transform-origin:110px 88px"/>
+  <rect x="105" y="82" width="11" height="11" rx="2" fill="#0096ff" style="animation:cc-5-4 10s linear infinite;transform-origin:110px 88px"/>
   <rect x="105" y="95" width="11" height="11" rx="2" fill="#161b22" style="animation:fall-5 10s linear infinite;transform-origin:110px 100px"/>
   <rect x="105" y="108" width="11" height="11" rx="2" fill="#161b22" style="animation:fall-5 10s linear infinite;transform-origin:110px 114px"/>
   <rect x="118" y="30" width="11" height="11" rx="2" fill="#161b22" style="animation:fall-6 10s linear infinite;transform-origin:124px 36px"/>
@@ -173,7 +173,7 @@
   <rect x="131" y="43" width="11" height="11" rx="2" fill="#161b22" style="animation:fall-7 10s linear infinite;transform-origin:136px 48px"/>
   <rect x="131" y="56" width="11" height="11" rx="2" fill="#161b22" style="animation:fall-7 10s linear infinite;transform-origin:136px 62px"/>
   <rect x="131" y="69" width="11" height="11" rx="2" fill="#161b22" style="animation:fall-7 10s linear infinite;transform-origin:136px 74px"/>
-  <rect x="131" y="82" width="11" height="11" rx="2" fill="#3d0000" style="animation:cc-7-4 10s linear infinite;transform-origin:136px 88px"/>
+  <rect x="131" y="82" width="11" height="11" rx="2" fill="#006bd6" style="animation:cc-7-4 10s linear infinite;transform-origin:136px 88px"/>
   <rect x="131" y="95" width="11" height="11" rx="2" fill="#161b22" style="animation:fall-7 10s linear infinite;transform-origin:136px 100px"/>
   <rect x="131" y="108" width="11" height="11" rx="2" fill="#161b22" style="animation:fall-7 10s linear infinite;transform-origin:136px 114px"/>
   <rect x="144" y="30" width="11" height="11" rx="2" fill="#161b22" style="animation:fall-8 10s linear infinite;transform-origin:150px 36px"/>
@@ -185,22 +185,22 @@
   <rect x="144" y="108" width="11" height="11" rx="2" fill="#161b22" style="animation:fall-8 10s linear infinite;transform-origin:150px 114px"/>
   <rect x="157" y="30" width="11" height="11" rx="2" fill="#161b22" style="animation:fall-9 10s linear infinite;transform-origin:162px 36px"/>
   <rect x="157" y="43" width="11" height="11" rx="2" fill="#161b22" style="animation:fall-9 10s linear infinite;transform-origin:162px 48px"/>
-  <rect x="157" y="56" width="11" height="11" rx="2" fill="#990000" style="animation:cc-9-2 10s linear infinite;transform-origin:162px 62px"/>
+  <rect x="157" y="56" width="11" height="11" rx="2" fill="#0096ff" style="animation:cc-9-2 10s linear infinite;transform-origin:162px 62px"/>
   <rect x="157" y="69" width="11" height="11" rx="2" fill="#161b22" style="animation:fall-9 10s linear infinite;transform-origin:162px 74px"/>
   <rect x="157" y="82" width="11" height="11" rx="2" fill="#161b22" style="animation:fall-9 10s linear infinite;transform-origin:162px 88px"/>
   <rect x="157" y="95" width="11" height="11" rx="2" fill="#161b22" style="animation:fall-9 10s linear infinite;transform-origin:162px 100px"/>
   <rect x="157" y="108" width="11" height="11" rx="2" fill="#161b22" style="animation:fall-9 10s linear infinite;transform-origin:162px 114px"/>
   <rect x="170" y="30" width="11" height="11" rx="2" fill="#161b22" style="animation:fall-10 10s linear infinite;transform-origin:176px 36px"/>
   <rect x="170" y="43" width="11" height="11" rx="2" fill="#161b22" style="animation:fall-10 10s linear infinite;transform-origin:176px 48px"/>
-  <rect x="170" y="56" width="11" height="11" rx="2" fill="#ff0000" style="animation:cc-10-2 10s linear infinite;transform-origin:176px 62px"/>
+  <rect x="170" y="56" width="11" height="11" rx="2" fill="#0096ff" style="animation:cc-10-2 10s linear infinite;transform-origin:176px 62px"/>
   <rect x="170" y="69" width="11" height="11" rx="2" fill="#161b22" style="animation:fall-10 10s linear infinite;transform-origin:176px 74px"/>
   <rect x="170" y="82" width="11" height="11" rx="2" fill="#161b22" style="animation:fall-10 10s linear infinite;transform-origin:176px 88px"/>
   <rect x="170" y="95" width="11" height="11" rx="2" fill="#161b22" style="animation:fall-10 10s linear infinite;transform-origin:176px 100px"/>
   <rect x="170" y="108" width="11" height="11" rx="2" fill="#161b22" style="animation:fall-10 10s linear infinite;transform-origin:176px 114px"/>
   <rect x="183" y="30" width="11" height="11" rx="2" fill="#161b22" style="animation:fall-11 10s linear infinite;transform-origin:188px 36px"/>
   <rect x="183" y="43" width="11" height="11" rx="2" fill="#161b22" style="animation:fall-11 10s linear infinite;transform-origin:188px 48px"/>
-  <rect x="183" y="56" width="11" height="11" rx="2" fill="#660000" style="animation:cc-11-2 10s linear infinite;transform-origin:188px 62px"/>
-  <rect x="183" y="69" width="11" height="11" rx="2" fill="#3d0000" style="animation:cc-11-3 10s linear infinite;transform-origin:188px 74px"/>
+  <rect x="183" y="56" width="11" height="11" rx="2" fill="#0096ff" style="animation:cc-11-2 10s linear infinite;transform-origin:188px 62px"/>
+  <rect x="183" y="69" width="11" height="11" rx="2" fill="#004a99" style="animation:cc-11-3 10s linear infinite;transform-origin:188px 74px"/>
   <rect x="183" y="82" width="11" height="11" rx="2" fill="#161b22" style="animation:fall-11 10s linear infinite;transform-origin:188px 88px"/>
   <rect x="183" y="95" width="11" height="11" rx="2" fill="#161b22" style="animation:fall-11 10s linear infinite;transform-origin:188px 100px"/>
   <rect x="183" y="108" width="11" height="11" rx="2" fill="#161b22" style="animation:fall-11 10s linear infinite;transform-origin:188px 114px"/>
@@ -306,10 +306,10 @@
   <rect x="378" y="43" width="11" height="11" rx="2" fill="#161b22" style="animation:fall-26 10s linear infinite;transform-origin:384px 48px"/>
   <rect x="378" y="56" width="11" height="11" rx="2" fill="#161b22" style="animation:fall-26 10s linear infinite;transform-origin:384px 62px"/>
   <rect x="378" y="69" width="11" height="11" rx="2" fill="#161b22" style="animation:fall-26 10s linear infinite;transform-origin:384px 74px"/>
-  <rect x="378" y="82" width="11" height="11" rx="2" fill="#3d0000" style="animation:cc-26-4 10s linear infinite;transform-origin:384px 88px"/>
+  <rect x="378" y="82" width="11" height="11" rx="2" fill="#006bd6" style="animation:cc-26-4 10s linear infinite;transform-origin:384px 88px"/>
   <rect x="378" y="95" width="11" height="11" rx="2" fill="#161b22" style="animation:fall-26 10s linear infinite;transform-origin:384px 100px"/>
   <rect x="378" y="108" width="11" height="11" rx="2" fill="#161b22" style="animation:fall-26 10s linear infinite;transform-origin:384px 114px"/>
-  <rect x="391" y="30" width="11" height="11" rx="2" fill="#660000" style="animation:cc-27-0 10s linear infinite;transform-origin:396px 36px"/>
+  <rect x="391" y="30" width="11" height="11" rx="2" fill="#0096ff" style="animation:cc-27-0 10s linear infinite;transform-origin:396px 36px"/>
   <rect x="391" y="43" width="11" height="11" rx="2" fill="#161b22" style="animation:fall-27 10s linear infinite;transform-origin:396px 48px"/>
   <rect x="391" y="56" width="11" height="11" rx="2" fill="#161b22" style="animation:fall-27 10s linear infinite;transform-origin:396px 62px"/>
   <rect x="391" y="69" width="11" height="11" rx="2" fill="#161b22" style="animation:fall-27 10s linear infinite;transform-origin:396px 74px"/>
@@ -488,92 +488,92 @@
   <rect x="716" y="43" width="11" height="11" rx="2" fill="#161b22" style="animation:fall-52 10s linear infinite;transform-origin:722px 48px"/>
   <rect x="716" y="56" width="11" height="11" rx="2" fill="#161b22" style="animation:fall-52 10s linear infinite;transform-origin:722px 62px"/>
   <rect x="716" y="69" width="11" height="11" rx="2" fill="#161b22" style="animation:fall-52 10s linear infinite;transform-origin:722px 74px"/>
-  <rect x="716" y="82" width="11" height="11" rx="2" fill="#ff0000" style="animation:cc-52-4 10s linear infinite;transform-origin:722px 88px"/>
+  <rect x="716" y="82" width="11" height="11" rx="2" fill="#0096ff" style="animation:cc-52-4 10s linear infinite;transform-origin:722px 88px"/>
   <rect x="716" y="95" width="11" height="11" rx="2" fill="#161b22" style="animation:fall-52 10s linear infinite;transform-origin:722px 100px"/>
   <rect x="716" y="108" width="11" height="11" rx="2" fill="#161b22" style="animation:fall-52 10s linear infinite;transform-origin:722px 114px"/>
 </g>
 <g style="animation:flag-wave 1.5s ease-in-out infinite;transform-origin:741px 74px">
-  <rect x="735" y="25" width="6" height="6" fill="#ff0000" opacity="0.6" stroke="#ff0000" stroke-width="0.3"/>
-  <rect x="741" y="25" width="6" height="6" fill="#0d1117" opacity="0.3" stroke="#ff0000" stroke-width="0.3"/>
-  <rect x="735" y="31" width="6" height="6" fill="#0d1117" opacity="0.3" stroke="#ff0000" stroke-width="0.3"/>
-  <rect x="741" y="31" width="6" height="6" fill="#ff0000" opacity="0.6" stroke="#ff0000" stroke-width="0.3"/>
-  <rect x="735" y="37" width="6" height="6" fill="#ff0000" opacity="0.6" stroke="#ff0000" stroke-width="0.3"/>
-  <rect x="741" y="37" width="6" height="6" fill="#0d1117" opacity="0.3" stroke="#ff0000" stroke-width="0.3"/>
-  <rect x="735" y="43" width="6" height="6" fill="#0d1117" opacity="0.3" stroke="#ff0000" stroke-width="0.3"/>
-  <rect x="741" y="43" width="6" height="6" fill="#ff0000" opacity="0.6" stroke="#ff0000" stroke-width="0.3"/>
-  <rect x="735" y="49" width="6" height="6" fill="#ff0000" opacity="0.6" stroke="#ff0000" stroke-width="0.3"/>
-  <rect x="741" y="49" width="6" height="6" fill="#0d1117" opacity="0.3" stroke="#ff0000" stroke-width="0.3"/>
-  <rect x="735" y="55" width="6" height="6" fill="#0d1117" opacity="0.3" stroke="#ff0000" stroke-width="0.3"/>
-  <rect x="741" y="55" width="6" height="6" fill="#ff0000" opacity="0.6" stroke="#ff0000" stroke-width="0.3"/>
-  <rect x="735" y="61" width="6" height="6" fill="#ff0000" opacity="0.6" stroke="#ff0000" stroke-width="0.3"/>
-  <rect x="741" y="61" width="6" height="6" fill="#0d1117" opacity="0.3" stroke="#ff0000" stroke-width="0.3"/>
-  <rect x="735" y="67" width="6" height="6" fill="#0d1117" opacity="0.3" stroke="#ff0000" stroke-width="0.3"/>
-  <rect x="741" y="67" width="6" height="6" fill="#ff0000" opacity="0.6" stroke="#ff0000" stroke-width="0.3"/>
-  <rect x="735" y="73" width="6" height="6" fill="#ff0000" opacity="0.6" stroke="#ff0000" stroke-width="0.3"/>
-  <rect x="741" y="73" width="6" height="6" fill="#0d1117" opacity="0.3" stroke="#ff0000" stroke-width="0.3"/>
-  <rect x="735" y="79" width="6" height="6" fill="#0d1117" opacity="0.3" stroke="#ff0000" stroke-width="0.3"/>
-  <rect x="741" y="79" width="6" height="6" fill="#ff0000" opacity="0.6" stroke="#ff0000" stroke-width="0.3"/>
-  <rect x="735" y="85" width="6" height="6" fill="#ff0000" opacity="0.6" stroke="#ff0000" stroke-width="0.3"/>
-  <rect x="741" y="85" width="6" height="6" fill="#0d1117" opacity="0.3" stroke="#ff0000" stroke-width="0.3"/>
-  <rect x="735" y="91" width="6" height="6" fill="#0d1117" opacity="0.3" stroke="#ff0000" stroke-width="0.3"/>
-  <rect x="741" y="91" width="6" height="6" fill="#ff0000" opacity="0.6" stroke="#ff0000" stroke-width="0.3"/>
-  <rect x="735" y="97" width="6" height="6" fill="#ff0000" opacity="0.6" stroke="#ff0000" stroke-width="0.3"/>
-  <rect x="741" y="97" width="6" height="6" fill="#0d1117" opacity="0.3" stroke="#ff0000" stroke-width="0.3"/>
-  <rect x="735" y="103" width="6" height="6" fill="#0d1117" opacity="0.3" stroke="#ff0000" stroke-width="0.3"/>
-  <rect x="741" y="103" width="6" height="6" fill="#ff0000" opacity="0.6" stroke="#ff0000" stroke-width="0.3"/>
-  <rect x="735" y="109" width="6" height="6" fill="#ff0000" opacity="0.6" stroke="#ff0000" stroke-width="0.3"/>
-  <rect x="741" y="109" width="6" height="6" fill="#0d1117" opacity="0.3" stroke="#ff0000" stroke-width="0.3"/>
-  <rect x="735" y="115" width="6" height="6" fill="#0d1117" opacity="0.3" stroke="#ff0000" stroke-width="0.3"/>
-  <rect x="741" y="115" width="6" height="6" fill="#ff0000" opacity="0.6" stroke="#ff0000" stroke-width="0.3"/>
+  <rect x="735" y="25" width="6" height="6" fill="#0096ff" opacity="0.6" stroke="#0096ff" stroke-width="0.3"/>
+  <rect x="741" y="25" width="6" height="6" fill="#0d1117" opacity="0.3" stroke="#0096ff" stroke-width="0.3"/>
+  <rect x="735" y="31" width="6" height="6" fill="#0d1117" opacity="0.3" stroke="#0096ff" stroke-width="0.3"/>
+  <rect x="741" y="31" width="6" height="6" fill="#0096ff" opacity="0.6" stroke="#0096ff" stroke-width="0.3"/>
+  <rect x="735" y="37" width="6" height="6" fill="#0096ff" opacity="0.6" stroke="#0096ff" stroke-width="0.3"/>
+  <rect x="741" y="37" width="6" height="6" fill="#0d1117" opacity="0.3" stroke="#0096ff" stroke-width="0.3"/>
+  <rect x="735" y="43" width="6" height="6" fill="#0d1117" opacity="0.3" stroke="#0096ff" stroke-width="0.3"/>
+  <rect x="741" y="43" width="6" height="6" fill="#0096ff" opacity="0.6" stroke="#0096ff" stroke-width="0.3"/>
+  <rect x="735" y="49" width="6" height="6" fill="#0096ff" opacity="0.6" stroke="#0096ff" stroke-width="0.3"/>
+  <rect x="741" y="49" width="6" height="6" fill="#0d1117" opacity="0.3" stroke="#0096ff" stroke-width="0.3"/>
+  <rect x="735" y="55" width="6" height="6" fill="#0d1117" opacity="0.3" stroke="#0096ff" stroke-width="0.3"/>
+  <rect x="741" y="55" width="6" height="6" fill="#0096ff" opacity="0.6" stroke="#0096ff" stroke-width="0.3"/>
+  <rect x="735" y="61" width="6" height="6" fill="#0096ff" opacity="0.6" stroke="#0096ff" stroke-width="0.3"/>
+  <rect x="741" y="61" width="6" height="6" fill="#0d1117" opacity="0.3" stroke="#0096ff" stroke-width="0.3"/>
+  <rect x="735" y="67" width="6" height="6" fill="#0d1117" opacity="0.3" stroke="#0096ff" stroke-width="0.3"/>
+  <rect x="741" y="67" width="6" height="6" fill="#0096ff" opacity="0.6" stroke="#0096ff" stroke-width="0.3"/>
+  <rect x="735" y="73" width="6" height="6" fill="#0096ff" opacity="0.6" stroke="#0096ff" stroke-width="0.3"/>
+  <rect x="741" y="73" width="6" height="6" fill="#0d1117" opacity="0.3" stroke="#0096ff" stroke-width="0.3"/>
+  <rect x="735" y="79" width="6" height="6" fill="#0d1117" opacity="0.3" stroke="#0096ff" stroke-width="0.3"/>
+  <rect x="741" y="79" width="6" height="6" fill="#0096ff" opacity="0.6" stroke="#0096ff" stroke-width="0.3"/>
+  <rect x="735" y="85" width="6" height="6" fill="#0096ff" opacity="0.6" stroke="#0096ff" stroke-width="0.3"/>
+  <rect x="741" y="85" width="6" height="6" fill="#0d1117" opacity="0.3" stroke="#0096ff" stroke-width="0.3"/>
+  <rect x="735" y="91" width="6" height="6" fill="#0d1117" opacity="0.3" stroke="#0096ff" stroke-width="0.3"/>
+  <rect x="741" y="91" width="6" height="6" fill="#0096ff" opacity="0.6" stroke="#0096ff" stroke-width="0.3"/>
+  <rect x="735" y="97" width="6" height="6" fill="#0096ff" opacity="0.6" stroke="#0096ff" stroke-width="0.3"/>
+  <rect x="741" y="97" width="6" height="6" fill="#0d1117" opacity="0.3" stroke="#0096ff" stroke-width="0.3"/>
+  <rect x="735" y="103" width="6" height="6" fill="#0d1117" opacity="0.3" stroke="#0096ff" stroke-width="0.3"/>
+  <rect x="741" y="103" width="6" height="6" fill="#0096ff" opacity="0.6" stroke="#0096ff" stroke-width="0.3"/>
+  <rect x="735" y="109" width="6" height="6" fill="#0096ff" opacity="0.6" stroke="#0096ff" stroke-width="0.3"/>
+  <rect x="741" y="109" width="6" height="6" fill="#0d1117" opacity="0.3" stroke="#0096ff" stroke-width="0.3"/>
+  <rect x="735" y="115" width="6" height="6" fill="#0d1117" opacity="0.3" stroke="#0096ff" stroke-width="0.3"/>
+  <rect x="741" y="115" width="6" height="6" fill="#0096ff" opacity="0.6" stroke="#0096ff" stroke-width="0.3"/>
 </g>
-<path d="M -30.0,74.5 L 45.5,61.5 L 110.5,61.5 L 110.5,87.5 L 136.5,87.5 L 162.5,61.5 L 175.5,61.5 L 188.5,61.5 L 188.5,74.5 L 383.5,87.5 L 396.5,35.5 L 721.5,87.5 L 807.0,87.5" fill="none" stroke="#ff0000" stroke-width="1" opacity="0.15" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" style="animation:trail-draw 10s linear infinite"/>
-<path d="M -30.0,74.5 L 45.5,61.5 L 110.5,61.5 L 110.5,87.5 L 136.5,87.5 L 162.5,61.5 L 175.5,61.5 L 188.5,61.5 L 188.5,74.5 L 383.5,87.5 L 396.5,35.5 L 721.5,87.5 L 807.0,87.5" fill="none" stroke="#ff0000" stroke-width="3" opacity="0.05" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" style="animation:trail-draw 10s linear infinite"/>
-  <circle cx="46" cy="62" r="1.5" fill="#ff0000" filter="url(#gl)" style="animation:spark-0-2-0 10s linear infinite"/>
-  <circle cx="46" cy="62" r="1.5" fill="#ff0000" filter="url(#gl)" style="animation:spark-0-2-1 10s linear infinite"/>
-  <circle cx="46" cy="62" r="1.5" fill="#ff0000" filter="url(#gl)" style="animation:spark-0-2-2 10s linear infinite"/>
-  <circle cx="110" cy="62" r="1.5" fill="#ff0000" filter="url(#gl)" style="animation:spark-5-2-0 10s linear infinite"/>
-  <circle cx="110" cy="62" r="1.5" fill="#ff0000" filter="url(#gl)" style="animation:spark-5-2-1 10s linear infinite"/>
-  <circle cx="110" cy="62" r="1.5" fill="#ff0000" filter="url(#gl)" style="animation:spark-5-2-2 10s linear infinite"/>
-  <circle cx="110" cy="88" r="1.5" fill="#ff0000" filter="url(#gl)" style="animation:spark-5-4-0 10s linear infinite"/>
-  <circle cx="110" cy="88" r="1.5" fill="#ff0000" filter="url(#gl)" style="animation:spark-5-4-1 10s linear infinite"/>
-  <circle cx="110" cy="88" r="1.5" fill="#ff0000" filter="url(#gl)" style="animation:spark-5-4-2 10s linear infinite"/>
-  <circle cx="136" cy="88" r="1.5" fill="#ff0000" filter="url(#gl)" style="animation:spark-7-4-0 10s linear infinite"/>
-  <circle cx="136" cy="88" r="1.5" fill="#ff0000" filter="url(#gl)" style="animation:spark-7-4-1 10s linear infinite"/>
-  <circle cx="136" cy="88" r="1.5" fill="#ff0000" filter="url(#gl)" style="animation:spark-7-4-2 10s linear infinite"/>
-  <circle cx="162" cy="62" r="1.5" fill="#ff0000" filter="url(#gl)" style="animation:spark-9-2-0 10s linear infinite"/>
-  <circle cx="162" cy="62" r="1.5" fill="#ff0000" filter="url(#gl)" style="animation:spark-9-2-1 10s linear infinite"/>
-  <circle cx="162" cy="62" r="1.5" fill="#ff0000" filter="url(#gl)" style="animation:spark-9-2-2 10s linear infinite"/>
-  <circle cx="176" cy="62" r="1.5" fill="#ff0000" filter="url(#gl)" style="animation:spark-10-2-0 10s linear infinite"/>
-  <circle cx="176" cy="62" r="1.5" fill="#ff0000" filter="url(#gl)" style="animation:spark-10-2-1 10s linear infinite"/>
-  <circle cx="176" cy="62" r="1.5" fill="#ff0000" filter="url(#gl)" style="animation:spark-10-2-2 10s linear infinite"/>
-  <circle cx="188" cy="62" r="1.5" fill="#ff0000" filter="url(#gl)" style="animation:spark-11-2-0 10s linear infinite"/>
-  <circle cx="188" cy="62" r="1.5" fill="#ff0000" filter="url(#gl)" style="animation:spark-11-2-1 10s linear infinite"/>
-  <circle cx="188" cy="62" r="1.5" fill="#ff0000" filter="url(#gl)" style="animation:spark-11-2-2 10s linear infinite"/>
-  <circle cx="188" cy="74" r="1.5" fill="#ff0000" filter="url(#gl)" style="animation:spark-11-3-0 10s linear infinite"/>
-  <circle cx="188" cy="74" r="1.5" fill="#ff0000" filter="url(#gl)" style="animation:spark-11-3-1 10s linear infinite"/>
-  <circle cx="188" cy="74" r="1.5" fill="#ff0000" filter="url(#gl)" style="animation:spark-11-3-2 10s linear infinite"/>
-  <circle cx="384" cy="88" r="1.5" fill="#ff0000" filter="url(#gl)" style="animation:spark-26-4-0 10s linear infinite"/>
-  <circle cx="384" cy="88" r="1.5" fill="#ff0000" filter="url(#gl)" style="animation:spark-26-4-1 10s linear infinite"/>
-  <circle cx="384" cy="88" r="1.5" fill="#ff0000" filter="url(#gl)" style="animation:spark-26-4-2 10s linear infinite"/>
-  <circle cx="396" cy="36" r="1.5" fill="#ff0000" filter="url(#gl)" style="animation:spark-27-0-0 10s linear infinite"/>
-  <circle cx="396" cy="36" r="1.5" fill="#ff0000" filter="url(#gl)" style="animation:spark-27-0-1 10s linear infinite"/>
-  <circle cx="396" cy="36" r="1.5" fill="#ff0000" filter="url(#gl)" style="animation:spark-27-0-2 10s linear infinite"/>
-  <circle cx="722" cy="88" r="1.5" fill="#ff0000" filter="url(#gl)" style="animation:spark-52-4-0 10s linear infinite"/>
-  <circle cx="722" cy="88" r="1.5" fill="#ff0000" filter="url(#gl)" style="animation:spark-52-4-1 10s linear infinite"/>
-  <circle cx="722" cy="88" r="1.5" fill="#ff0000" filter="url(#gl)" style="animation:spark-52-4-2 10s linear infinite"/>
-<circle cx="741" cy="74" r="30" fill="#ff0000" filter="url(#gl)" style="animation:finish-flash 10s linear infinite"/>
-<rect x="741" y="74" width="4" height="4" rx="1" fill="#ff0000" style="animation:confetti-0 10s linear infinite;transform-origin:741px 74px"/>
-<rect x="741" y="74" width="4" height="4" rx="1" fill="#cc0000" style="animation:confetti-1 10s linear infinite;transform-origin:741px 74px"/>
-<rect x="741" y="74" width="4" height="4" rx="1" fill="#ff3333" style="animation:confetti-2 10s linear infinite;transform-origin:741px 74px"/>
-<rect x="741" y="74" width="4" height="4" rx="1" fill="#ff0066" style="animation:confetti-3 10s linear infinite;transform-origin:741px 74px"/>
-<rect x="741" y="74" width="4" height="4" rx="1" fill="#ff6666" style="animation:confetti-4 10s linear infinite;transform-origin:741px 74px"/>
-<rect x="741" y="74" width="4" height="4" rx="1" fill="#ff0000" style="animation:confetti-5 10s linear infinite;transform-origin:741px 74px"/>
-<rect x="741" y="74" width="4" height="4" rx="1" fill="#ff0000" style="animation:confetti-6 10s linear infinite;transform-origin:741px 74px"/>
-<rect x="741" y="74" width="4" height="4" rx="1" fill="#cc0000" style="animation:confetti-7 10s linear infinite;transform-origin:741px 74px"/>
-<rect x="741" y="74" width="4" height="4" rx="1" fill="#ff3333" style="animation:confetti-8 10s linear infinite;transform-origin:741px 74px"/>
-<rect x="741" y="74" width="4" height="4" rx="1" fill="#ff0066" style="animation:confetti-9 10s linear infinite;transform-origin:741px 74px"/>
-<rect x="741" y="74" width="4" height="4" rx="1" fill="#ff6666" style="animation:confetti-10 10s linear infinite;transform-origin:741px 74px"/>
-<rect x="741" y="74" width="4" height="4" rx="1" fill="#ff0000" style="animation:confetti-11 10s linear infinite;transform-origin:741px 74px"/>
+<path d="M -30.0,74.5 L 45.5,61.5 L 110.5,61.5 L 110.5,87.5 L 136.5,87.5 L 162.5,61.5 L 175.5,61.5 L 188.5,61.5 L 188.5,74.5 L 383.5,87.5 L 396.5,35.5 L 721.5,87.5 L 807.0,87.5" fill="none" stroke="#0096ff" stroke-width="1" opacity="0.15" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" style="animation:trail-draw 10s linear infinite"/>
+<path d="M -30.0,74.5 L 45.5,61.5 L 110.5,61.5 L 110.5,87.5 L 136.5,87.5 L 162.5,61.5 L 175.5,61.5 L 188.5,61.5 L 188.5,74.5 L 383.5,87.5 L 396.5,35.5 L 721.5,87.5 L 807.0,87.5" fill="none" stroke="#0096ff" stroke-width="3" opacity="0.05" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" style="animation:trail-draw 10s linear infinite"/>
+  <circle cx="46" cy="62" r="1.5" fill="#0096ff" filter="url(#gl)" style="animation:spark-0-2-0 10s linear infinite"/>
+  <circle cx="46" cy="62" r="1.5" fill="#0096ff" filter="url(#gl)" style="animation:spark-0-2-1 10s linear infinite"/>
+  <circle cx="46" cy="62" r="1.5" fill="#0096ff" filter="url(#gl)" style="animation:spark-0-2-2 10s linear infinite"/>
+  <circle cx="110" cy="62" r="1.5" fill="#0096ff" filter="url(#gl)" style="animation:spark-5-2-0 10s linear infinite"/>
+  <circle cx="110" cy="62" r="1.5" fill="#0096ff" filter="url(#gl)" style="animation:spark-5-2-1 10s linear infinite"/>
+  <circle cx="110" cy="62" r="1.5" fill="#0096ff" filter="url(#gl)" style="animation:spark-5-2-2 10s linear infinite"/>
+  <circle cx="110" cy="88" r="1.5" fill="#0096ff" filter="url(#gl)" style="animation:spark-5-4-0 10s linear infinite"/>
+  <circle cx="110" cy="88" r="1.5" fill="#0096ff" filter="url(#gl)" style="animation:spark-5-4-1 10s linear infinite"/>
+  <circle cx="110" cy="88" r="1.5" fill="#0096ff" filter="url(#gl)" style="animation:spark-5-4-2 10s linear infinite"/>
+  <circle cx="136" cy="88" r="1.5" fill="#0096ff" filter="url(#gl)" style="animation:spark-7-4-0 10s linear infinite"/>
+  <circle cx="136" cy="88" r="1.5" fill="#0096ff" filter="url(#gl)" style="animation:spark-7-4-1 10s linear infinite"/>
+  <circle cx="136" cy="88" r="1.5" fill="#0096ff" filter="url(#gl)" style="animation:spark-7-4-2 10s linear infinite"/>
+  <circle cx="162" cy="62" r="1.5" fill="#0096ff" filter="url(#gl)" style="animation:spark-9-2-0 10s linear infinite"/>
+  <circle cx="162" cy="62" r="1.5" fill="#0096ff" filter="url(#gl)" style="animation:spark-9-2-1 10s linear infinite"/>
+  <circle cx="162" cy="62" r="1.5" fill="#0096ff" filter="url(#gl)" style="animation:spark-9-2-2 10s linear infinite"/>
+  <circle cx="176" cy="62" r="1.5" fill="#0096ff" filter="url(#gl)" style="animation:spark-10-2-0 10s linear infinite"/>
+  <circle cx="176" cy="62" r="1.5" fill="#0096ff" filter="url(#gl)" style="animation:spark-10-2-1 10s linear infinite"/>
+  <circle cx="176" cy="62" r="1.5" fill="#0096ff" filter="url(#gl)" style="animation:spark-10-2-2 10s linear infinite"/>
+  <circle cx="188" cy="62" r="1.5" fill="#0096ff" filter="url(#gl)" style="animation:spark-11-2-0 10s linear infinite"/>
+  <circle cx="188" cy="62" r="1.5" fill="#0096ff" filter="url(#gl)" style="animation:spark-11-2-1 10s linear infinite"/>
+  <circle cx="188" cy="62" r="1.5" fill="#0096ff" filter="url(#gl)" style="animation:spark-11-2-2 10s linear infinite"/>
+  <circle cx="188" cy="74" r="1.5" fill="#0096ff" filter="url(#gl)" style="animation:spark-11-3-0 10s linear infinite"/>
+  <circle cx="188" cy="74" r="1.5" fill="#0096ff" filter="url(#gl)" style="animation:spark-11-3-1 10s linear infinite"/>
+  <circle cx="188" cy="74" r="1.5" fill="#0096ff" filter="url(#gl)" style="animation:spark-11-3-2 10s linear infinite"/>
+  <circle cx="384" cy="88" r="1.5" fill="#0096ff" filter="url(#gl)" style="animation:spark-26-4-0 10s linear infinite"/>
+  <circle cx="384" cy="88" r="1.5" fill="#0096ff" filter="url(#gl)" style="animation:spark-26-4-1 10s linear infinite"/>
+  <circle cx="384" cy="88" r="1.5" fill="#0096ff" filter="url(#gl)" style="animation:spark-26-4-2 10s linear infinite"/>
+  <circle cx="396" cy="36" r="1.5" fill="#0096ff" filter="url(#gl)" style="animation:spark-27-0-0 10s linear infinite"/>
+  <circle cx="396" cy="36" r="1.5" fill="#0096ff" filter="url(#gl)" style="animation:spark-27-0-1 10s linear infinite"/>
+  <circle cx="396" cy="36" r="1.5" fill="#0096ff" filter="url(#gl)" style="animation:spark-27-0-2 10s linear infinite"/>
+  <circle cx="722" cy="88" r="1.5" fill="#0096ff" filter="url(#gl)" style="animation:spark-52-4-0 10s linear infinite"/>
+  <circle cx="722" cy="88" r="1.5" fill="#0096ff" filter="url(#gl)" style="animation:spark-52-4-1 10s linear infinite"/>
+  <circle cx="722" cy="88" r="1.5" fill="#0096ff" filter="url(#gl)" style="animation:spark-52-4-2 10s linear infinite"/>
+<circle cx="741" cy="74" r="30" fill="#0096ff" filter="url(#gl)" style="animation:finish-flash 10s linear infinite"/>
+<rect x="741" y="74" width="4" height="4" rx="1" fill="#0096ff" style="animation:confetti-0 10s linear infinite;transform-origin:741px 74px"/>
+<rect x="741" y="74" width="4" height="4" rx="1" fill="#0077cc" style="animation:confetti-1 10s linear infinite;transform-origin:741px 74px"/>
+<rect x="741" y="74" width="4" height="4" rx="1" fill="#33adff" style="animation:confetti-2 10s linear infinite;transform-origin:741px 74px"/>
+<rect x="741" y="74" width="4" height="4" rx="1" fill="#0066ff" style="animation:confetti-3 10s linear infinite;transform-origin:741px 74px"/>
+<rect x="741" y="74" width="4" height="4" rx="1" fill="#66c2ff" style="animation:confetti-4 10s linear infinite;transform-origin:741px 74px"/>
+<rect x="741" y="74" width="4" height="4" rx="1" fill="#0096ff" style="animation:confetti-5 10s linear infinite;transform-origin:741px 74px"/>
+<rect x="741" y="74" width="4" height="4" rx="1" fill="#0096ff" style="animation:confetti-6 10s linear infinite;transform-origin:741px 74px"/>
+<rect x="741" y="74" width="4" height="4" rx="1" fill="#0077cc" style="animation:confetti-7 10s linear infinite;transform-origin:741px 74px"/>
+<rect x="741" y="74" width="4" height="4" rx="1" fill="#33adff" style="animation:confetti-8 10s linear infinite;transform-origin:741px 74px"/>
+<rect x="741" y="74" width="4" height="4" rx="1" fill="#0066ff" style="animation:confetti-9 10s linear infinite;transform-origin:741px 74px"/>
+<rect x="741" y="74" width="4" height="4" rx="1" fill="#66c2ff" style="animation:confetti-10 10s linear infinite;transform-origin:741px 74px"/>
+<rect x="741" y="74" width="4" height="4" rx="1" fill="#0096ff" style="animation:confetti-11 10s linear infinite;transform-origin:741px 74px"/>
 <g filter="url(#gl)">
   <animateMotion dur="10s" calcMode="paced" repeatCount="indefinite" rotate="auto">
     <mpath href="#carpath"/>
@@ -582,25 +582,25 @@
   <path d="M 15,0 Q 14,-3.5 11,-4.5 L 7,-5.5 L 2,-6 L -4,-6 L -9,-5.5 L -12,-5
     Q -15,-4 -15,-1 L -15,1 Q -15,4 -12,5
     L -9,5.5 L -4,6 L 2,6 L 7,5.5 L 11,4.5 Q 14,3.5 15,0 Z
-  " fill="#12161f" stroke="#ff0000" stroke-width="0.8"/>
-  <line x1="9" y1="-3.5" x2="14" y2="0" stroke="#ff0000" stroke-width="0.4" opacity="0.5"/>
-  <line x1="9" y1="3.5" x2="14" y2="0" stroke="#ff0000" stroke-width="0.4" opacity="0.5"/>
-  <path d="M 8,-2 Q 10,0 8,2" fill="none" stroke="#ff0000" stroke-width="0.3" opacity="0.3"/>
-  <rect x="7" y="-1.5" width="4" height="3" rx="1" fill="#0d1117" stroke="#ff0000" stroke-width="0.3" opacity="0.5"/>
-  <path d="M 4,-5 L 7,-4.5 L 7,4.5 L 4,5 Z" fill="#2a0a0a" stroke="#ff0000" stroke-width="0.5" opacity="0.7"/>
-  <rect x="-5" y="-4.5" width="9" height="9" rx="2" fill="#0d1520" stroke="#ff0000" stroke-width="0.4" opacity="0.6"/>
-  <path d="M -7,-4.5 L -5,-5 L -5,5 L -7,4.5 Z" fill="#2a0a0a" stroke="#ff0000" stroke-width="0.3" opacity="0.5"/>
-  <line x1="-14" y1="-7" x2="-14" y2="7" stroke="#ff0000" stroke-width="1.5" opacity="0.8"/>
-  <line x1="-14" y1="-6.5" x2="-12" y2="-5" stroke="#ff0000" stroke-width="0.6" opacity="0.5"/>
-  <line x1="-14" y1="6.5" x2="-12" y2="5" stroke="#ff0000" stroke-width="0.6" opacity="0.5"/>
-  <rect x="8" y="-7.5" width="4" height="2.5" rx="0.8" fill="#1a1a1a" stroke="#ff0000" stroke-width="0.4" opacity="0.8"/>
-  <rect x="8" y="5" width="4" height="2.5" rx="0.8" fill="#1a1a1a" stroke="#ff0000" stroke-width="0.4" opacity="0.8"/>
-  <rect x="-11" y="-7.5" width="5" height="2.5" rx="0.8" fill="#1a1a1a" stroke="#ff0000" stroke-width="0.4" opacity="0.8"/>
-  <rect x="-11" y="5" width="5" height="2.5" rx="0.8" fill="#1a1a1a" stroke="#ff0000" stroke-width="0.4" opacity="0.8"/>
-  <circle cx="15" cy="-3.5" r="1.5" fill="#ff0000" opacity="0.9">
+  " fill="#12161f" stroke="#0096ff" stroke-width="0.8"/>
+  <line x1="9" y1="-3.5" x2="14" y2="0" stroke="#0096ff" stroke-width="0.4" opacity="0.5"/>
+  <line x1="9" y1="3.5" x2="14" y2="0" stroke="#0096ff" stroke-width="0.4" opacity="0.5"/>
+  <path d="M 8,-2 Q 10,0 8,2" fill="none" stroke="#0096ff" stroke-width="0.3" opacity="0.3"/>
+  <rect x="7" y="-1.5" width="4" height="3" rx="1" fill="#0d1117" stroke="#0096ff" stroke-width="0.3" opacity="0.5"/>
+  <path d="M 4,-5 L 7,-4.5 L 7,4.5 L 4,5 Z" fill="#0a1a2a" stroke="#0096ff" stroke-width="0.5" opacity="0.7"/>
+  <rect x="-5" y="-4.5" width="9" height="9" rx="2" fill="#0d1520" stroke="#0096ff" stroke-width="0.4" opacity="0.6"/>
+  <path d="M -7,-4.5 L -5,-5 L -5,5 L -7,4.5 Z" fill="#0a1a2a" stroke="#0096ff" stroke-width="0.3" opacity="0.5"/>
+  <line x1="-14" y1="-7" x2="-14" y2="7" stroke="#0096ff" stroke-width="1.5" opacity="0.8"/>
+  <line x1="-14" y1="-6.5" x2="-12" y2="-5" stroke="#0096ff" stroke-width="0.6" opacity="0.5"/>
+  <line x1="-14" y1="6.5" x2="-12" y2="5" stroke="#0096ff" stroke-width="0.6" opacity="0.5"/>
+  <rect x="8" y="-7.5" width="4" height="2.5" rx="0.8" fill="#1a1a1a" stroke="#0096ff" stroke-width="0.4" opacity="0.8"/>
+  <rect x="8" y="5" width="4" height="2.5" rx="0.8" fill="#1a1a1a" stroke="#0096ff" stroke-width="0.4" opacity="0.8"/>
+  <rect x="-11" y="-7.5" width="5" height="2.5" rx="0.8" fill="#1a1a1a" stroke="#0096ff" stroke-width="0.4" opacity="0.8"/>
+  <rect x="-11" y="5" width="5" height="2.5" rx="0.8" fill="#1a1a1a" stroke="#0096ff" stroke-width="0.4" opacity="0.8"/>
+  <circle cx="15" cy="-3.5" r="1.5" fill="#0096ff" opacity="0.9">
     <animate attributeName="opacity" values="0.8;1;0.7;1" dur="0.6s" repeatCount="indefinite"/>
   </circle>
-  <circle cx="15" cy="3.5" r="1.5" fill="#ff0000" opacity="0.9">
+  <circle cx="15" cy="3.5" r="1.5" fill="#0096ff" opacity="0.9">
     <animate attributeName="opacity" values="0.8;1;0.7;1" dur="0.6s" repeatCount="indefinite"/>
   </circle>
   <rect x="-15.5" y="-4" width="2" height="2.5" rx="0.5" fill="#ffaa00" opacity="0.85">
@@ -609,65 +609,65 @@
   <rect x="-15.5" y="1.5" width="2" height="2.5" rx="0.5" fill="#ffaa00" opacity="0.85">
     <animate attributeName="opacity" values="0.8;1;0.4;1" dur="0.3s" repeatCount="indefinite" begin="0.15s"/>
   </rect>
-  <ellipse cx="5" cy="-7" rx="1.8" ry="1" fill="#161b22" stroke="#ff0000" stroke-width="0.3"/>
-  <ellipse cx="5" cy="7" rx="1.8" ry="1" fill="#161b22" stroke="#ff0000" stroke-width="0.3"/>
+  <ellipse cx="5" cy="-7" rx="1.8" ry="1" fill="#161b22" stroke="#0096ff" stroke-width="0.3"/>
+  <ellipse cx="5" cy="7" rx="1.8" ry="1" fill="#161b22" stroke="#0096ff" stroke-width="0.3"/>
   <!-- NITRO FLAMES -->
   <!-- Core flame (bright, tight) -->
-  <ellipse cx="-20" cy="0" rx="6" ry="2.5" fill="#ff0000" opacity="0">
+  <ellipse cx="-20" cy="0" rx="6" ry="2.5" fill="#0096ff" opacity="0">
     <animate attributeName="rx" values="4;7;5;8;4" dur="0.15s" repeatCount="indefinite"/>
     <animate attributeName="ry" values="2;3;1.5;3.5;2" dur="0.15s" repeatCount="indefinite"/>
     <animate attributeName="opacity" values="0.6;0.9;0.5;0.8;0.6" dur="0.15s" repeatCount="indefinite"/>
   </ellipse>
   <!-- Inner flame glow -->
-  <ellipse cx="-22" cy="0" rx="4" ry="1.5" fill="#ff6666" opacity="0">
+  <ellipse cx="-22" cy="0" rx="4" ry="1.5" fill="#66c2ff" opacity="0">
     <animate attributeName="rx" values="3;5;4;6;3" dur="0.12s" repeatCount="indefinite"/>
     <animate attributeName="opacity" values="0.4;0.7;0.3;0.6;0.4" dur="0.12s" repeatCount="indefinite"/>
   </ellipse>
   <!-- Nitro particle stream 1 (center) -->
-  <circle r="1.5" fill="#ff0000" opacity="0">
+  <circle r="1.5" fill="#0096ff" opacity="0">
     <animate attributeName="cx" values="-18;-30;-45" dur="0.4s" repeatCount="indefinite"/>
     <animate attributeName="cy" values="0;-0.5;-1" dur="0.4s" repeatCount="indefinite"/>
     <animate attributeName="r" values="1.5;3;5" dur="0.4s" repeatCount="indefinite"/>
     <animate attributeName="opacity" values="0.5;0.2;0" dur="0.4s" repeatCount="indefinite"/>
   </circle>
   <!-- Nitro particle stream 2 (upper) -->
-  <circle r="1" fill="#ff0000" opacity="0">
+  <circle r="1" fill="#0096ff" opacity="0">
     <animate attributeName="cx" values="-18;-28;-40" dur="0.35s" repeatCount="indefinite"/>
     <animate attributeName="cy" values="-2;-4;-6" dur="0.35s" repeatCount="indefinite"/>
     <animate attributeName="r" values="1;2.5;4" dur="0.35s" repeatCount="indefinite"/>
     <animate attributeName="opacity" values="0.4;0.15;0" dur="0.35s" repeatCount="indefinite"/>
   </circle>
   <!-- Nitro particle stream 3 (lower) -->
-  <circle r="1" fill="#ff0000" opacity="0">
+  <circle r="1" fill="#0096ff" opacity="0">
     <animate attributeName="cx" values="-18;-28;-40" dur="0.35s" repeatCount="indefinite" begin="0.1s"/>
     <animate attributeName="cy" values="2;4;6" dur="0.35s" repeatCount="indefinite" begin="0.1s"/>
     <animate attributeName="r" values="1;2.5;4" dur="0.35s" repeatCount="indefinite" begin="0.1s"/>
     <animate attributeName="opacity" values="0.4;0.15;0" dur="0.35s" repeatCount="indefinite" begin="0.1s"/>
   </circle>
   <!-- Nitro sparks (tiny fast particles) -->
-  <circle r="0.8" fill="#ff6666" opacity="0">
+  <circle r="0.8" fill="#66c2ff" opacity="0">
     <animate attributeName="cx" values="-17;-35;-50" dur="0.25s" repeatCount="indefinite"/>
     <animate attributeName="cy" values="1;3;5" dur="0.25s" repeatCount="indefinite"/>
     <animate attributeName="r" values="0.8;1.2;0.3" dur="0.25s" repeatCount="indefinite"/>
     <animate attributeName="opacity" values="0.7;0.3;0" dur="0.25s" repeatCount="indefinite"/>
   </circle>
-  <circle r="0.8" fill="#ff6666" opacity="0">
+  <circle r="0.8" fill="#66c2ff" opacity="0">
     <animate attributeName="cx" values="-17;-33;-48" dur="0.25s" repeatCount="indefinite" begin="0.08s"/>
     <animate attributeName="cy" values="-1;-3;-4" dur="0.25s" repeatCount="indefinite" begin="0.08s"/>
     <animate attributeName="r" values="0.8;1;0.2" dur="0.25s" repeatCount="indefinite" begin="0.08s"/>
     <animate attributeName="opacity" values="0.6;0.25;0" dur="0.25s" repeatCount="indefinite" begin="0.08s"/>
   </circle>
-  <circle r="0.5" fill="#ff3333" opacity="0">
+  <circle r="0.5" fill="#33adff" opacity="0">
     <animate attributeName="cx" values="-17;-40;-55" dur="0.3s" repeatCount="indefinite" begin="0.15s"/>
     <animate attributeName="cy" values="0;-2;-3" dur="0.3s" repeatCount="indefinite" begin="0.15s"/>
     <animate attributeName="r" values="0.5;1.5;0.2" dur="0.3s" repeatCount="indefinite" begin="0.15s"/>
     <animate attributeName="opacity" values="0.5;0.15;0" dur="0.3s" repeatCount="indefinite" begin="0.15s"/>
   </circle>
   <!-- Nitro glow halo behind car -->
-  <ellipse cx="-18" cy="0" rx="10" ry="8" fill="#ff0000" opacity="0">
+  <ellipse cx="-18" cy="0" rx="10" ry="8" fill="#0096ff" opacity="0">
     <animate attributeName="opacity" values="0.05;0.12;0.05;0.1;0.05" dur="0.2s" repeatCount="indefinite"/>
     <animate attributeName="rx" values="10;13;10" dur="0.3s" repeatCount="indefinite"/>
   </ellipse>
 </g>
-<text x="384" y="155" text-anchor="middle" font-family="monospace" font-size="10" fill="#ff0000" opacity="0.35">kblankk // 23 contributions</text>
+<text x="384" y="155" text-anchor="middle" font-family="monospace" font-size="10" fill="#0096ff" opacity="0.35">kblankk // 38 contributions</text>
 </svg>

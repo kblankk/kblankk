@@ -1,9 +1,9 @@
 <div align="center">
 
 <!-- HEADER -->
-<img src="https://capsule-render.vercel.app/api?type=waving&color=ff0000&height=180&section=header&text=Kaw%C3%A3%20Oliveira&fontSize=42&fontColor=ffffff&fontAlignY=35&animation=fadeIn&desc=Student%20and%20Developer&descSize=18&descColor=ffffff&descAlignY=55" width="100%"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0096ff&height=180&section=header&text=Kaw%C3%A3%20Oliveira&fontSize=42&fontColor=ffffff&fontAlignY=35&animation=fadeIn&desc=Student%20and%20Developer&descSize=18&descColor=ffffff&descAlignY=55" width="100%"/>
 
-<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&duration=4000&pause=1000&color=FF0000&center=true&vCenter=true&random=false&width=500&lines=Always+learning+new+things...;Building+cool+stuff;Open+source+enthusiast" alt="Typing SVG" /></a>
+<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&duration=4000&pause=1000&color=0096FF&center=true&vCenter=true&random=false&width=500&lines=Always+learning+new+things...;Building+cool+stuff;Open+source+enthusiast" alt="Typing SVG" /></a>
 
 </div>
 
@@ -36,24 +36,24 @@
 
 #### `// Languages`
 
-![Python](https://img.shields.io/badge/Python-0d1117?style=flat-square&logo=python&logoColor=ff0000)
-![C#](https://img.shields.io/badge/C%23-0d1117?style=flat-square&logo=csharp&logoColor=ff0000)
-![TypeScript](https://img.shields.io/badge/TypeScript-0d1117?style=flat-square&logo=typescript&logoColor=ff0000)
-![HTML5](https://img.shields.io/badge/HTML5-0d1117?style=flat-square&logo=html5&logoColor=ff0000)
-![CSS3](https://img.shields.io/badge/CSS3-0d1117?style=flat-square&logo=css3&logoColor=ff0000)
+![Python](https://img.shields.io/badge/Python-0d1117?style=flat-square&logo=python&logoColor=0096ff)
+![C#](https://img.shields.io/badge/C%23-0d1117?style=flat-square&logo=csharp&logoColor=0096ff)
+![TypeScript](https://img.shields.io/badge/TypeScript-0d1117?style=flat-square&logo=typescript&logoColor=0096ff)
+![HTML5](https://img.shields.io/badge/HTML5-0d1117?style=flat-square&logo=html5&logoColor=0096ff)
+![CSS3](https://img.shields.io/badge/CSS3-0d1117?style=flat-square&logo=css3&logoColor=0096ff)
 
 #### `// Frameworks & Libraries`
 
-![.NET](https://img.shields.io/badge/.NET-0d1117?style=flat-square&logo=dotnet&logoColor=ff0000)
-![Node.js](https://img.shields.io/badge/Node.js-0d1117?style=flat-square&logo=node.js&logoColor=ff0000)
+![.NET](https://img.shields.io/badge/.NET-0d1117?style=flat-square&logo=dotnet&logoColor=0096ff)
+![Node.js](https://img.shields.io/badge/Node.js-0d1117?style=flat-square&logo=node.js&logoColor=0096ff)
 
 
 #### `// Tools & Platforms`
 
-![Git](https://img.shields.io/badge/Git-0d1117?style=flat-square&logo=git&logoColor=ff0000)
-![GitHub](https://img.shields.io/badge/GitHub-0d1117?style=flat-square&logo=github&logoColor=ff0000)
-![VS Code](https://img.shields.io/badge/VS_Code-0d1117?style=flat-square&logo=visualstudiocode&logoColor=ff0000)
-![Docker](https://img.shields.io/badge/Docker-0d1117?style=flat-square&logo=docker&logoColor=ff0000)
+![Git](https://img.shields.io/badge/Git-0d1117?style=flat-square&logo=git&logoColor=0096ff)
+![GitHub](https://img.shields.io/badge/GitHub-0d1117?style=flat-square&logo=github&logoColor=0096ff)
+![VS Code](https://img.shields.io/badge/VS_Code-0d1117?style=flat-square&logo=visualstudiocode&logoColor=0096ff)
+![Docker](https://img.shields.io/badge/Docker-0d1117?style=flat-square&logo=docker&logoColor=0096ff)
 
 
 </div>
@@ -63,17 +63,17 @@
 ### `Stats`
 
 <div align="center">
-  <img height="170em" src="https://github-readme-stats.vercel.app/api?username=kblankk&show_icons=true&bg_color=0d1117&title_color=ff0000&icon_color=ff0000&text_color=c9d1d9&border_color=ff0000&hide_border=false&include_all_commits=true&count_private=true&cache_seconds=86400"/>
-  <img height="170em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=kblankk&layout=compact&bg_color=0d1117&title_color=ff0000&text_color=c9d1d9&border_color=ff0000&hide_border=false&langs_count=8&cache_seconds=86400"/>
+  <img height="170em" src="https://github-readme-stats.vercel.app/api?username=kblankk&show_icons=true&bg_color=0d1117&title_color=0096ff&icon_color=0096ff&text_color=c9d1d9&border_color=0096ff&hide_border=false&include_all_commits=true&count_private=true&cache_seconds=86400"/>
+  <img height="170em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=kblankk&layout=compact&bg_color=0d1117&title_color=0096ff&text_color=c9d1d9&border_color=0096ff&hide_border=false&langs_count=8&cache_seconds=86400"/>
 </div>
 
 <div align="center">
-  <img height="170em" src="https://github-readme-streak-stats.herokuapp.com/?user=kblankk&theme=dark&background=0d1117&ring=ff0000&fire=ff0000&currStreakLabel=ff0000&sideLabels=ff0000&border=ff0000&currStreakNum=c9d1d9&sideNums=c9d1d9&dates=555555"/>
+  <img height="170em" src="https://github-readme-streak-stats.herokuapp.com/?user=kblankk&theme=dark&background=0d1117&ring=0096ff&fire=0096ff&currStreakLabel=0096ff&sideLabels=0096ff&border=0096ff&currStreakNum=c9d1d9&sideNums=c9d1d9&dates=555555"/>
 </div>
 
 <div align="center">
 
-[![Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=kblankk&bg_color=0d1117&color=ff0000&line=ff0000&point=ffffff&area_color=0d1117&area=true&hide_border=false&border_color=ff0000&custom_title=%3E%20Contribution%20Graph)](https://github.com/ashutosh00710/github-readme-activity-graph)
+[![Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=kblankk&bg_color=0d1117&color=0096ff&line=0096ff&point=ffffff&area_color=0d1117&area=true&hide_border=false&border_color=0096ff&custom_title=%3E%20Contribution%20Graph)](https://github.com/ashutosh00710/github-readme-activity-graph)
 
 </div>
 
@@ -83,10 +83,10 @@
 
 <div align="center">
 
-[![LinkedIn](https://img.shields.io/badge/Kawã_Oliveira-0d1117?style=for-the-badge&logo=linkedin&logoColor=ff0000)](https://www.linkedin.com/in/kaw%C3%A3-oliveira-80303a368/)
-[![Instagram](https://img.shields.io/badge/@olvkawa-0d1117?style=for-the-badge&logo=instagram&logoColor=ff0000)](https://instagram.com/olvkawa)
-[![Discord](https://img.shields.io/badge/_kblank-0d1117?style=for-the-badge&logo=discord&logoColor=ff0000)](https://discordapp.com/users/_kblank)
-[![Gmail](https://img.shields.io/badge/kawabrein@gmail.com-0d1117?style=for-the-badge&logo=gmail&logoColor=ff0000)](mailto:kawabrein@gmail.com)
+[![LinkedIn](https://img.shields.io/badge/Kawã_Oliveira-0d1117?style=for-the-badge&logo=linkedin&logoColor=0096ff)](https://www.linkedin.com/in/kaw%C3%A3-oliveira-80303a368/)
+[![Instagram](https://img.shields.io/badge/@olvkawa-0d1117?style=for-the-badge&logo=instagram&logoColor=0096ff)](https://instagram.com/olvkawa)
+[![Discord](https://img.shields.io/badge/_kblank-0d1117?style=for-the-badge&logo=discord&logoColor=0096ff)](https://discordapp.com/users/_kblank)
+[![Gmail](https://img.shields.io/badge/kawabrein@gmail.com-0d1117?style=for-the-badge&logo=gmail&logoColor=0096ff)](mailto:kawabrein@gmail.com)
 
 </div>
 
@@ -99,10 +99,10 @@
 └─$ echo "Thanks for visiting! Let's connect and build something amazing."
 ```
 
-<img src="https://komarev.com/ghpvc/?username=kblankk&color=ff0000&style=flat-square&label=Profile+Views"/>
+<img src="https://komarev.com/ghpvc/?username=kblankk&color=0096ff&style=flat-square&label=Profile+Views"/>
 
 <img src="https://raw.githubusercontent.com/kblankk/kblankk/output/drift-car.svg" width="100%" alt="Drift Car Animation"/>
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=ff0000&height=80&section=footer"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0096ff&height=80&section=footer"/>
 
 </div>
