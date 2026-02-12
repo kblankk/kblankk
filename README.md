@@ -1,9 +1,9 @@
 <div align="center">
 
 <!-- HEADER -->
-# `Kawã Oliveira`
+<img src="https://capsule-render.vercel.app/api?type=waving&color=ff0000&height=180&section=header&text=Kaw%C3%A3%20Oliveira&fontSize=42&fontColor=ffffff&fontAlignY=35&animation=fadeIn&desc=Student%20%26%20Developer&descSize=18&descColor=ffffff&descAlignY=55" width="100%"/>
 
-<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&duration=4000&pause=1000&color=FF0000&center=true&vCenter=true&random=false&width=500&lines=Student+%26+Developer;Always+learning+new+things...;Building+cool+stuff" alt="Typing SVG" /></a>
+<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&duration=4000&pause=1000&color=FF0000&center=true&vCenter=true&random=false&width=500&lines=Always+learning+new+things...;Building+cool+stuff;Open+source+enthusiast" alt="Typing SVG" /></a>
 
 </div>
 
