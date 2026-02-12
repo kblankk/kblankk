@@ -1,7 +1,9 @@
 <div align="center">
 
 <!-- HEADER -->
-<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=28&duration=4000&pause=1000&color=FF0000&center=true&vCenter=true&random=false&width=600&lines=%3E+Kaw%C3%A3+Oliveira;%3E+Student+%26+Developer;%3E+Always+learning+new+things..." alt="Typing SVG" /></a>
+# `Kawã Oliveira`
+
+<a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&duration=4000&pause=1000&color=FF0000&center=true&vCenter=true&random=false&width=500&lines=Student+%26+Developer;Always+learning+new+things...;Building+cool+stuff" alt="Typing SVG" /></a>
 
 </div>
 
@@ -56,12 +58,6 @@
 
 </div>
 
-<div align="center">
-
-<img src="https://raw.githubusercontent.com/kblankk/kblankk/output/drift-car.svg" width="100%" alt="Drift Car Animation"/>
-
-</div>
-
 ---
 
 ### `Stats`
@@ -87,7 +83,7 @@
 
 <div align="center">
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0d1117?style=for-the-badge&logo=linkedin&logoColor=ff0000)](https://linkedin.com/in/Kawã-Oliveira)
+[![LinkedIn](https://img.shields.io/badge/Kawã_Oliveira-0d1117?style=for-the-badge&logo=linkedin&logoColor=ff0000)](https://www.linkedin.com/in/kaw%C3%A3-oliveira-80303a368/)
 [![Instagram](https://img.shields.io/badge/@olvkawa-0d1117?style=for-the-badge&logo=instagram&logoColor=ff0000)](https://instagram.com/olvkawa)
 [![Discord](https://img.shields.io/badge/_kblank-0d1117?style=for-the-badge&logo=discord&logoColor=ff0000)](https://discordapp.com/users/_kblank)
 [![Gmail](https://img.shields.io/badge/kawabrein@gmail.com-0d1117?style=for-the-badge&logo=gmail&logoColor=ff0000)](mailto:kawabrein@gmail.com)
@@ -104,6 +100,8 @@
 ```
 
 <img src="https://komarev.com/ghpvc/?username=kblankk&color=ff0000&style=flat-square&label=Profile+Views"/>
+
+<img src="https://raw.githubusercontent.com/kblankk/kblankk/output/drift-car.svg" width="100%" alt="Drift Car Animation"/>
 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=ff0000&height=80&section=footer"/>
 
