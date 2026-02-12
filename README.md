@@ -12,7 +12,7 @@
 ---
 
 <!-- ABOUT ME -->
-### `root@kblankk:~$ whoami`
+### `> ./about.sh`
 
 ```bash
 ┌──[kblankk@github]─[~/about-me]
@@ -32,7 +32,7 @@
 
 ---
 
-### `root@kblankk:~$ sudo apt list --installed`
+### `> ls ~/tech-stack/`
 
 <div align="center">
 
@@ -62,7 +62,7 @@
 
 ---
 
-### `root@kblankk:~$ htop --github-stats`
+### `> ./stats.sh`
 
 <div align="center">
   <img height="170em" src="https://github-readme-stats.vercel.app/api?username=kblankk&show_icons=true&theme=radical&bg_color=0d1117&title_color=ff0000&icon_color=ff0000&text_color=c9d1d9&border_color=ff0000&hide_border=false&include_all_commits=true&count_private=true"/>
@@ -75,7 +75,7 @@
 
 ---
 
-### `root@kblankk:~$ tail -f contributions.log`
+### `> git log --graph`
 
 <div align="center">
 
@@ -85,7 +85,7 @@
 
 ---
 
-### `root@kblankk:~$ ssh connect@social`
+### `> ping @social`
 
 <div align="center">
 
