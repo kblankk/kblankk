@@ -3,10 +3,6 @@
 <!-- HEADER -->
 <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=28&duration=4000&pause=1000&color=FF0000&center=true&vCenter=true&random=false&width=600&lines=%3E+Kaw%C3%A3+Oliveira;%3E+Student+%26+Developer;%3E+Always+learning+new+things..." alt="Typing SVG" /></a>
 
-<br/>
-
-<img src="https://raw.githubusercontent.com/kblankk/kblankk/output/drift-car.svg" width="100%" alt="Drift Car Animation"/>
-
 </div>
 
 ---
@@ -60,13 +56,19 @@
 
 </div>
 
+<div align="center">
+
+<img src="https://raw.githubusercontent.com/kblankk/kblankk/output/drift-car.svg" width="100%" alt="Drift Car Animation"/>
+
+</div>
+
 ---
 
 ### `Stats`
 
 <div align="center">
-  <img height="170em" src="https://github-readme-stats.vercel.app/api?username=kblankk&show_icons=true&theme=radical&bg_color=0d1117&title_color=ff0000&icon_color=ff0000&text_color=c9d1d9&border_color=ff0000&hide_border=false&include_all_commits=true&count_private=true"/>
-  <img height="170em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=kblankk&layout=compact&theme=radical&bg_color=0d1117&title_color=ff0000&text_color=c9d1d9&border_color=ff0000&hide_border=false&langs_count=8"/>
+  <img height="170em" src="https://github-readme-stats.vercel.app/api?username=kblankk&show_icons=true&bg_color=0d1117&title_color=ff0000&icon_color=ff0000&text_color=c9d1d9&border_color=ff0000&hide_border=false&include_all_commits=true&count_private=true&cache_seconds=86400"/>
+  <img height="170em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=kblankk&layout=compact&bg_color=0d1117&title_color=ff0000&text_color=c9d1d9&border_color=ff0000&hide_border=false&langs_count=8&cache_seconds=86400"/>
 </div>
 
 <div align="center">
@@ -75,7 +77,7 @@
 
 <div align="center">
 
-[![Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=kblankk&bg_color=0d1117&color=ff0000&line=ff0000&point=ffffff&area_color=0d1117&area=true&hide_border=false&custom_title=%3E%20Contribution%20Graph)](https://github.com/ashutosh00710/github-readme-activity-graph)
+[![Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=kblankk&bg_color=0d1117&color=ff0000&line=ff0000&point=ffffff&area_color=0d1117&area=true&hide_border=false&border_color=ff0000&custom_title=%3E%20Contribution%20Graph)](https://github.com/ashutosh00710/github-readme-activity-graph)
 
 </div>
 
