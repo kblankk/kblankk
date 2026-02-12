@@ -5,7 +5,7 @@
 
 <br/>
 
-<img src="./assets/drift-car.svg" width="100%" alt="Drift Car Animation"/>
+<img src="https://raw.githubusercontent.com/kblankk/kblankk/output/drift-car.svg" width="100%" alt="Drift Car Animation"/>
 
 </div>
 
@@ -89,7 +89,7 @@
 
 <div align="center">
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0d1117?style=for-the-badge&logo=linkedin&logoColor=00ff00)](https://linkedin.com/in/SEU-LINKEDIN-AQUI)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0d1117?style=for-the-badge&logo=linkedin&logoColor=00ff00)](https://linkedin.com/in/Kawã-Oliveira)
 [![Instagram](https://img.shields.io/badge/@olvkawa-0d1117?style=for-the-badge&logo=instagram&logoColor=00ff00)](https://instagram.com/olvkawa)
 [![Discord](https://img.shields.io/badge/_kblank-0d1117?style=for-the-badge&logo=discord&logoColor=00ff00)](https://discordapp.com/users/_kblank)
 [![Gmail](https://img.shields.io/badge/kawabrein@gmail.com-0d1117?style=for-the-badge&logo=gmail&logoColor=00ff00)](mailto:kawabrein@gmail.com)
