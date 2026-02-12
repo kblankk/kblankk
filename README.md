@@ -14,7 +14,7 @@
 
 </div>
 
----
+<img width="100%" src="https://capsule-render.vercel.app/api?type=rect&color=0:0d1117,50:0096ff,100:0d1117&height=2"/>
 
 <!-- ABOUT ME -->
 ### `About`
@@ -35,7 +35,7 @@
   → Contribuindo para projetos open source
 ```
 
----
+<img width="100%" src="https://capsule-render.vercel.app/api?type=rect&color=0:0d1117,50:0096ff,100:0d1117&height=2"/>
 
 ### `Tech Stack`
 
@@ -65,7 +65,7 @@
 
 </div>
 
----
+<img width="100%" src="https://capsule-render.vercel.app/api?type=rect&color=0:0d1117,50:0096ff,100:0d1117&height=2"/>
 
 ### <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Bar%20Chart.png" width="25" /> `GitHub Analytics`
 
@@ -79,7 +79,7 @@
 
 </div>
 
----
+<img width="100%" src="https://capsule-render.vercel.app/api?type=rect&color=0:0d1117,50:0096ff,100:0d1117&height=2"/>
 
 <div align="center">
 
