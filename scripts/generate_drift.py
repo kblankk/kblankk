@@ -258,6 +258,7 @@ def generate_svg(calendar, username):
 
     # ── Styles ──
     L.append("<style>")
+    L.append("  * { will-change: transform, opacity; }")
 
     # Non-contribution cells: fall AFTER car passes their column
     for c in range(COLS):
@@ -331,13 +332,25 @@ def generate_svg(calendar, username):
         f" 75% {{ transform:skewX(-3deg); }}"
         f" }}")
 
+    # ── Car movement via CSS offset-path (same clock as grid) ──
+    L.append(
+        f"  @keyframes car-move {{"
+        f" 0% {{ offset-distance:0%; }}"
+        f" 100% {{ offset-distance:100%; }}"
+        f" }}")
+    L.append(
+        f"  .drift-car {{"
+        f" offset-path:path('{path_d}');"
+        f" offset-rotate:auto;"
+        f" animation:car-move {DUR}s linear infinite;"
+        f" }}")
+
     L.append("</style>")
 
     # ── Defs ──
     L.append('<defs>')
     L.append('  <filter id="gl"><feGaussianBlur stdDeviation="1.5" result="b"/>')
     L.append('    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>')
-    L.append(f'  <path id="carpath" d="{path_d}" fill="none"/>')
     L.append('</defs>')
 
     # ── Background ──
@@ -420,12 +433,8 @@ def generate_svg(calendar, username):
             f'style="animation:confetti-{i} {DUR}s linear infinite;'
             f'transform-origin:{fin_x:.0f}px {fin_y:.0f}px"/>')
 
-    # ── Top-down drift car ──
-    L.append(f'<g filter="url(#gl)">')
-    L.append(f'  <animateMotion dur="{DUR}s" calcMode="paced" '
-             f'repeatCount="indefinite" rotate="auto">')
-    L.append(f'    <mpath href="#carpath"/>')
-    L.append(f'  </animateMotion>')
+    # ── Top-down drift car (CSS offset-path, same clock as grid) ──
+    L.append(f'<g filter="url(#gl)" class="drift-car">')
     L.append("""  <ellipse cx="0" cy="1" rx="14" ry="7" fill="#000" opacity="0.3"/>
   <path d="M 15,0 Q 14,-3.5 11,-4.5 L 7,-5.5 L 2,-6 L -4,-6 L -9,-5.5 L -12,-5
     Q -15,-4 -15,-1 L -15,1 Q -15,4 -12,5
