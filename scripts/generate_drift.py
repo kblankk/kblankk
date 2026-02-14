@@ -171,19 +171,19 @@ def generate_svg(calendar, username):
     weeks = calendar["weeks"]
     total = calendar["totalContributions"]
 
-    CELL = 11
-    GAP = 2
+    CELL = 14
+    GAP = 3
     STRIDE = CELL + GAP
     ROWS = 7
     COLS = len(weeks)
     GRID_W = COLS * STRIDE - GAP
     GRID_H = ROWS * STRIDE - GAP
 
-    MARGIN = 40
+    MARGIN = 50
     W = GRID_W + MARGIN * 2
-    H = GRID_H + 70
+    H = GRID_H + 90
     GX = MARGIN
-    GY = 30
+    GY = 40
     mid_y = GY + GRID_H / 2
 
     # ── Find contribution cells sorted L→R, then top→bottom ──
