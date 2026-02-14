@@ -21,15 +21,13 @@
 
 ```bash
 ┌──[kblankk@github]─[~/about-me]
-└─$ cat profile.txt
+└─$ Profile Git
 
   Name     : Kawã Oliveira
   Role     : Student & Developer
   Location : Brazil 🇧🇷
   Focus    : Learning new technologies & building cool stuff
 
-
-└─$ echo $CURRENT_GOALS
   → Aprofundando conhecimentos em desenvolvimento
   → Explorando novas linguagens e frameworks
   → Contribuindo para projetos open source
