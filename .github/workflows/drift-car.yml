@@ -2,11 +2,20 @@ name: Generate Drift Car Animation
 
 on:
   schedule:
-    - cron: "0 0 * * *" # runs daily
+    - cron: "0 */6 * * *" # every 6 hours
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - "scripts/generate_drift.py"
+      - ".github/workflows/drift-car.yml"
 
 permissions:
   contents: write
+
+concurrency:
+  group: drift-car
+  cancel-in-progress: false
 
 jobs:
   generate:
@@ -20,7 +29,9 @@ jobs:
 
       - name: Generate drift car SVG
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Prefer a personal PAT (read:user scope) so private contributions
+          # are included; fall back to the workflow token (public only).
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_TOKEN || secrets.GITHUB_TOKEN }}
         run: python scripts/generate_drift.py kblankk dist/drift-car.svg
 
       - uses: crazy-max/ghaction-github-pages@v3.1.0

@@ -63,14 +63,31 @@ def fetch_contributions_public(username):
     with urllib.request.urlopen(req) as resp:
         html = resp.read().decode("utf-8")
 
-    # Parse the contribution cells from HTML
-    # IMPORTANT: GitHub HTML is organized by ROW (all Sundays, then all Mondays, etc.)
-    # NOT by column (week). We must use dates to compute correct grid positions.
-    pattern = r'data-date="([^"]+)"[^>]*data-level="(\d)"'
-    matches = re.findall(pattern, html)
+    # Each cell carries data-date + data-level + an id, in any attribute order.
+    # The actual count lives in a sibling <tool-tip for="id">N contributions on …</tool-tip>,
+    # so we join by id to recover real counts (level alone is just a 0–4 bucket).
+    td_pattern = r'<td\b([^>]*\bclass="ContributionCalendar-day"[^>]*)>'
+    attr = lambda s, name: (re.search(rf'{name}="([^"]+)"', s) or [None, None])[1]
+    cells = []
+    for tag_attrs in re.findall(td_pattern, html):
+        date = attr(tag_attrs, "data-date")
+        level = attr(tag_attrs, "data-level")
+        cell_id = attr(tag_attrs, "id")
+        if date and level and cell_id:
+            cells.append((date, level, cell_id))
 
-    if not matches:
+    if not cells:
         raise ValueError("Could not parse contribution data from GitHub page")
+
+    tip_pattern = r'<tool-tip[^>]*for="(contribution-day-component-[^"]+)"[^>]*>([^<]+)</tool-tip>'
+    tips = dict(re.findall(tip_pattern, html))
+
+    def real_count(cell_id, level_int):
+        text = tips.get(cell_id, "")
+        m = re.match(r"(\d+)\s+contribution", text)
+        if m:
+            return int(m.group(1))
+        return level_int  # fallback if tooltip is missing
 
     level_colors = {
         "0": "#ebedf0",
@@ -81,7 +98,7 @@ def fetch_contributions_public(username):
     }
 
     # Find the earliest date to use as grid origin (should be a Sunday)
-    all_dates = [datetime.strptime(d, "%Y-%m-%d") for d, _ in matches]
+    all_dates = [datetime.strptime(d, "%Y-%m-%d") for d, _, _ in cells]
     first_date = min(all_dates)
     # Ensure first_date is a Sunday (weekday 6 in Python)
     # GitHub weeks start on Sunday
@@ -91,16 +108,16 @@ def fetch_contributions_public(username):
     grid = {}
     total = 0
     num_weeks = 0
-    for date_str, level in matches:
+    for date_str, level, cell_id in cells:
         dt = datetime.strptime(date_str, "%Y-%m-%d")
         days_diff = (dt - first_sunday).days
         week_col = days_diff // 7
         day_row = days_diff % 7  # 0=Sunday, 1=Monday, ..., 6=Saturday
         level_int = int(level)
-        if level_int > 0:
-            total += level_int
+        count = real_count(cell_id, level_int)
+        total += count
         grid[(week_col, day_row)] = {
-            "contributionCount": level_int,
+            "contributionCount": count,
             "date": date_str,
             "color": level_colors.get(level, "#ebedf0"),
         }
