@@ -42,24 +42,32 @@
 #### `// Languages`
 
 <img height="45" src="https://img.shields.io/badge/Python-0d1117?style=for-the-badge&logo=python&logoColor=0096ff"/>
-<img height="45" src="https://img.shields.io/badge/C%23-0d1117?style=for-the-badge&logo=csharp&logoColor=0096ff"/>
+<img height="45" src="https://img.shields.io/badge/C%23-0d1117?style=for-the-badge&logo=sharp&logoColor=0096ff"/>
 <img height="45" src="https://img.shields.io/badge/TypeScript-0d1117?style=for-the-badge&logo=typescript&logoColor=0096ff"/>
 <img height="45" src="https://img.shields.io/badge/HTML5-0d1117?style=for-the-badge&logo=html5&logoColor=0096ff"/>
-<img height="45" src="https://img.shields.io/badge/CSS3-0d1117?style=for-the-badge&logo=css3&logoColor=0096ff"/>
+<img height="45" src="https://img.shields.io/badge/CSS3-0d1117?style=for-the-badge&logo=css&logoColor=0096ff"/>
 
 #### `// Frameworks & Libraries`
 
 <img height="45" src="https://img.shields.io/badge/.NET-0d1117?style=for-the-badge&logo=dotnet&logoColor=0096ff"/>
 <img height="45" src="https://img.shields.io/badge/Node.js-0d1117?style=for-the-badge&logo=node.js&logoColor=0096ff"/>
+<img height="45" src="https://img.shields.io/badge/React-0d1117?style=for-the-badge&logo=react&logoColor=0096ff"/>
+<img height="45" src="https://img.shields.io/badge/Next.js-0d1117?style=for-the-badge&logo=nextdotjs&logoColor=0096ff"/>
+<img height="45" src="https://img.shields.io/badge/Tailwind-0d1117?style=for-the-badge&logo=tailwindcss&logoColor=0096ff"/>
+<img height="45" src="https://img.shields.io/badge/Flask-0d1117?style=for-the-badge&logo=flask&logoColor=0096ff"/>
 
+#### `// AI & Automation`
+
+<img height="45" src="https://img.shields.io/badge/Claude-0d1117?style=for-the-badge&logo=anthropic&logoColor=0096ff"/>
+<img height="45" src="https://img.shields.io/badge/GitHub_Actions-0d1117?style=for-the-badge&logo=githubactions&logoColor=0096ff"/>
+<img height="45" src="https://img.shields.io/badge/Web_Scraping-0d1117?style=for-the-badge&logo=python&logoColor=0096ff"/>
 
 #### `// Tools & Platforms`
 
 <img height="45" src="https://img.shields.io/badge/Git-0d1117?style=for-the-badge&logo=git&logoColor=0096ff"/>
 <img height="45" src="https://img.shields.io/badge/GitHub-0d1117?style=for-the-badge&logo=github&logoColor=0096ff"/>
-<img height="45" src="https://img.shields.io/badge/VS_Code-0d1117?style=for-the-badge&logo=visualstudiocode&logoColor=0096ff"/>
+<img height="45" src="https://img.shields.io/badge/VS_Code-0d1117?style=for-the-badge&logo=data:image/svg%2Bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iIzAwOTZmZiI+PHBhdGggZD0iTTIzLjE1IDIuNTg3TDE4LjIxLjIxYTEuNDk0IDEuNDk0IDAgMCAwLTEuNzA1LjI5bC05LjQ2IDguNjMtNC4xMi0zLjEyOGEuOTk5Ljk5OSAwIDAgMC0xLjI3Ni4wNTdMLjMyNyA3LjExMWExIDEgMCAwIDAtLjAwMSAxLjQ4MkwzLjg5OSAxMiAuMzI2IDE1LjQwN2ExIDEgMCAwIDAgLjAwMSAxLjQ4MkwxLjY1IDE4LjFhLjk5OS45OTkgMCAwIDAgMS4yNzYuMDU3bDQuMTItMy4xMjggOS40NiA4LjYzYTEuNDkyIDEuNDkyIDAgMCAwIDEuNzA0LjI5bDQuOTQyLTIuMzc3QTEuNSAxLjUgMCAwIDAgMjQgMjAuMjJWMy43OGExLjUgMS41IDAgMCAwLS44NS0xLjE5M3ptLTUuMTQ2IDE0Ljg2MUwxMC44MjYgMTJsNy4xNzgtNS40NDh2MTAuODk2eiIvPjwvc3ZnPgo="/>
 <img height="45" src="https://img.shields.io/badge/Docker-0d1117?style=for-the-badge&logo=docker&logoColor=0096ff"/>
-
 
 </div>
 
@@ -68,12 +76,8 @@
 ### <img src="https://raw.githubusercontent.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis/master/Emojis/Objects/Bar%20Chart.png" width="25" /> `GitHub Analytics`
 
 <div align="center">
-  <img width="70%" src="https://github-readme-streak-stats.herokuapp.com/?user=kblankk&theme=dark&background=0d1117&ring=0096ff&fire=0096ff&currStreakLabel=0096ff&sideLabels=0096ff&border=0d1117&currStreakNum=c9d1d9&sideNums=c9d1d9&dates=555555&hide_border=true"/>
-</div>
 
-<div align="center">
-
-<img width="90%" src="https://github-readme-activity-graph.vercel.app/graph?username=kblankk&bg_color=0d1117&color=0096ff&line=0096ff&point=ffffff&area_color=0d1117&area=true&hide_border=true&custom_title=Kaw%C3%A3%20Oliveira's%20Contribution%20Graph"/>
+<img width="100%" src="https://raw.githubusercontent.com/kblankk/kblankk/output/stats.svg" alt="Contribution activity"/>
 
 </div>
 

@@ -1,4 +1,4 @@
-name: Generate Drift Car Animation
+name: Generate Profile SVGs
 
 on:
   schedule:
@@ -8,6 +8,7 @@ on:
     branches: [main]
     paths:
       - "scripts/generate_drift.py"
+      - "scripts/generate_stats.py"
       - ".github/workflows/drift-car.yml"
 
 permissions:
@@ -33,6 +34,11 @@ jobs:
           # are included; fall back to the workflow token (public only).
           GITHUB_TOKEN: ${{ secrets.PERSONAL_TOKEN || secrets.GITHUB_TOKEN }}
         run: python scripts/generate_drift.py kblankk dist/drift-car.svg
+
+      - name: Generate contribution stats card
+        env:
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_TOKEN || secrets.GITHUB_TOKEN }}
+        run: python scripts/generate_stats.py kblankk dist/stats.svg
 
       - uses: crazy-max/ghaction-github-pages@v3.1.0
         with:
