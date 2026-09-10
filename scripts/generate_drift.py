@@ -181,9 +181,45 @@ def map_color(github_color):
     return COLOR_MAP.get(github_color, "#161b22")
 
 
+
+
+# ══════════════════════════════════════════════════════════════════════════
+#  Timeline helpers
+# ══════════════════════════════════════════════════════════════════════════
+
+def mono(pcts, gap=0.05):
+    """Return keyframe percentages guaranteed to be strictly increasing.
+
+    Duplicated @keyframes offsets are silently destructive in CSS: the later
+    declaration wins, so `0%,99% {opacity:0} 99% {opacity:1}` collapses into a
+    99%-long fade instead of a flash. Every percentage sequence goes through
+    here so that class of bug cannot come back.
+    """
+    out = []
+    for p in pcts:
+        p = max(0.0, min(100.0, float(p)))
+        if out and p <= out[-1]:
+            p = out[-1] + gap
+        out.append(min(p, 100.0))
+    for i in range(len(out) - 1, 0, -1):
+        if out[i] <= out[i - 1]:
+            out[i - 1] = out[i] - gap
+    return out
+
+
 def generate_svg(calendar, username):
-    """Car goes L→R targeting contributions, floor falls behind car."""
+    """Car drives L->R collecting contributions while the floor falls behind it.
+    The moment it crosses the finish line the whole scene detonates, then the
+    grid rebuilds and the loop starts over.
+    """
+    import bisect
     import math
+    import random
+
+    rnd = random.Random(7)
+
+    # Debris decelerates like real ejecta instead of drifting linearly.
+    EASE = "animation-timing-function:cubic-bezier(.08,.82,.28,1);"
 
     weeks = calendar["weeks"]
     total = calendar["totalContributions"]
@@ -203,7 +239,20 @@ def generate_svg(calendar, username):
     GY = 40
     mid_y = GY + GRID_H / 2
 
-    # ── Find contribution cells sorted L→R, then top→bottom ──
+    # ── Loop timeline (percent of one cycle) ──────────────────────────────
+    DUR = 12          # seconds per loop
+    BOOM = 82.0       # car reaches the finish line -> detonation
+    BLAST_MAX = 97.0  # everything is gone by here; the tail is the reset beat
+
+    # ── Finish line geometry ──────────────────────────────────────────────
+    sq = 6
+    fl_x = GX + GRID_W + 8
+    fl_y = GY - 5
+    fl_h = GRID_H + 10
+    fin_x = float(fl_x + sq)
+    fin_y = float(mid_y)
+
+    # ── Contribution cells, L->R then top->bottom ─────────────────────────
     contrib_set = set()
     contrib_cells = []
     for c, week in enumerate(weeks):
@@ -213,147 +262,243 @@ def generate_svg(calendar, username):
                 cy = GY + r * STRIDE + CELL / 2
                 contrib_cells.append((c, r, cx, cy))
                 contrib_set.add((c, r))
-    # Already sorted by column then row due to enumeration order
 
-    # ── Car path: L→R through each contribution cell ──
-    # Waypoints: enter left → each contribution → exit right
-    wp = [(-30, mid_y)]
+    # ── Car path: enter left -> every contribution -> finish line ─────────
+    wp = [(-30.0, float(mid_y))]
     for _, _, cx, cy in contrib_cells:
-        wp.append((cx, cy))
-    wp.append((W + 40, wp[-1][1] if contrib_cells else mid_y))
+        wp.append((float(cx), float(cy)))
+    wp.append((fin_x, fin_y))
 
-    # Compute cumulative arc lengths for timing
-    def dist(a, b):
-        return math.hypot(b[0] - a[0], b[1] - a[1])
-    seg = [dist(wp[i - 1], wp[i]) for i in range(1, len(wp))]
-    total_len = sum(seg)
-    cum = [0]
+    seg = [math.hypot(wp[i][0] - wp[i - 1][0], wp[i][1] - wp[i - 1][1])
+           for i in range(1, len(wp))]
+    total_len = sum(seg) or 1.0
+    cum = [0.0]
     for s in seg:
         cum.append(cum[-1] + s)
 
-    # Percentage of total path at each waypoint
-    # calcMode="paced" uses 100% of DUR for 100% of path length
-    def wp_pct(idx):
-        return cum[idx] / total_len * 100
+    path_d = "M %.1f,%.1f" % wp[0] + "".join(" L %.1f,%.1f" % p for p in wp[1:])
 
-    # Build path
-    path_d = f"M {wp[0][0]:.1f},{wp[0][1]:.1f}"
-    for i in range(1, len(wp)):
-        path_d += f" L {wp[i][0]:.1f},{wp[i][1]:.1f}"
+    def x_at(frac):
+        """X coordinate at `frac` of the path arc length (0..1)."""
+        target = frac * total_len
+        i = min(max(bisect.bisect_left(cum, target), 1), len(cum) - 1)
+        span = seg[i - 1] or 1.0
+        t = (target - cum[i - 1]) / span
+        return wp[i - 1][0] + (wp[i][0] - wp[i - 1][0]) * t
 
-    # ── Column timing: use the LAST time the car passes each column ──
-    col_time = {}
+    def pass_pct(col_x):
+        """Loop percentage at which the car clears a column.
+
+        X along the path is non-decreasing (contributions are visited in column
+        order), so a binary search finds the crossing exactly.
+        """
+        lo, hi = 0.0, 1.0
+        for _ in range(34):
+            m = (lo + hi) / 2
+            if x_at(m) < col_x:
+                lo = m
+            else:
+                hi = m
+        return hi * BOOM
+
+    # Floor drops a beat after the car has cleared the column.
+    col_fall = {}
     for c in range(COLS):
-        col_x = GX + c * STRIDE + CELL / 2
-        latest = -1
-        for i in range(1, len(wp)):
-            x0, x1 = wp[i - 1][0], wp[i][0]
-            if min(x0, x1) <= col_x <= max(x0, x1) and x0 != x1:
-                frac = (col_x - x0) / (x1 - x0)
-                t = (cum[i - 1] + frac * seg[i - 1]) / total_len * 100
-                latest = max(latest, t)
-            elif abs(x0 - col_x) < STRIDE and abs(x1 - col_x) < STRIDE:
-                t = cum[i] / total_len * 100
-                latest = max(latest, t)
-        if latest < 0:
-            latest = (col_x + 30) / (W + 70) * 100
-        # +2% delay so floor falls AFTER car passes
-        col_time[c] = min(latest + 2, 99)
+        t = pass_pct(GX + c * STRIDE + CELL / 2)
+        fs = min(t + 1.2, BOOM - 3.4)
+        fe = min(fs + 3.5, BOOM - 0.9)
+        col_fall[c] = (fs, fe)
 
-    # Contribution hit times (exact waypoint times)
+    # Contribution collect times = exact waypoint arrival times.
     contrib_time = {}
     for j, (c, r, _, _) in enumerate(contrib_cells):
-        contrib_time[(c, r)] = wp_pct(j + 1)
+        contrib_time[(c, r)] = cum[j + 1] / total_len * BOOM
 
-    DUR = 10
+    def spawn_pct(c):
+        """Grid rebuilds left-to-right right after the loop restarts."""
+        return 0.6 + (c / max(COLS - 1, 1)) * 2.2
 
-    # ══════ BUILD SVG ══════
+    def blast(ox, oy):
+        """Outward vector from the detonation point, with a bit of lift."""
+        vx, vy = ox - fin_x, oy - fin_y
+        d = math.hypot(vx, vy) or 1.0
+        near = 1.0 - min(d / (W * 0.85), 1.0)
+        power = (250.0 + 430.0 * near) * rnd.uniform(0.75, 1.35)
+        return (vx / d * power,
+                vy / d * power - rnd.uniform(25, 95),
+                rnd.uniform(-540, 540))
+
+    # ══════════════════ BUILD SVG ══════════════════
     L = []
     L.append(
         f'<svg xmlns="http://www.w3.org/2000/svg" '
         f'viewBox="0 0 {W:.0f} {H:.0f}" width="{W:.0f}" height="{H:.0f}">')
 
-    # ── Styles ──
     L.append("<style>")
     L.append("  * { will-change: transform, opacity; }")
 
-    # Non-contribution cells: fall AFTER car passes their column
-    for c in range(COLS):
-        hp = col_time.get(c, 0)
-        L.append(
-            f"  @keyframes fall-{c} {{"
-            f" 0%,{hp:.1f}% {{ transform:translateY(0); opacity:1; }}"
-            f" {min(hp + 4, 99.5):.1f}% {{ transform:translateY(80px); opacity:0; }}"
-            f" 100% {{ transform:translateY(80px); opacity:0; }}"
-            f" }}")
+    # ── Per-cell life cycle: spawn -> (collect | fall) -> detonate ────────
+    cell_anim = {}
+    for c, week in enumerate(weeks):
+        for r, _day in enumerate(week["contributionDays"]):
+            ox = GX + c * STRIDE + CELL / 2
+            oy = GY + r * STRIDE + CELL / 2
+            dx, dy, rot = blast(ox, oy)
+            be = min(BOOM + rnd.uniform(6.0, 11.0), BLAST_MAX)
+            sp = spawn_pct(c)
+            name = f"k{c}-{r}"
+            cell_anim[(c, r)] = name
+            out = (f"translate({dx:.0f}px,{dy:.0f}px) "
+                   f"rotate({rot:.0f}deg) scale(.12)")
 
-    # Contribution cells: glow + vanish when car reaches them
-    for (c, r), hp in contrib_time.items():
-        L.append(
-            f"  @keyframes cc-{c}-{r} {{"
-            f" 0%,{max(0, hp - 0.5):.1f}% {{ filter:brightness(1); transform:scale(1); opacity:1; }}"
-            f" {hp:.1f}% {{ filter:brightness(3); transform:scale(1.6); opacity:1; }}"
-            f" {min(hp + 2.5, 99.5):.1f}% {{ filter:brightness(4); transform:scale(0); opacity:0; }}"
-            f" 100% {{ transform:scale(0); opacity:0; }}"
-            f" }}")
+            if (c, r) in contrib_set:
+                hp = contrib_time[(c, r)]
+                p = mono([0, sp, hp - 0.5, hp, min(hp + 2.2, BOOM - 1.4),
+                          BOOM - 0.45, BOOM, be, 100])
+                L.append(
+                    f"  @keyframes {name} {{"
+                    f" 0% {{ transform:translate(0,0) rotate(0deg) scale(.2); opacity:0; }}"
+                    f" {p[1]:.2f}% {{ transform:translate(0,0) rotate(0deg) scale(1); opacity:1; }}"
+                    f" {p[2]:.2f}% {{ transform:translate(0,0) rotate(0deg) scale(1); opacity:1; filter:brightness(1); }}"
+                    f" {p[3]:.2f}% {{ transform:translate(0,0) rotate(0deg) scale(1.7); opacity:1; filter:brightness(3.5); }}"
+                    f" {p[4]:.2f}% {{ transform:translate(0,0) rotate(0deg) scale(0); opacity:0; filter:brightness(4); }}"
+                    f" {p[5]:.2f}% {{ transform:translate(0,0) rotate(0deg) scale(0); opacity:0; }}"
+                    f" {p[6]:.2f}% {{ transform:translate(0,0) rotate(0deg) scale(1.15); opacity:1; {EASE} }}"
+                    f" {p[7]:.2f}% {{ transform:{out}; opacity:0; }}"
+                    f" 100% {{ transform:{out}; opacity:0; }}"
+                    f" }}")
+            else:
+                fs, fe = col_fall[c]
+                p = mono([0, sp, fs, fe, BOOM - 0.45, BOOM, be, 100])
+                tilt = f"rotate({rot * 0.12:.0f}deg)"
+                L.append(
+                    f"  @keyframes {name} {{"
+                    f" 0% {{ transform:translate(0,0) rotate(0deg) scale(.2); opacity:0; }}"
+                    f" {p[1]:.2f}% {{ transform:translate(0,0) rotate(0deg) scale(1); opacity:1; }}"
+                    f" {p[2]:.2f}% {{ transform:translate(0,0) rotate(0deg) scale(1); opacity:1; }}"
+                    f" {p[3]:.2f}% {{ transform:translate(0,86px) {tilt} scale(1); opacity:0; }}"
+                    f" {p[4]:.2f}% {{ transform:translate(0,86px) {tilt} scale(1); opacity:0; }}"
+                    f" {p[5]:.2f}% {{ transform:translate(0,0) rotate(0deg) scale(1.15); opacity:1; {EASE} }}"
+                    f" {p[6]:.2f}% {{ transform:{out}; opacity:0; }}"
+                    f" 100% {{ transform:{out}; opacity:0; }}"
+                    f" }}")
 
-    # ── Trail drawing (tire marks) ──
+    # ── Tire trail: drawn while driving, wiped by the blast ───────────────
+    tp = mono([0, BOOM, BOOM + 2.5, 100])
     L.append(
         f"  @keyframes trail-draw {{"
-        f" 0% {{ stroke-dashoffset:1; }}"
-        f" 100% {{ stroke-dashoffset:0; }}"
+        f" 0% {{ stroke-dashoffset:1; opacity:1; }}"
+        f" {tp[1]:.2f}% {{ stroke-dashoffset:0; opacity:1; }}"
+        f" {tp[2]:.2f}% {{ stroke-dashoffset:0; opacity:0; }}"
+        f" 100% {{ stroke-dashoffset:0; opacity:0; }}"
         f" }}")
 
-    # ── Finish line celebration ──
-    finish_pct = col_time.get(COLS - 1, 95)
-    L.append(
-        f"  @keyframes finish-flash {{"
-        f" 0%,{finish_pct:.1f}% {{ opacity:0; }}"
-        f" {min(finish_pct + 0.5, 99):.1f}% {{ opacity:1; }}"
-        f" {min(finish_pct + 4, 99.5):.1f}% {{ opacity:0; }}"
-        f" 100% {{ opacity:0; }}"
-        f" }}")
-    # Confetti particles at finish
-    import random
-    random.seed(42)
-    for i in range(12):
-        dx = random.uniform(-100, 100)
-        dy = random.uniform(-80, 20)
-        L.append(
-            f"  @keyframes confetti-{i} {{"
-            f" 0%,{finish_pct:.1f}% {{ opacity:0; transform:translate(0,0) rotate(0deg); }}"
-            f" {min(finish_pct + 0.5, 99):.1f}% {{ opacity:1; transform:translate(0,0) rotate(0deg); }}"
-            f" {min(finish_pct + 5, 99.5):.1f}% {{ opacity:0; transform:translate({dx:.0f}px,{dy:.0f}px) rotate({random.randint(180, 720)}deg); }}"
-            f" 100% {{ opacity:0; }}"
-            f" }}")
-
-    # ── Sparkle on contribution collect ──
+    # ── Sparkles when a contribution is collected ────────────────────────
     for (c, r), hp in contrib_time.items():
         for si in range(3):
             angle = si * 120
             sdx = math.cos(math.radians(angle)) * 20
             sdy = math.sin(math.radians(angle)) * 20
+            p = mono([0, hp - 0.2, hp, min(hp + 2, BOOM - 0.5), 100])
             L.append(
                 f"  @keyframes spark-{c}-{r}-{si} {{"
-                f" 0%,{max(0, hp - 0.2):.1f}% {{ opacity:0; transform:translate(0,0) scale(1); }}"
-                f" {hp:.1f}% {{ opacity:1; transform:translate(0,0) scale(1); }}"
-                f" {min(hp + 2, 99.5):.1f}% {{ opacity:0; transform:translate({sdx:.0f}px,{sdy:.0f}px) scale(0); }}"
+                f" 0%,{p[1]:.2f}% {{ opacity:0; transform:translate(0,0) scale(1); }}"
+                f" {p[2]:.2f}% {{ opacity:1; transform:translate(0,0) scale(1); }}"
+                f" {p[3]:.2f}% {{ opacity:0; transform:translate({sdx:.0f}px,{sdy:.0f}px) scale(0); }}"
                 f" 100% {{ opacity:0; }}"
                 f" }}")
 
-    # ── Finish line flag wave ──
+    # ── Finish flag: waves, then gets blown off its pole ─────────────────
     L.append(
-        f"  @keyframes flag-wave {{"
-        f" 0%,100% {{ transform:skewX(0deg); }}"
-        f" 25% {{ transform:skewX(3deg); }}"
-        f" 75% {{ transform:skewX(-3deg); }}"
+        "  @keyframes flag-wave {"
+        " 0%,100% { transform:skewX(0deg); }"
+        " 25% { transform:skewX(3deg); }"
+        " 75% { transform:skewX(-3deg); }"
+        " }")
+    fp = mono([0, 1.2, BOOM - 0.2, BOOM + 0.2,
+               min(BOOM + 9, BLAST_MAX), 100])
+    L.append(
+        f"  @keyframes flag-boom {{"
+        f" 0% {{ opacity:0; transform:translate(0,0) rotate(0deg) scale(.4); }}"
+        f" {fp[1]:.2f}% {{ opacity:1; transform:translate(0,0) rotate(0deg) scale(1); }}"
+        f" {fp[2]:.2f}% {{ opacity:1; transform:translate(0,0) rotate(0deg) scale(1); }}"
+        f" {fp[3]:.2f}% {{ opacity:1; transform:translate(10px,-4px) rotate(-6deg) scale(1.1); }}"
+        f" {fp[4]:.2f}% {{ opacity:0; transform:translate(150px,-70px) rotate(120deg) scale(.3); }}"
+        f" 100% {{ opacity:0; transform:translate(150px,-70px) rotate(120deg) scale(.3); }}"
         f" }}")
 
-    # ── Car movement via CSS offset-path (same clock as grid) ──
+    # ── Detonation: white-out flash, shockwaves, core burst, debris ──────
+    xp = mono([0, BOOM - 0.35, BOOM + 0.15, BOOM + 0.9, BOOM + 3.0, 100])
+    L.append(
+        f"  @keyframes boom-flash {{"
+        f" 0%,{xp[1]:.2f}% {{ opacity:0; }}"
+        f" {xp[2]:.2f}% {{ opacity:.82; }}"
+        f" {xp[3]:.2f}% {{ opacity:.24; }}"
+        f" {xp[4]:.2f}% {{ opacity:0; }}"
+        f" 100% {{ opacity:0; }}"
+        f" }}")
+
+    for i in range(3):
+        rp = mono([0, BOOM - 0.3 + i * 0.9, BOOM + 0.2 + i * 0.9,
+                   min(BOOM + 7.5 + i * 1.4, BLAST_MAX), 100])
+        L.append(
+            f"  @keyframes ring-{i} {{"
+            f" 0%,{rp[1]:.2f}% {{ opacity:0; transform:scale(.04); }}"
+            f" {rp[2]:.2f}% {{ opacity:{0.9 - i * 0.2:.2f}; transform:scale(.12); }}"
+            f" {rp[3]:.2f}% {{ opacity:0; transform:scale({9 + i * 3}); }}"
+            f" 100% {{ opacity:0; transform:scale({9 + i * 3}); }}"
+            f" }}")
+
+    cp = mono([0, BOOM - 0.3, BOOM + 0.12, BOOM + 3.5, 100])
+    L.append(
+        f"  @keyframes core-burst {{"
+        f" 0%,{cp[1]:.2f}% {{ opacity:0; transform:scale(.1); }}"
+        f" {cp[2]:.2f}% {{ opacity:1; transform:scale(2.8); }}"
+        f" {cp[3]:.2f}% {{ opacity:0; transform:scale(6); }}"
+        f" 100% {{ opacity:0; transform:scale(6); }}"
+        f" }}")
+
+    debris = []
+    for i in range(34):
+        ang = math.radians(rnd.uniform(0, 360))
+        power = rnd.uniform(90, 430)
+        ddx = math.cos(ang) * power
+        ddy = math.sin(ang) * power * 0.7 - rnd.uniform(10, 70)
+        size = rnd.choice([1.2, 1.8, 2.4, 3.0])
+        col = rnd.choice(["#0096ff", "#66c2ff", "#cfefff", "#33adff", "#ffaa00"])
+        end = min(BOOM + rnd.uniform(4.5, 9.5), BLAST_MAX)
+        debris.append((size, col))
+        dp = mono([0, BOOM - 0.25, BOOM + 0.1, end, 100])
+        L.append(
+            f"  @keyframes deb-{i} {{"
+            f" 0%,{dp[1]:.2f}% {{ opacity:0; transform:translate(0,0) scale(.3); }}"
+            f" {dp[2]:.2f}% {{ opacity:1; transform:translate(0,0) scale(1); {EASE} }}"
+            f" {dp[3]:.2f}% {{ opacity:0; transform:translate({ddx:.0f}px,{ddy:.0f}px) scale(.15); }}"
+            f" 100% {{ opacity:0; }}"
+            f" }}")
+
+    # ── Camera shake on impact ───────────────────────────────────────────
+    sk = mono([0, BOOM - 0.1, BOOM + 0.18, BOOM + 0.5, BOOM + 0.9,
+               BOOM + 1.4, BOOM + 2.0, 100])
+    L.append(
+        f"  @keyframes shake {{"
+        f" 0%,{sk[1]:.2f}% {{ transform:translate(0,0); }}"
+        f" {sk[2]:.2f}% {{ transform:translate(-5px,2px); }}"
+        f" {sk[3]:.2f}% {{ transform:translate(5px,-3px); }}"
+        f" {sk[4]:.2f}% {{ transform:translate(-3px,-1px); }}"
+        f" {sk[5]:.2f}% {{ transform:translate(3px,2px); }}"
+        f" {sk[6]:.2f}% {{ transform:translate(0,0); }}"
+        f" 100% {{ transform:translate(0,0); }}"
+        f" }}")
+
+    # ── Car: drives the path, disintegrates at the finish line ───────────
+    mp = mono([0, BOOM, BOOM + 0.18, 100])
     L.append(
         f"  @keyframes car-move {{"
-        f" 0% {{ offset-distance:0%; }}"
-        f" 100% {{ offset-distance:100%; }}"
+        f" 0% {{ offset-distance:0%; opacity:1; }}"
+        f" {mp[1]:.2f}% {{ offset-distance:100%; opacity:1; }}"
+        f" {mp[2]:.2f}% {{ offset-distance:100%; opacity:0; }}"
+        f" 100% {{ offset-distance:100%; opacity:0; }}"
         f" }}")
     L.append(
         f"  .drift-car {{"
@@ -368,12 +513,20 @@ def generate_svg(calendar, username):
     L.append('<defs>')
     L.append('  <filter id="gl"><feGaussianBlur stdDeviation="1.5" result="b"/>')
     L.append('    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>')
+    L.append('  <radialGradient id="core">')
+    L.append('    <stop offset="0%" stop-color="#ffffff"/>')
+    L.append('    <stop offset="45%" stop-color="#8fd4ff"/>')
+    L.append('    <stop offset="100%" stop-color="#0096ff" stop-opacity="0"/>')
+    L.append('  </radialGradient>')
     L.append('</defs>')
 
     # ── Background ──
     L.append(f'<rect width="{W:.0f}" height="{H:.0f}" fill="#0d1117"/>')
 
-    # ── Contribution Grid ──
+    # ── Stage: everything that shakes on impact ──
+    L.append(f'<g style="animation:shake {DUR}s linear infinite">')
+
+    # Contribution grid
     L.append("<g>")
     for c, week in enumerate(weeks):
         for r, day in enumerate(week["contributionDays"]):
@@ -382,21 +535,16 @@ def generate_svg(calendar, username):
             color = map_color(day["color"])
             ox = x + CELL / 2
             oy = y + CELL / 2
-            if (c, r) in contrib_set:
-                anim = f"cc-{c}-{r}"
-            else:
-                anim = f"fall-{c}"
             L.append(
                 f'  <rect x="{x:.0f}" y="{y:.0f}" width="{CELL}" height="{CELL}" '
-                f'rx="2" fill="{color}" style="animation:{anim} {DUR}s linear infinite;'
+                f'rx="2" fill="{color}" '
+                f'style="animation:{cell_anim[(c, r)]} {DUR}s linear infinite;'
                 f'transform-origin:{ox:.0f}px {oy:.0f}px"/>')
     L.append("</g>")
 
-    # ── Finish line (checkered flag) at right edge ──
-    fl_x = GX + GRID_W + 8  # just after last column
-    fl_y = GY - 5
-    fl_h = GRID_H + 10
-    sq = 6  # checker square size
+    # Finish line: outer group detonates, inner group waves
+    L.append(f'<g style="animation:flag-boom {DUR}s linear infinite;'
+             f'transform-origin:{fin_x:.0f}px {fin_y:.0f}px">')
     L.append(f'<g style="animation:flag-wave 1.5s ease-in-out infinite;'
              f'transform-origin:{fl_x + sq}px {fl_y + fl_h / 2:.0f}px">')
     for row in range(int(fl_h / sq) + 1):
@@ -411,21 +559,18 @@ def generate_svg(calendar, username):
             L.append(
                 f'  <rect x="{fx}" y="{fy}" width="{sq}" height="{sq}" '
                 f'fill="{fill}" opacity="{opacity}" stroke="#0096ff" stroke-width="0.3"/>')
-    L.append('</g>')
+    L.append('</g></g>')
 
-    # ── Trail / tire marks ──
-    L.append(
-        f'<path d="{path_d}" fill="none" stroke="#0096ff" stroke-width="1" '
-        f'opacity="0.15" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" '
-        f'style="animation:trail-draw {DUR}s linear infinite"/>')
-    # Second trail (faint, wider)
-    L.append(
-        f'<path d="{path_d}" fill="none" stroke="#0096ff" stroke-width="3" '
-        f'opacity="0.05" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1" '
-        f'style="animation:trail-draw {DUR}s linear infinite"/>')
+    # Tire marks
+    for stroke_w, op in ((1, 0.15), (3, 0.05)):
+        L.append(
+            f'<g opacity="{op}"><path d="{path_d}" fill="none" stroke="#0096ff" '
+            f'stroke-width="{stroke_w}" pathLength="1" stroke-dasharray="1" '
+            f'stroke-dashoffset="1" '
+            f'style="animation:trail-draw {DUR}s linear infinite"/></g>')
 
-    # ── Sparkles on contribution collect ──
-    for (c, r), hp in contrib_time.items():
+    # Collect sparkles
+    for (c, r), _hp in contrib_time.items():
         sx = GX + c * STRIDE + CELL / 2
         sy = GY + r * STRIDE + CELL / 2
         for si in range(3):
@@ -434,24 +579,8 @@ def generate_svg(calendar, username):
                 f'filter="url(#gl)" '
                 f'style="animation:spark-{c}-{r}-{si} {DUR}s linear infinite"/>')
 
-    # ── Finish line celebration (confetti + flash) ──
-    fin_x = fl_x + sq
-    fin_y = mid_y
-    L.append(
-        f'<circle cx="{fin_x:.0f}" cy="{fin_y:.0f}" r="30" fill="#0096ff" '
-        f'filter="url(#gl)" '
-        f'style="animation:finish-flash {DUR}s linear infinite"/>')
-    confetti_colors = ["#0096ff", "#0077cc", "#33adff", "#0066ff", "#66c2ff", "#0096ff"]
-    for i in range(12):
-        cc = confetti_colors[i % len(confetti_colors)]
-        L.append(
-            f'<rect x="{fin_x:.0f}" y="{fin_y:.0f}" width="4" height="4" rx="1" '
-            f'fill="{cc}" '
-            f'style="animation:confetti-{i} {DUR}s linear infinite;'
-            f'transform-origin:{fin_x:.0f}px {fin_y:.0f}px"/>')
-
-    # ── Top-down drift car (CSS offset-path, same clock as grid) ──
-    L.append(f'<g filter="url(#gl)" class="drift-car">')
+    # ── Top-down drift car (CSS offset-path, same clock as the grid) ──
+    L.append('<g filter="url(#gl)" class="drift-car">')
     L.append("""  <ellipse cx="0" cy="1" rx="14" ry="7" fill="#000" opacity="0.3"/>
   <path d="M 15,0 Q 14,-3.5 11,-4.5 L 7,-5.5 L 2,-6 L -4,-6 L -9,-5.5 L -12,-5
     Q -15,-4 -15,-1 L -15,1 Q -15,4 -12,5
@@ -486,39 +615,33 @@ def generate_svg(calendar, username):
   <ellipse cx="5" cy="-7" rx="1.8" ry="1" fill="#161b22" stroke="#0096ff" stroke-width="0.3"/>
   <ellipse cx="5" cy="7" rx="1.8" ry="1" fill="#161b22" stroke="#0096ff" stroke-width="0.3"/>
   <!-- NITRO FLAMES -->
-  <!-- Core flame (bright, tight) -->
   <ellipse cx="-20" cy="0" rx="6" ry="2.5" fill="#0096ff" opacity="0">
     <animate attributeName="rx" values="4;7;5;8;4" dur="0.15s" repeatCount="indefinite"/>
     <animate attributeName="ry" values="2;3;1.5;3.5;2" dur="0.15s" repeatCount="indefinite"/>
     <animate attributeName="opacity" values="0.6;0.9;0.5;0.8;0.6" dur="0.15s" repeatCount="indefinite"/>
   </ellipse>
-  <!-- Inner flame glow -->
   <ellipse cx="-22" cy="0" rx="4" ry="1.5" fill="#66c2ff" opacity="0">
     <animate attributeName="rx" values="3;5;4;6;3" dur="0.12s" repeatCount="indefinite"/>
     <animate attributeName="opacity" values="0.4;0.7;0.3;0.6;0.4" dur="0.12s" repeatCount="indefinite"/>
   </ellipse>
-  <!-- Nitro particle stream 1 (center) -->
   <circle r="1.5" fill="#0096ff" opacity="0">
     <animate attributeName="cx" values="-18;-30;-45" dur="0.4s" repeatCount="indefinite"/>
     <animate attributeName="cy" values="0;-0.5;-1" dur="0.4s" repeatCount="indefinite"/>
     <animate attributeName="r" values="1.5;3;5" dur="0.4s" repeatCount="indefinite"/>
     <animate attributeName="opacity" values="0.5;0.2;0" dur="0.4s" repeatCount="indefinite"/>
   </circle>
-  <!-- Nitro particle stream 2 (upper) -->
   <circle r="1" fill="#0096ff" opacity="0">
     <animate attributeName="cx" values="-18;-28;-40" dur="0.35s" repeatCount="indefinite"/>
     <animate attributeName="cy" values="-2;-4;-6" dur="0.35s" repeatCount="indefinite"/>
     <animate attributeName="r" values="1;2.5;4" dur="0.35s" repeatCount="indefinite"/>
     <animate attributeName="opacity" values="0.4;0.15;0" dur="0.35s" repeatCount="indefinite"/>
   </circle>
-  <!-- Nitro particle stream 3 (lower) -->
   <circle r="1" fill="#0096ff" opacity="0">
     <animate attributeName="cx" values="-18;-28;-40" dur="0.35s" repeatCount="indefinite" begin="0.1s"/>
     <animate attributeName="cy" values="2;4;6" dur="0.35s" repeatCount="indefinite" begin="0.1s"/>
     <animate attributeName="r" values="1;2.5;4" dur="0.35s" repeatCount="indefinite" begin="0.1s"/>
     <animate attributeName="opacity" values="0.4;0.15;0" dur="0.35s" repeatCount="indefinite" begin="0.1s"/>
   </circle>
-  <!-- Nitro sparks (tiny fast particles) -->
   <circle r="0.8" fill="#66c2ff" opacity="0">
     <animate attributeName="cx" values="-17;-35;-50" dur="0.25s" repeatCount="indefinite"/>
     <animate attributeName="cy" values="1;3;5" dur="0.25s" repeatCount="indefinite"/>
@@ -537,12 +660,37 @@ def generate_svg(calendar, username):
     <animate attributeName="r" values="0.5;1.5;0.2" dur="0.3s" repeatCount="indefinite" begin="0.15s"/>
     <animate attributeName="opacity" values="0.5;0.15;0" dur="0.3s" repeatCount="indefinite" begin="0.15s"/>
   </circle>
-  <!-- Nitro glow halo behind car -->
   <ellipse cx="-18" cy="0" rx="10" ry="8" fill="#0096ff" opacity="0">
     <animate attributeName="opacity" values="0.05;0.12;0.05;0.1;0.05" dur="0.2s" repeatCount="indefinite"/>
     <animate attributeName="rx" values="10;13;10" dur="0.3s" repeatCount="indefinite"/>
   </ellipse>""")
     L.append("</g>")
+
+    L.append("</g>")  # /stage
+
+    # ── White-out flash (masks the grid snapping back for the blast) ──
+    L.append(
+        f'<rect width="{W:.0f}" height="{H:.0f}" fill="#d6efff" opacity="0" '
+        f'style="animation:boom-flash {DUR}s linear infinite"/>')
+
+    # ── Shockwaves, core burst and debris ──
+    for i in range(3):
+        L.append(
+            f'<circle cx="{fin_x:.0f}" cy="{fin_y:.0f}" r="60" fill="none" '
+            f'stroke="#0096ff" stroke-width="{3 - i * 0.7:.1f}" '
+            f'vector-effect="non-scaling-stroke" opacity="0" '
+            f'style="animation:ring-{i} {DUR}s linear infinite;'
+            f'transform-origin:{fin_x:.0f}px {fin_y:.0f}px"/>')
+    L.append(
+        f'<circle cx="{fin_x:.0f}" cy="{fin_y:.0f}" r="16" fill="url(#core)" '
+        f'opacity="0" style="animation:core-burst {DUR}s linear infinite;'
+        f'transform-origin:{fin_x:.0f}px {fin_y:.0f}px"/>')
+    for i, (size, col) in enumerate(debris):
+        L.append(
+            f'<circle cx="{fin_x:.0f}" cy="{fin_y:.0f}" r="{size}" fill="{col}" '
+            f'filter="url(#gl)" opacity="0" '
+            f'style="animation:deb-{i} {DUR}s linear infinite;'
+            f'transform-origin:{fin_x:.0f}px {fin_y:.0f}px"/>')
 
     # Footer
     L.append(
