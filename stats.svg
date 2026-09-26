@@ -1,0 +1,95 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 998 268" width="998" height="268" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace">
+<defs>
+  <linearGradient id="area" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0%" stop-color="#0096ff" stop-opacity=".45"/>
+    <stop offset="100%" stop-color="#0096ff" stop-opacity="0"/>
+  </linearGradient>
+  <filter id="glow"><feGaussianBlur stdDeviation="2.5" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <clipPath id="reveal">
+    <rect x="26" y="0" width="0" height="268">
+      <animate attributeName="width" values="0;946;946" keyTimes="0;0.45;1" dur="9s" repeatCount="indefinite"/>
+    </rect>
+  </clipPath>
+</defs>
+<style>
+  @keyframes kpi-in { 0% { opacity:0; transform:translateY(6px); } 12% { opacity:1; transform:translateY(0); } 100% { opacity:1; transform:translateY(0); } }
+  @keyframes sweep { 0% { opacity:0; } 4% { opacity:.5; } 45% { opacity:.5; } 55% { opacity:0; } 100% { opacity:0; } }
+</style>
+<rect width="998" height="268" rx="10" fill="#0d1117"/>
+<rect x=".5" y=".5" width="997" height="267" rx="10" fill="none" stroke="#0096ff" stroke-opacity=".18"/>
+<text x="26" y="34" font-size="13" fill="#0096ff" opacity=".85">kblankk // contribution activity</text>
+<text x="972" y="34" text-anchor="end" font-size="11" fill="#8b949e" opacity=".7">last 12 months</text>
+<line x1="26" y1="46" x2="972" y2="46" stroke="#0096ff" stroke-opacity=".15"/>
+<g style="animation:kpi-in 9s ease-out 0.00s infinite backwards">
+  <text x="94" y="82" text-anchor="middle" font-size="27" font-weight="700" fill="#0096ff" filter="url(#glow)">917</text>
+  <text x="94" y="99" text-anchor="middle" font-size="9.5" fill="#8b949e" letter-spacing="1.2">CONTRIBUTIONS</text>
+</g>
+<g style="animation:kpi-in 9s ease-out 0.12s infinite backwards">
+  <text x="229" y="82" text-anchor="middle" font-size="27" font-weight="700" fill="#0096ff" filter="url(#glow)">0d</text>
+  <text x="229" y="99" text-anchor="middle" font-size="9.5" fill="#8b949e" letter-spacing="1.2">CURRENT STREAK</text>
+</g>
+<line x1="161" y1="62" x2="161" y2="98" stroke="#161b22"/>
+<g style="animation:kpi-in 9s ease-out 0.24s infinite backwards">
+  <text x="364" y="82" text-anchor="middle" font-size="27" font-weight="700" fill="#0096ff" filter="url(#glow)">7d</text>
+  <text x="364" y="99" text-anchor="middle" font-size="9.5" fill="#8b949e" letter-spacing="1.2">LONGEST STREAK</text>
+</g>
+<line x1="296" y1="62" x2="296" y2="98" stroke="#161b22"/>
+<g style="animation:kpi-in 9s ease-out 0.36s infinite backwards">
+  <text x="499" y="82" text-anchor="middle" font-size="27" font-weight="700" fill="#0096ff" filter="url(#glow)">99</text>
+  <text x="499" y="99" text-anchor="middle" font-size="9.5" fill="#8b949e" letter-spacing="1.2">ACTIVE DAYS</text>
+</g>
+<line x1="431" y1="62" x2="431" y2="98" stroke="#161b22"/>
+<g style="animation:kpi-in 9s ease-out 0.48s infinite backwards">
+  <text x="634" y="82" text-anchor="middle" font-size="27" font-weight="700" fill="#0096ff" filter="url(#glow)">70</text>
+  <text x="634" y="99" text-anchor="middle" font-size="9.5" fill="#8b949e" letter-spacing="1.2">BEST DAY</text>
+</g>
+<line x1="567" y1="62" x2="567" y2="98" stroke="#161b22"/>
+<g style="animation:kpi-in 9s ease-out 0.60s infinite backwards">
+  <text x="769" y="82" text-anchor="middle" font-size="27" font-weight="700" fill="#0096ff" filter="url(#glow)">19</text>
+  <text x="769" y="99" text-anchor="middle" font-size="9.5" fill="#8b949e" letter-spacing="1.2">PUBLIC REPOS</text>
+</g>
+<line x1="702" y1="62" x2="702" y2="98" stroke="#161b22"/>
+<g style="animation:kpi-in 9s ease-out 0.72s infinite backwards">
+  <text x="904" y="82" text-anchor="middle" font-size="27" font-weight="700" fill="#0096ff" filter="url(#glow)">4</text>
+  <text x="904" y="99" text-anchor="middle" font-size="9.5" fill="#8b949e" letter-spacing="1.2">FOLLOWERS</text>
+</g>
+<line x1="837" y1="62" x2="837" y2="98" stroke="#161b22"/>
+<line x1="26" y1="226" x2="972" y2="226" stroke="#161b22"/>
+<line x1="26" y1="174" x2="972" y2="174" stroke="#161b22"/>
+<line x1="26" y1="122" x2="972" y2="122" stroke="#161b22"/>
+<text x="26" y="116" font-size="9" fill="#8b949e" opacity=".6">peak 172/week</text>
+<line x1="26" y1="122" x2="26" y2="226" stroke="#161b22" stroke-dasharray="2 4"/>
+<text x="26" y="242" font-size="9" fill="#8b949e" opacity=".65">Sep</text>
+<line x1="62" y1="122" x2="62" y2="226" stroke="#161b22" stroke-dasharray="2 4"/>
+<text x="62" y="242" font-size="9" fill="#8b949e" opacity=".65">Oct</text>
+<line x1="135" y1="122" x2="135" y2="226" stroke="#161b22" stroke-dasharray="2 4"/>
+<text x="135" y="242" font-size="9" fill="#8b949e" opacity=".65">Nov</text>
+<line x1="226" y1="122" x2="226" y2="226" stroke="#161b22" stroke-dasharray="2 4"/>
+<text x="226" y="242" font-size="9" fill="#8b949e" opacity=".65">Dec</text>
+<line x1="299" y1="122" x2="299" y2="226" stroke="#161b22" stroke-dasharray="2 4"/>
+<text x="299" y="242" font-size="9" fill="#8b949e" opacity=".65">Jan</text>
+<line x1="372" y1="122" x2="372" y2="226" stroke="#161b22" stroke-dasharray="2 4"/>
+<text x="372" y="242" font-size="9" fill="#8b949e" opacity=".65">Feb</text>
+<line x1="444" y1="122" x2="444" y2="226" stroke="#161b22" stroke-dasharray="2 4"/>
+<text x="444" y="242" font-size="9" fill="#8b949e" opacity=".65">Mar</text>
+<line x1="535" y1="122" x2="535" y2="226" stroke="#161b22" stroke-dasharray="2 4"/>
+<text x="535" y="242" font-size="9" fill="#8b949e" opacity=".65">Apr</text>
+<line x1="608" y1="122" x2="608" y2="226" stroke="#161b22" stroke-dasharray="2 4"/>
+<text x="608" y="242" font-size="9" fill="#8b949e" opacity=".65">May</text>
+<line x1="699" y1="122" x2="699" y2="226" stroke="#161b22" stroke-dasharray="2 4"/>
+<text x="699" y="242" font-size="9" fill="#8b949e" opacity=".65">Jun</text>
+<line x1="772" y1="122" x2="772" y2="226" stroke="#161b22" stroke-dasharray="2 4"/>
+<text x="772" y="242" font-size="9" fill="#8b949e" opacity=".65">Jul</text>
+<line x1="845" y1="122" x2="845" y2="226" stroke="#161b22" stroke-dasharray="2 4"/>
+<text x="845" y="242" font-size="9" fill="#8b949e" opacity=".65">Aug</text>
+<g clip-path="url(#reveal)">
+  <path d="M 26.0,226.0 C 29.0,226.0 38.1,226.0 44.2,226.0 C 50.3,226.0 56.3,226.0 62.4,226.0 C 68.4,226.0 74.5,226.0 80.6,226.0 C 86.6,226.0 92.7,226.0 98.8,226.0 C 104.8,226.0 110.9,226.0 117.0,226.0 C 123.0,226.0 129.1,226.0 135.2,226.0 C 141.2,226.0 147.3,226.0 153.3,226.0 C 159.4,226.0 165.5,226.0 171.5,226.0 C 177.6,226.0 183.7,226.0 189.7,226.0 C 195.8,226.0 201.9,226.0 207.9,226.0 C 214.0,226.0 220.1,226.0 226.1,226.0 C 232.2,226.0 238.2,226.0 244.3,226.0 C 250.4,226.0 256.4,226.0 262.5,226.0 C 268.6,226.0 274.6,226.0 280.7,226.0 C 286.8,226.0 292.8,226.0 298.9,226.0 C 304.9,226.0 311.0,226.0 317.1,226.0 C 323.1,226.0 329.2,226.0 335.3,226.0 C 341.3,226.0 347.4,226.0 353.5,226.0 C 359.5,226.0 365.6,226.0 371.7,226.0 C 377.7,223.0 383.8,212.8 389.8,207.9 C 395.9,202.9 402.0,197.5 408.0,196.4 C 414.1,195.3 420.2,198.0 426.2,201.2 C 432.3,204.4 438.4,213.9 444.4,215.7 C 450.5,217.5 456.6,211.6 462.6,212.1 C 468.7,212.6 474.7,220.0 480.8,218.7 C 486.9,217.5 492.9,205.8 499.0,204.8 C 505.1,203.8 511.1,210.8 517.2,212.7 C 523.3,214.6 529.3,219.0 535.4,216.3 C 541.4,213.6 547.5,195.2 553.6,196.4 C 559.6,197.6 565.7,219.1 571.8,223.6 C 577.8,226.0 583.9,222.9 590.0,223.0 C 596.0,223.1 602.1,224.1 608.2,224.2 C 614.2,224.3 620.3,223.8 626.3,223.6 C 632.4,223.4 638.5,223.3 644.5,223.0 C 650.6,222.7 656.7,221.5 662.7,221.8 C 668.8,222.1 674.9,224.1 680.9,224.8 C 687.0,225.5 693.1,226.0 699.1,226.0 C 705.2,218.8 711.2,182.7 717.3,181.9 C 723.4,181.1 729.4,213.8 735.5,221.2 C 741.6,226.0 747.6,225.2 753.7,226.0 C 759.8,226.0 765.8,226.0 771.9,226.0 C 777.9,226.0 784.0,226.0 790.1,226.0 C 796.1,226.0 802.2,226.0 808.3,226.0 C 814.3,225.8 820.4,225.3 826.5,224.8 C 832.5,224.3 838.6,222.8 844.7,223.0 C 850.7,223.2 856.8,226.0 862.8,226.0 C 868.9,214.1 875.0,168.4 881.0,151.6 C 887.1,134.9 893.2,130.6 899.2,125.6 C 905.3,122.0 911.4,122.0 917.4,122.0 C 923.5,136.0 929.6,194.1 935.6,209.7 C 941.7,225.3 947.7,213.0 953.8,215.7 C 959.9,218.4 969.0,224.3 972.0,226.0 L 972.0,226 L 26.0,226 Z" fill="url(#area)"/>
+  <path d="M 26.0,226.0 C 29.0,226.0 38.1,226.0 44.2,226.0 C 50.3,226.0 56.3,226.0 62.4,226.0 C 68.4,226.0 74.5,226.0 80.6,226.0 C 86.6,226.0 92.7,226.0 98.8,226.0 C 104.8,226.0 110.9,226.0 117.0,226.0 C 123.0,226.0 129.1,226.0 135.2,226.0 C 141.2,226.0 147.3,226.0 153.3,226.0 C 159.4,226.0 165.5,226.0 171.5,226.0 C 177.6,226.0 183.7,226.0 189.7,226.0 C 195.8,226.0 201.9,226.0 207.9,226.0 C 214.0,226.0 220.1,226.0 226.1,226.0 C 232.2,226.0 238.2,226.0 244.3,226.0 C 250.4,226.0 256.4,226.0 262.5,226.0 C 268.6,226.0 274.6,226.0 280.7,226.0 C 286.8,226.0 292.8,226.0 298.9,226.0 C 304.9,226.0 311.0,226.0 317.1,226.0 C 323.1,226.0 329.2,226.0 335.3,226.0 C 341.3,226.0 347.4,226.0 353.5,226.0 C 359.5,226.0 365.6,226.0 371.7,226.0 C 377.7,223.0 383.8,212.8 389.8,207.9 C 395.9,202.9 402.0,197.5 408.0,196.4 C 414.1,195.3 420.2,198.0 426.2,201.2 C 432.3,204.4 438.4,213.9 444.4,215.7 C 450.5,217.5 456.6,211.6 462.6,212.1 C 468.7,212.6 474.7,220.0 480.8,218.7 C 486.9,217.5 492.9,205.8 499.0,204.8 C 505.1,203.8 511.1,210.8 517.2,212.7 C 523.3,214.6 529.3,219.0 535.4,216.3 C 541.4,213.6 547.5,195.2 553.6,196.4 C 559.6,197.6 565.7,219.1 571.8,223.6 C 577.8,226.0 583.9,222.9 590.0,223.0 C 596.0,223.1 602.1,224.1 608.2,224.2 C 614.2,224.3 620.3,223.8 626.3,223.6 C 632.4,223.4 638.5,223.3 644.5,223.0 C 650.6,222.7 656.7,221.5 662.7,221.8 C 668.8,222.1 674.9,224.1 680.9,224.8 C 687.0,225.5 693.1,226.0 699.1,226.0 C 705.2,218.8 711.2,182.7 717.3,181.9 C 723.4,181.1 729.4,213.8 735.5,221.2 C 741.6,226.0 747.6,225.2 753.7,226.0 C 759.8,226.0 765.8,226.0 771.9,226.0 C 777.9,226.0 784.0,226.0 790.1,226.0 C 796.1,226.0 802.2,226.0 808.3,226.0 C 814.3,225.8 820.4,225.3 826.5,224.8 C 832.5,224.3 838.6,222.8 844.7,223.0 C 850.7,223.2 856.8,226.0 862.8,226.0 C 868.9,214.1 875.0,168.4 881.0,151.6 C 887.1,134.9 893.2,130.6 899.2,125.6 C 905.3,122.0 911.4,122.0 917.4,122.0 C 923.5,136.0 929.6,194.1 935.6,209.7 C 941.7,225.3 947.7,213.0 953.8,215.7 C 959.9,218.4 969.0,224.3 972.0,226.0" fill="none" stroke="#0096ff" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" filter="url(#glow)"/>
+</g>
+<circle r="3.5" fill="#ffffff" filter="url(#glow)" opacity="0"><animateMotion dur="9s" repeatCount="indefinite" keyPoints="0;1;1" keyTimes="0;0.45;1" calcMode="linear" path="M 26.0,226.0 C 29.0,226.0 38.1,226.0 44.2,226.0 C 50.3,226.0 56.3,226.0 62.4,226.0 C 68.4,226.0 74.5,226.0 80.6,226.0 C 86.6,226.0 92.7,226.0 98.8,226.0 C 104.8,226.0 110.9,226.0 117.0,226.0 C 123.0,226.0 129.1,226.0 135.2,226.0 C 141.2,226.0 147.3,226.0 153.3,226.0 C 159.4,226.0 165.5,226.0 171.5,226.0 C 177.6,226.0 183.7,226.0 189.7,226.0 C 195.8,226.0 201.9,226.0 207.9,226.0 C 214.0,226.0 220.1,226.0 226.1,226.0 C 232.2,226.0 238.2,226.0 244.3,226.0 C 250.4,226.0 256.4,226.0 262.5,226.0 C 268.6,226.0 274.6,226.0 280.7,226.0 C 286.8,226.0 292.8,226.0 298.9,226.0 C 304.9,226.0 311.0,226.0 317.1,226.0 C 323.1,226.0 329.2,226.0 335.3,226.0 C 341.3,226.0 347.4,226.0 353.5,226.0 C 359.5,226.0 365.6,226.0 371.7,226.0 C 377.7,223.0 383.8,212.8 389.8,207.9 C 395.9,202.9 402.0,197.5 408.0,196.4 C 414.1,195.3 420.2,198.0 426.2,201.2 C 432.3,204.4 438.4,213.9 444.4,215.7 C 450.5,217.5 456.6,211.6 462.6,212.1 C 468.7,212.6 474.7,220.0 480.8,218.7 C 486.9,217.5 492.9,205.8 499.0,204.8 C 505.1,203.8 511.1,210.8 517.2,212.7 C 523.3,214.6 529.3,219.0 535.4,216.3 C 541.4,213.6 547.5,195.2 553.6,196.4 C 559.6,197.6 565.7,219.1 571.8,223.6 C 577.8,226.0 583.9,222.9 590.0,223.0 C 596.0,223.1 602.1,224.1 608.2,224.2 C 614.2,224.3 620.3,223.8 626.3,223.6 C 632.4,223.4 638.5,223.3 644.5,223.0 C 650.6,222.7 656.7,221.5 662.7,221.8 C 668.8,222.1 674.9,224.1 680.9,224.8 C 687.0,225.5 693.1,226.0 699.1,226.0 C 705.2,218.8 711.2,182.7 717.3,181.9 C 723.4,181.1 729.4,213.8 735.5,221.2 C 741.6,226.0 747.6,225.2 753.7,226.0 C 759.8,226.0 765.8,226.0 771.9,226.0 C 777.9,226.0 784.0,226.0 790.1,226.0 C 796.1,226.0 802.2,226.0 808.3,226.0 C 814.3,225.8 820.4,225.3 826.5,224.8 C 832.5,224.3 838.6,222.8 844.7,223.0 C 850.7,223.2 856.8,226.0 862.8,226.0 C 868.9,214.1 875.0,168.4 881.0,151.6 C 887.1,134.9 893.2,130.6 899.2,125.6 C 905.3,122.0 911.4,122.0 917.4,122.0 C 923.5,136.0 929.6,194.1 935.6,209.7 C 941.7,225.3 947.7,213.0 953.8,215.7 C 959.9,218.4 969.0,224.3 972.0,226.0"/><animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;0.03;0.43;0.5;1" dur="9s" repeatCount="indefinite"/></circle>
+<rect y="122" width="1.5" height="104" fill="#0096ff" opacity="0" style="animation:sweep 9s linear infinite"><animate attributeName="x" values="26;972;972" keyTimes="0;0.45;1" dur="9s" repeatCount="indefinite"/></rect>
+<line x1="26" y1="226" x2="972" y2="226" stroke="#004a99"/>
+<circle cx="972.0" cy="226.0" r="3" fill="#0096ff" filter="url(#glow)"><animate attributeName="r" values="3;5.5;3" dur="1.8s" repeatCount="indefinite"/><animate attributeName="opacity" values="1;.45;1" dur="1.8s" repeatCount="indefinite"/></circle>
+<text x="964.0" y="216" text-anchor="end" font-size="9" fill="#0096ff" opacity=".75">this week</text>
+</svg>
